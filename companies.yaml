@@ -1,0 +1,14 @@
+# Companies to poll. Job.category comes from either:
+#   category_from: departments                   -> Greenhouse departments
+#   category_metadata_field: <metadata name>     -> a Greenhouse metadata entry
+# Omit both for no category.
+companies:
+  - name: adyen
+    source: greenhouse
+    board_token: adyen
+    category_from: departments  # adyen's board has no metadata
+
+  - name: nebius
+    source: greenhouse
+    board_token: nebius
+    category_metadata_field: Job Category

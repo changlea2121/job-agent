@@ -1,0 +1,339 @@
+{
+  "jobs": [
+    {
+      "absolute_url": "https://careers.nebius.com/?gh_jid=4959063101",
+      "data_compliance": [
+        {
+          "type": "gdpr",
+          "requires_consent": true,
+          "requires_processing_consent": false,
+          "requires_retention_consent": true,
+          "retention_period": 720,
+          "demographic_data_consent_applies": false
+        }
+      ],
+      "internal_job_id": 4515000101,
+      "location": {
+        "name": "United States"
+      },
+      "metadata": [
+        {
+          "id": 11194679101,
+          "name": "Job Category",
+          "value": "Sales",
+          "value_type": "single_select"
+        }
+      ],
+      "id": 4959063101,
+      "updated_at": "2026-10-02T17:02:04-04:00",
+      "requisition_id": "2134",
+      "title": "Account Executive, Digital Native",
+      "company_name": "Nebius",
+      "first_published": "2026-08-25T08:02:07-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure.&lt;/p&gt;\n&lt;p&gt;Built by engineers, for engineers. From large-scale GPU orchestration to inference optimization, we own the hard problems across compute, storage, networking and applied AI.&lt;/p&gt;\n&lt;p&gt;Listed on Nasdaq (NBIS) and headquartered in Amsterdam, we have a global footprint with R&amp;amp;D hubs across Europe, the UK, North America and Israel. Our team of 1,500+ includes hundreds of engineers with deep expertise across hardware, software and AI R&amp;amp;D.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;none&quot;&gt;The role&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:280,&amp;quot;335559739&amp;quot;:140}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Nebius is scaling our Digital Native sales team to bring AI-native GPU infrastructure to the fastest-moving builders in the AI economy.&amp;nbsp;You’ll&amp;nbsp;join a segment-aligned go-to-market motion focused on Digital Native Businesses (DNB), Independent Software Vendors (ISVs), and Gaming customers, and establish&amp;nbsp;Nebius&amp;nbsp;as the AI infrastructure platform of choice for companies whose product is software.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span data-contrast=&quot;auto&quot;&gt;We’re&amp;nbsp;seeking experienced Account Executives with&amp;nbsp;a track record&amp;nbsp;of selling cloud infrastructure, GPUs, or AI/ML platforms into digital native, ISV, and gaming organizations. You will own a named account list within one or more of these segments, drive multi-year AI infrastructure commitments, and operationalize a partner-led GTM model anchored in NVIDIA, ecosystem software partners, and strategic SIs. This is a high-impact sales role for reps who can pair technical fluency with fast, founder- and engineering-led deal execution.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span data-contrast=&quot;auto&quot;&gt;You are welcome to work remotely from the US. SF, NYC, Boston, or Seattle preferred- Travel as&amp;nbsp;required&amp;nbsp;to&amp;nbsp;customer, partner, and industry events.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;none&quot;&gt;Your responsibilities will include:&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:280,&amp;quot;335559739&amp;quot;:140}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Own the Full Sales Cycle:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Manage complex, multi-stakeholder deals from prospecting to close across named DNB, ISV, and Gaming accounts.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;2&quot; data-aria-level=&quot;1&quot;&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Drive Segment-Specific GPU Adoption:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Translate&amp;nbsp;Nebius’s&amp;nbsp;NVIDIA-based GPU platform (H100, H200, B200, GB200 NVL72, and beyond) into use cases — model training, fine-tuning, inference at scale, RAG,&amp;nbsp;MLOps, rendering and simulation — that map to product and unit-economics outcomes.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;3&quot; data-aria-level=&quot;1&quot;&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Sell to Technical Buyers:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Multi-thread across founders, CTOs, VPs of Engineering, Heads of AI/ML, Infrastructure and Platform leads, and finance stakeholders who own compute spend.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;4&quot; data-aria-level=&quot;1&quot;&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Move at Digital Native Speed:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Run compressed, technically rigorous evaluations — benchmarks, POCs, and capacity trials — and convert them into committed consumption.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;5&quot; data-aria-level=&quot;1&quot;&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Co-Sell with Partners:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Run joint account plans with NVIDIA, ecosystem software partners, and SIs; structure co-sell motions that combine GPU infrastructure, software ecosystem, and services.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;6&quot; data-aria-level=&quot;1&quot;&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Forecast &amp;amp; Execute:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Maintain&amp;nbsp;accurate&amp;nbsp;pipeline management and deliver predictable results against quota.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;7&quot; data-aria-level=&quot;1&quot;&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Land &amp;amp; Expand:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Drive multi-year expansion across AI training, inference, and&amp;nbsp;production&amp;nbsp;AI workloads within named accounts as their usage scales.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;8&quot; data-aria-level=&quot;1&quot;&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Market Intelligence:&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Stay ahead of AI model and tooling trends, GPU market dynamics, and competitive moves across the digital native, ISV, and gaming landscape to position Nebius effectively.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;none&quot;&gt;We expect you to have:&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:280,&amp;quot;335559739&amp;quot;:140}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;9&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;8+ years of B2B sales experience in AI infrastructure, GPUs, cloud&amp;nbsp;compute, or enterprise platforms.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;10&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Proven success closing complex infrastructure or platform deals within digital native, ISV, or gaming accounts.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;11&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Strong understanding of how software-first companies evaluate, buy, and scale compute, including consumption-based commercial models.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;12&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Experience co-selling with strategic ecosystem partners (NVIDIA, ISVs, SIs) and navigating partner-driven motions.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Prior experience selling GPU or compute workloads.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;14&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Deep technical acumen around GPUs, cloud infrastructure, and AI/ML training &amp;amp; inference.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;15&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Strong relationship management and negotiation skills&amp;nbsp;with&amp;nbsp;consistent overachievement against quota.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;16&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Excellent communication — able to articulate business value to highly technical, engineering-led buyers.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;17&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;CRM&amp;nbsp;proficiency&amp;nbsp;(Salesforce, HubSpot, or equivalent).&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;none&quot;&gt;It will be&amp;nbsp;an added bonus&amp;nbsp;if you have:&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:280,&amp;quot;335559739&amp;quot;:140}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;18&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Direct experience working with NVIDIA field teams or ecosystem partners on sales motions.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;19&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Background selling AI/ML infrastructure to AI-native startups, ISVs, or gaming and interactive media companies.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;20&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Established network among founders, technical leaders, and investors in the AI and digital native ecosystem.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;21&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Experience structuring multi-year infrastructure and capacity commitments.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;•&quot; data-font=&quot;&quot; data-listid=&quot;2&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:431,&amp;quot;335559991&amp;quot;:259,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;•&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;22&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Background in high-growth, neo-cloud, or GPU-first environments.&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:120,&amp;quot;335559740&amp;quot;:276}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p data-renderer-start-pos=&quot;578&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Key employee benefits in the US:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-renderer-start-pos=&quot;614&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Health insurance:&lt;/strong&gt;&amp;nbsp;100% company-paid medical, dental, and vision coverage for employees and families.&lt;/li&gt;\n&lt;li data-renderer-start-pos=&quot;718&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;401(k) plan:&amp;nbsp;&lt;/strong&gt;Up to 4% company match with immediate vesting.&lt;/li&gt;\n&lt;li data-renderer-start-pos=&quot;781&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Parental leave:&lt;/strong&gt;&amp;nbsp;20 weeks paid for primary caregivers, 12 weeks for secondary caregivers.&lt;/li&gt;\n&lt;li data-renderer-start-pos=&quot;873&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Remote work reimbursement:&lt;/strong&gt;&amp;nbsp;Up to $85/month for mobile and internet.&lt;/li&gt;\n&lt;li data-renderer-start-pos=&quot;944&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Disability &amp;amp; life insurance&lt;/strong&gt;: Company-paid short-term, long-term and life insurance coverage.&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-pay-transparency&quot;&gt;&lt;div class=&quot;pay-input&quot;&gt;&lt;div class=&quot;description&quot;&gt;&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Pay Transparency&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;We offer competitive compensation and benefits packages. Actual compensation will be determined based on job-related factors, including experience, skills, qualifications, the level at which the candidate is hired, and geographic location, consistent with applicable law.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;title&quot;&gt;On Target Earnings Range&lt;/div&gt;&lt;div class=&quot;pay-range&quot;&gt;&lt;span&gt;$158,800&lt;/span&gt;&lt;span class=&quot;divider&quot;&gt;&amp;mdash;&lt;/span&gt;&lt;span&gt;$193,400 USD&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;Benefits &amp;amp; Perks:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive compensation&lt;/li&gt;\n&lt;li&gt;Career growth and learning opportunities&lt;/li&gt;\n&lt;li&gt;Flexibility and ownership&lt;/li&gt;\n&lt;li&gt;Collaborative and innovative culture&lt;/li&gt;\n&lt;li&gt;Opportunity to work on impactful AI projects&lt;/li&gt;\n&lt;li&gt;International environment and talented teams&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What&#39;s it like to work at Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Fast moving&amp;nbsp;- Bold thinking&amp;nbsp;- Constant growth&amp;nbsp;- Meaningful impact&amp;nbsp;- Trust and real ownership&amp;nbsp;- Opportunity to shape the future of AI&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Equal Opportunity Statement:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is an equal opportunity employer. We are committed to fostering an inclusive and diverse workplace and to providing equal employment opportunities in all aspects of employment. We do not discriminate on the basis of race, color, religion, sex (including pregnancy), national origin, ancestry, age, disability, genetic information, marital status, veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by applicable law.&lt;/p&gt;\n&lt;p&gt;Applicants must be authorized to work in the country in which they apply and will be required to provide proof of employment eligibility as a condition of hire.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;If you need accommodations during the application process, please let us know.&lt;/p&gt;&lt;/div&gt;",
+      "departments": [
+        {
+          "id": 4073090101,
+          "name": "Z Sales",
+          "child_ids": [],
+          "parent_id": 4091739101
+        }
+      ],
+      "offices": [
+        {
+          "id": 4015849101,
+          "name": "Remote - United States",
+          "location": null,
+          "child_ids": [],
+          "parent_id": 4015893101
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": "http://s101.recruiting.eu.greenhouse.io/ai_opt_out_request/job_post/4959063101/ai_opt_out"
+    },
+    {
+      "absolute_url": "https://careers.nebius.com/?gh_jid=4957029101",
+      "data_compliance": [
+        {
+          "type": "gdpr",
+          "requires_consent": true,
+          "requires_processing_consent": false,
+          "requires_retention_consent": true,
+          "retention_period": 720,
+          "demographic_data_consent_applies": false
+        }
+      ],
+      "internal_job_id": 4514151101,
+      "location": {
+        "name": "South Korea"
+      },
+      "metadata": [
+        {
+          "id": 11194679101,
+          "name": "Job Category",
+          "value": "Go-To-Market",
+          "value_type": "single_select"
+        }
+      ],
+      "id": 4957029101,
+      "updated_at": "2026-10-02T17:02:04-04:00",
+      "requisition_id": "2119",
+      "title": "Account Executive - South Korea",
+      "company_name": "Nebius",
+      "first_published": "2026-08-20T10:21:08-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure.&lt;/p&gt;\n&lt;p&gt;Built by engineers, for engineers. From large-scale GPU orchestration to inference optimization, we own the hard problems across compute, storage, networking and applied AI.&lt;/p&gt;\n&lt;p&gt;Listed on Nasdaq (NBIS) and headquartered in Amsterdam, we have a global footprint with R&amp;amp;D hubs across Europe, the UK, North America and Israel. Our team of 1,500+ includes hundreds of engineers with deep expertise across hardware, software and AI R&amp;amp;D.&lt;/p&gt;&lt;/div&gt;&lt;h3&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;The role&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/h3&gt;\n&lt;p&gt;Nebius is hiring a senior &lt;strong&gt;Account Executive&lt;/strong&gt; to drive customer acquisition and growth across South Korea. This is a strategic hunter role, focused on expanding adoption of our AI and cloud platform with new and existing customers in the region.&lt;/p&gt;\n&lt;p&gt;You will own complex, high-value sales cycles end to end—building executive relationships, uncovering new opportunities, working closely with partners, and closing deals that drive long-term customer value. Success in this role requires strong consultative selling skills, the ability to translate complex business needs into tailored solutions, and comfort operating in a fast-moving, innovative environment.&lt;/p&gt;\n&lt;p&gt;This role blends strategic thinking with hands-on execution and will play a key role in helping customers unlock the full potential of Nebius’ AI and cloud offerings.&lt;/p&gt;\n&lt;p&gt;This role is also a core member of our founding APJ team, currently operating &lt;strong&gt;remotely out of South Korea&lt;/strong&gt;.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360}&quot;&gt;&lt;span class=&quot;TextRun MacChromeBold SCXW95146830 BCX0&quot; lang=&quot;EN-US&quot; data-contrast=&quot;auto&quot;&gt;&lt;span class=&quot;NormalTextRun SCXW95146830 BCX0&quot; data-ccp-charstyle=&quot;Strong&quot;&gt;Your responsibilities will include:&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;EOP SCXW95146830 BCX0&quot; data-ccp-props=&quot;{&amp;quot;134233117&amp;quot;:true,&amp;quot;134233118&amp;quot;:true}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Own and grow your territory: Build and execute a strategic territory plan, delivering against revenue and growth targets.&lt;/li&gt;\n&lt;li&gt;Negotiation &amp;amp; closing: Lead complex, multi-stakeholder negotiations with C-suite and senior decision-makers, closing deals that support long-term partnerships.&lt;/li&gt;\n&lt;li&gt;Solution selling: Demonstrate the value of Nebius’ AI and cloud platform through consultative discovery, tailored presentations, and product demonstrations.&lt;/li&gt;\n&lt;li&gt;Client engagement: Develop trusted relationships with key stakeholders across the enterprise, aligning solutions to customer-specific challenges and outcomes.&lt;/li&gt;\n&lt;li&gt;Team orchestration: Partner closely with Sales Engineers, Industry Specialists, Partners, and Customer Success to deliver differentiated value propositions.&lt;/li&gt;\n&lt;li&gt;Forecasting &amp;amp; execution: maintain strong forecast accuracy and delivering against ACV and activity targets.&lt;/li&gt;\n&lt;li&gt;Market presence: Represent Nebius at regional and industry events, webinars, and customer forums.&lt;/li&gt;\n&lt;li&gt;Subject matter expertise: Stay current on industry trends, emerging technologies, and the competitive landscape to position our solutions effectively.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;We expect you to have:&lt;/span&gt;&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;134233117&amp;quot;:true,&amp;quot;134233118&amp;quot;:true}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;10+ years of B2B sales experience, ideally in AI, cloud, data infrastructure, or related technologies.&lt;/li&gt;\n&lt;li&gt;A proven track record of exceeding sales targets, generating pipeline, and maintaining forecast accuracy.&lt;/li&gt;\n&lt;li&gt;Experience selling cloud platforms (AWS, Azure, Google Cloud), AI solutions, or complex enterprise technologies.&lt;/li&gt;\n&lt;li&gt;Strong commercial acumen, including value-based selling, executive storytelling, negotiation, and multi-year deal structuring.&lt;/li&gt;\n&lt;li&gt;A genuine interest in working in a high-growth, startup environment, with a desire to directly impact company growth.&lt;/li&gt;\n&lt;li&gt;Willingness and ability to travel within the region as needed.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;It will be &lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;an added bonus&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt; if you have:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Prior experience in a high-growth or early-stage startup environment.&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;Benefits &amp;amp; Perks:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive compensation&lt;/li&gt;\n&lt;li&gt;Career growth and learning opportunities&lt;/li&gt;\n&lt;li&gt;Flexibility and ownership&lt;/li&gt;\n&lt;li&gt;Collaborative and innovative culture&lt;/li&gt;\n&lt;li&gt;Opportunity to work on impactful AI projects&lt;/li&gt;\n&lt;li&gt;International environment and talented teams&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What&#39;s it like to work at Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Fast moving&amp;nbsp;- Bold thinking&amp;nbsp;- Constant growth&amp;nbsp;- Meaningful impact&amp;nbsp;- Trust and real ownership&amp;nbsp;- Opportunity to shape the future of AI&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Equal Opportunity Statement:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is an equal opportunity employer. We are committed to fostering an inclusive and diverse workplace and to providing equal employment opportunities in all aspects of employment. We do not discriminate on the basis of race, color, religion, sex (including pregnancy), national origin, ancestry, age, disability, genetic information, marital status, veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by applicable law.&lt;/p&gt;\n&lt;p&gt;Applicants must be authorized to work in the country in which they apply and will be required to provide proof of employment eligibility as a condition of hire.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;If you need accommodations during the application process, please let us know.&lt;/p&gt;&lt;/div&gt;",
+      "departments": [
+        {
+          "id": 4032633101,
+          "name": "Go-To-Market",
+          "child_ids": [
+            4073092101,
+            4033678101,
+            4073098101,
+            4079989101,
+            4033664101,
+            4092074101,
+            4073091101,
+            4092075101,
+            4092073101,
+            4092077101,
+            4092076101,
+            4073097101,
+            4073093101,
+            4092123101,
+            4074051101,
+            4033677101,
+            4037417101,
+            4092125101,
+            4073103101,
+            4073100101,
+            4073099101,
+            4073101101,
+            4092133101,
+            4092135101,
+            4092134101,
+            4079991101,
+            4079993101,
+            4079994101,
+            4079992101,
+            4073110101,
+            4073114101,
+            4033665101,
+            4073106101,
+            4073109101,
+            4073111101,
+            4073112101,
+            4073113101,
+            4092138101,
+            4092137101,
+            4092139101,
+            4092361101,
+            4092129101,
+            4092130101,
+            4092132101,
+            4092290101,
+            4092288101,
+            4092126101,
+            4092127101,
+            4092128101,
+            4092289101,
+            4092231101,
+            4092227101,
+            4092326101,
+            4092325101,
+            4092228101,
+            4092226101,
+            4092230101,
+            4092238101,
+            4092233101,
+            4092232101,
+            4092236101,
+            4092235101,
+            4073095101,
+            4092278101,
+            4092279101,
+            4092181101,
+            4092182101,
+            4092183101,
+            4092184101,
+            4092185101,
+            4092178101,
+            4092179101,
+            4092180101,
+            4092191101,
+            4092192101,
+            4092188101,
+            4092189101,
+            4092190101,
+            4092186101,
+            4092187101,
+            4092293101,
+            4092292101,
+            4092285101,
+            4092284101,
+            4092287101,
+            4092286101,
+            4092291101,
+            4092280101,
+            4092281101,
+            4092282101,
+            4092283101,
+            4092322101,
+            4092324101,
+            4092323101,
+            4092321101,
+            4092327101,
+            4092334101,
+            4092333101,
+            4092329101,
+            4092328101,
+            4092330101,
+            4092332101,
+            4092331101,
+            4092208101,
+            4092209101,
+            4092335101,
+            4092336101,
+            4092337101,
+            4092339101,
+            4092338101,
+            4092349101,
+            4092348101,
+            4092346101,
+            4092347101
+          ],
+          "parent_id": null
+        }
+      ],
+      "offices": [
+        {
+          "id": 4056785101,
+          "name": "South Korea",
+          "location": null,
+          "child_ids": [],
+          "parent_id": null
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": "http://s101.recruiting.eu.greenhouse.io/ai_opt_out_request/job_post/4957029101/ai_opt_out"
+    },
+    {
+      "absolute_url": "https://careers.nebius.com/?gh_jid=4942839101",
+      "data_compliance": [
+        {
+          "type": "gdpr",
+          "requires_consent": true,
+          "requires_processing_consent": false,
+          "requires_retention_consent": true,
+          "retention_period": 720,
+          "demographic_data_consent_applies": false
+        }
+      ],
+      "internal_job_id": 4507762101,
+      "location": {
+        "name": "Oklahoma, United States"
+      },
+      "metadata": [],
+      "id": 4942839101,
+      "updated_at": "2026-10-02T17:02:04-04:00",
+      "requisition_id": "2046",
+      "title": "Administrative Services Manager",
+      "company_name": "Nebius",
+      "first_published": "2026-08-17T15:34:54-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure.&lt;/p&gt;\n&lt;p&gt;Built by engineers, for engineers. From large-scale GPU orchestration to inference optimization, we own the hard problems across compute, storage, networking and applied AI.&lt;/p&gt;\n&lt;p&gt;Listed on Nasdaq (NBIS) and headquartered in Amsterdam, we have a global footprint with R&amp;amp;D hubs across Europe, the UK, North America and Israel. Our team of 1,500+ includes hundreds of engineers with deep expertise across hardware, software and AI R&amp;amp;D.&lt;/p&gt;&lt;/div&gt;&lt;h3&gt;&lt;strong&gt;&lt;span data-ccp-props=&quot;{}&quot;&gt;The role&lt;/span&gt;&lt;/strong&gt;&lt;/h3&gt;\n&lt;p class=&quot;PDq2pG_selectionAnchorContainer&quot; data-start=&quot;1200&quot; data-end=&quot;1361&quot;&gt;Nebius is looking for an experienced &lt;strong data-start=&quot;1237&quot; data-end=&quot;1272&quot;&gt;Administrative Services Manager&lt;/strong&gt; to oversee the day-to-day business and workplace operations of our Oklahoma Data Center.&lt;/p&gt;\n&lt;p data-start=&quot;1363&quot; data-end=&quot;1703&quot;&gt;This role will serve as the operational backbone of the site, ensuring administrative services, workplace operations, vendor management, procurement, physical access coordination, and site support functions operate smoothly while enabling our engineering and logistics teams to focus on building and operating world-class AI infrastructure.&lt;/p&gt;\n&lt;p data-start=&quot;1705&quot; data-end=&quot;1952&quot;&gt;You will partner closely with Data Center leadership, Logistics, Procurement, Security, IT, Workplace Services, building management, and external vendors to establish scalable operational processes and support the continued growth of the facility.&lt;/p&gt;\n&lt;p data-start=&quot;1954&quot; data-end=&quot;2266&quot;&gt;This is a highly autonomous, hands-on role for someone who enjoys building structure in a fast-paced, rapidly scaling environment. Although you will support a mission-critical data center, this position is focused on &lt;strong data-start=&quot;2171&quot; data-end=&quot;2265&quot;&gt;business operations and workplace services rather than technical infrastructure management&lt;/strong&gt;.&lt;/p&gt;\n&lt;p data-start=&quot;2268&quot; data-end=&quot;2417&quot;&gt;This role is based &lt;strong data-start=&quot;2287&quot; data-end=&quot;2332&quot;&gt;on-site in Oklahoma,&lt;/strong&gt; Monday through Friday&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;Your responsibilities will include:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;134233117&amp;quot;:true,&amp;quot;134233118&amp;quot;:true}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-section-id=&quot;173594a&quot; data-start=&quot;2464&quot; data-end=&quot;2561&quot;&gt;Serve as the primary administrative and workplace operations lead for the Oklahoma Data Center.&lt;/li&gt;\n&lt;li data-section-id=&quot;1tb1exb&quot; data-start=&quot;2562&quot; data-end=&quot;2708&quot;&gt;Manage day-to-day site operations and ensure the workplace remains organized, stocked, operational, and ready to support employees and visitors.&lt;/li&gt;\n&lt;li data-section-id=&quot;pdvneg&quot; data-start=&quot;2709&quot; data-end=&quot;2842&quot;&gt;Act as the primary liaison with building management for facility requests, shared services, space planning, and operational issues.&lt;/li&gt;\n&lt;li data-section-id=&quot;izm47n&quot; data-start=&quot;2843&quot; data-end=&quot;2985&quot;&gt;Coordinate office layouts, workspace assignments, meeting rooms, common areas, furnishings, equipment, break areas, and workplace amenities.&lt;/li&gt;\n&lt;li data-section-id=&quot;143effu&quot; data-start=&quot;2986&quot; data-end=&quot;3082&quot;&gt;Support office expansions, renovations, workplace improvements, and facility-related projects.&lt;/li&gt;\n&lt;li data-section-id=&quot;fggd7m&quot; data-start=&quot;3083&quot; data-end=&quot;3196&quot;&gt;Manage procurement of office supplies, workplace equipment, PPE, and other non-technical operational materials.&lt;/li&gt;\n&lt;li data-section-id=&quot;65qsnl&quot; data-start=&quot;3197&quot; data-end=&quot;3297&quot;&gt;Establish and maintain relationships with vendors, contractors, and third-party service providers.&lt;/li&gt;\n&lt;li data-section-id=&quot;17mjd1k&quot; data-start=&quot;3298&quot; data-end=&quot;3419&quot;&gt;Coordinate shipping, courier services, catering, cleaning, waste management, maintenance, and other workplace services.&lt;/li&gt;\n&lt;li data-section-id=&quot;1ako62q&quot; data-start=&quot;3420&quot; data-end=&quot;3551&quot;&gt;Process purchase requests, purchase orders, invoices, expenses, and vendor documentation in accordance with procurement policies.&lt;/li&gt;\n&lt;li data-section-id=&quot;7uwkak&quot; data-start=&quot;3552&quot; data-end=&quot;3627&quot;&gt;Monitor vendor performance, service quality, contracts, and deliverables.&lt;/li&gt;\n&lt;li data-section-id=&quot;188vepy&quot; data-start=&quot;3628&quot; data-end=&quot;3748&quot;&gt;Coordinate employee, contractor, and visitor access, including badges, onboarding, and physical access administration.&lt;/li&gt;\n&lt;li data-section-id=&quot;yd4ygq&quot; data-start=&quot;3749&quot; data-end=&quot;3899&quot;&gt;Partner with Security and building management on visitor procedures, after-hours access, deliveries, emergency preparedness, and safety initiatives.&lt;/li&gt;\n&lt;li data-section-id=&quot;b95alk&quot; data-start=&quot;3900&quot; data-end=&quot;4001&quot;&gt;Develop, document, and continuously improve SOPs, workplace policies, and administrative processes.&lt;/li&gt;\n&lt;li data-section-id=&quot;9kcf99&quot; data-start=&quot;4002&quot; data-end=&quot;4157&quot;&gt;Coordinate onboarding and offboarding logistics with HR and IT, including workspace setup, equipment requests, welcome materials, and employee resources.&lt;/li&gt;\n&lt;li data-section-id=&quot;7c7ok5&quot; data-start=&quot;4158&quot; data-end=&quot;4296&quot;&gt;Support executive visits, customer meetings, audits, training events, and company initiatives through planning and logistical execution.&lt;/li&gt;\n&lt;li data-section-id=&quot;7rzb0m&quot; data-start=&quot;4297&quot; data-end=&quot;4403&quot;&gt;Partner with Logistics on incoming deliveries, storage requirements, and operational support activities.&lt;/li&gt;\n&lt;li data-section-id=&quot;prwipi&quot; data-start=&quot;4404&quot; data-end=&quot;4502&quot;&gt;Track operational expenses, vendor performance, workplace metrics, and administrative reporting.&lt;/li&gt;\n&lt;li data-section-id=&quot;z02uym&quot; data-start=&quot;4503&quot; data-end=&quot;4640&quot;&gt;Identify opportunities to improve employee experience, operational efficiency, and administrative processes as the organization scales.&lt;/li&gt;\n&lt;li data-section-id=&quot;h5h77v&quot; data-start=&quot;4641&quot; data-end=&quot;4729&quot;&gt;Balance multiple competing priorities and respond quickly to urgent operational needs.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;We expect you to have:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;134233117&amp;quot;:true,&amp;quot;134233118&amp;quot;:true}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-section-id=&quot;1jowf4p&quot; data-start=&quot;4763&quot; data-end=&quot;4926&quot;&gt;5+ years of experience in &lt;strong data-start=&quot;4791&quot; data-end=&quot;4925&quot;&gt;office management, workplace operations, administrative services, facilities coordination, site operations, or business operations&lt;/strong&gt;.&lt;/li&gt;\n&lt;li data-section-id=&quot;1akt7up&quot; data-start=&quot;4927&quot; data-end=&quot;5097&quot;&gt;Experience supporting fast-paced operations within technology, logistics, manufacturing, data centers, industrial environments, or other mission-critical organizations.&lt;/li&gt;\n&lt;li data-section-id=&quot;10h03ze&quot; data-start=&quot;5098&quot; data-end=&quot;5200&quot;&gt;Experience managing vendors, contractors, procurement activities, and third-party service providers.&lt;/li&gt;\n&lt;li data-section-id=&quot;512zey&quot; data-start=&quot;5201&quot; data-end=&quot;5312&quot;&gt;Experience coordinating workplace expansions, office improvements, renovations, or facility-related projects.&lt;/li&gt;\n&lt;li data-section-id=&quot;7fkxr0&quot; data-start=&quot;5313&quot; data-end=&quot;5415&quot;&gt;Experience managing budgets, purchase orders, invoices, expense tracking, and operational reporting.&lt;/li&gt;\n&lt;li data-section-id=&quot;5xto20&quot; data-start=&quot;5416&quot; data-end=&quot;5539&quot;&gt;Demonstrated ability to develop SOPs, documentation, policies, and scalable operational processes with minimal direction.&lt;/li&gt;\n&lt;li data-section-id=&quot;b29gac&quot; data-start=&quot;5540&quot; data-end=&quot;5611&quot;&gt;Strong project coordination, organizational, and multitasking skills.&lt;/li&gt;\n&lt;li data-section-id=&quot;10xn1cb&quot; data-start=&quot;5612&quot; data-end=&quot;5693&quot;&gt;Excellent customer service, communication, and relationship-building abilities.&lt;/li&gt;\n&lt;li data-section-id=&quot;1hadakn&quot; data-start=&quot;5694&quot; data-end=&quot;5827&quot;&gt;Professional presence and experience interacting with executives, customers, vendors, employees, and cross-functional stakeholders.&lt;/li&gt;\n&lt;li data-section-id=&quot;1cl9gbh&quot; data-start=&quot;5828&quot; data-end=&quot;5924&quot;&gt;Advanced proficiency with Microsoft Office, particularly Excel, Word, Outlook, and PowerPoint.&lt;/li&gt;\n&lt;li data-section-id=&quot;1sdw601&quot; data-start=&quot;5925&quot; data-end=&quot;6059&quot;&gt;Demonstrated ability to work independently, prioritize competing demands, and maintain a high level of ownership and accountability.&lt;/li&gt;\n&lt;li data-section-id=&quot;1g6o9zo&quot; data-start=&quot;6060&quot; data-end=&quot;6178&quot;&gt;Ability to work onsite Monday through Friday and occasionally support business needs outside standard working hours.&lt;/li&gt;\n&lt;li data-section-id=&quot;fzuh0n&quot; data-start=&quot;6179&quot; data-end=&quot;6236&quot;&gt;Strong written and verbal English communication skills.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;It will be an added bonus if you have:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;134233117&amp;quot;:true,&amp;quot;134233118&amp;quot;:true}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-section-id=&quot;10ryuf4&quot; data-start=&quot;6286&quot; data-end=&quot;6419&quot;&gt;Experience supporting &lt;strong data-start=&quot;6310&quot; data-end=&quot;6418&quot;&gt;data center, cloud infrastructure, critical facilities, industrial, or other mission-critical operations&lt;/strong&gt;.&lt;/li&gt;\n&lt;li data-section-id=&quot;10kq8ne&quot; data-start=&quot;6420&quot; data-end=&quot;6504&quot;&gt;Experience working within a startup, high-growth, or rapidly scaling organization.&lt;/li&gt;\n&lt;li data-section-id=&quot;1kwjibl&quot; data-start=&quot;6505&quot; data-end=&quot;6600&quot;&gt;Familiarity with Microsoft Teams, Slack, Jira, Confluence, or workplace management platforms.&lt;/li&gt;\n&lt;li data-section-id=&quot;fr65df&quot; data-start=&quot;6601&quot; data-end=&quot;6721&quot;&gt;Experience with physical security, visitor management systems, workplace safety programs, or access-control processes.&lt;/li&gt;\n&lt;li data-section-id=&quot;oay1wo&quot; data-start=&quot;6722&quot; data-end=&quot;6795&quot;&gt;Event planning, executive support, or corporate hospitality experience.&lt;/li&gt;\n&lt;li data-section-id=&quot;1vorhoc&quot; data-start=&quot;6796&quot; data-end=&quot;6881&quot;&gt;Knowledge of procurement systems, ERP platforms, or facilities management software.&lt;/li&gt;\n&lt;li data-section-id=&quot;1fkqbge&quot; data-start=&quot;6882&quot; data-end=&quot;6951&quot;&gt;Experience supporting compliance initiatives or operational audits.&lt;/li&gt;\n&lt;li data-section-id=&quot;143yq96&quot; data-start=&quot;6952&quot; data-end=&quot;7063&quot;&gt;Experience establishing workplace operations or administrative processes for a new or rapidly expanding site.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p data-renderer-start-pos=&quot;578&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Key employee benefits in the US:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-renderer-start-pos=&quot;614&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Health insurance:&lt;/strong&gt;&amp;nbsp;100% company-paid medical, dental, and vision coverage for employees and families.&lt;/li&gt;\n&lt;li data-renderer-start-pos=&quot;718&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;401(k) plan:&amp;nbsp;&lt;/strong&gt;Up to 4% company match with immediate vesting.&lt;/li&gt;\n&lt;li data-renderer-start-pos=&quot;781&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Parental leave:&lt;/strong&gt;&amp;nbsp;20 weeks paid for primary caregivers, 12 weeks for secondary caregivers.&lt;/li&gt;\n&lt;li data-renderer-start-pos=&quot;873&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Remote work reimbursement:&lt;/strong&gt;&amp;nbsp;Up to $85/month for mobile and internet.&lt;/li&gt;\n&lt;li data-renderer-start-pos=&quot;944&quot;&gt;&lt;strong data-renderer-mark=&quot;true&quot;&gt;Disability &amp;amp; life insurance&lt;/strong&gt;: Company-paid short-term, long-term and life insurance coverage.&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-pay-transparency&quot;&gt;&lt;div class=&quot;pay-input&quot;&gt;&lt;div class=&quot;description&quot;&gt;&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;Pay Transparency&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;We offer competitive compensation and benefits packages. Actual compensation will be determined based on job-related factors, including experience, skills, qualifications, the level at which the candidate is hired, and geographic location, consistent with applicable law.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;title&quot;&gt;Base Compensation Range&lt;/div&gt;&lt;div class=&quot;pay-range&quot;&gt;&lt;span&gt;$112,700&lt;/span&gt;&lt;span class=&quot;divider&quot;&gt;&amp;mdash;&lt;/span&gt;&lt;span&gt;$120,000 USD&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;Benefits &amp;amp; Perks:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive compensation&lt;/li&gt;\n&lt;li&gt;Career growth and learning opportunities&lt;/li&gt;\n&lt;li&gt;Flexibility and ownership&lt;/li&gt;\n&lt;li&gt;Collaborative and innovative culture&lt;/li&gt;\n&lt;li&gt;Opportunity to work on impactful AI projects&lt;/li&gt;\n&lt;li&gt;International environment and talented teams&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What&#39;s it like to work at Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Fast moving&amp;nbsp;- Bold thinking&amp;nbsp;- Constant growth&amp;nbsp;- Meaningful impact&amp;nbsp;- Trust and real ownership&amp;nbsp;- Opportunity to shape the future of AI&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Equal Opportunity Statement:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is an equal opportunity employer. We are committed to fostering an inclusive and diverse workplace and to providing equal employment opportunities in all aspects of employment. We do not discriminate on the basis of race, color, religion, sex (including pregnancy), national origin, ancestry, age, disability, genetic information, marital status, veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by applicable law.&lt;/p&gt;\n&lt;p&gt;Applicants must be authorized to work in the country in which they apply and will be required to provide proof of employment eligibility as a condition of hire.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;If you need accommodations during the application process, please let us know.&lt;/p&gt;&lt;/div&gt;",
+      "departments": [
+        {
+          "id": 4033675101,
+          "name": "Infrastructure",
+          "child_ids": [
+            4074035101,
+            4074031101,
+            4033674101,
+            4054919101,
+            4036074101,
+            4092151101,
+            4092149101,
+            4092153101,
+            4092297101,
+            4092152101,
+            4092154101,
+            4092294101,
+            4074028101,
+            4092296101,
+            4092295101,
+            4092419101,
+            4092196101,
+            4074036101,
+            4074040101,
+            4074037101,
+            4074041101,
+            4092211101,
+            4092210101,
+            4074038101,
+            4074027101,
+            4092205101,
+            4092206101,
+            4060320101,
+            4092202101,
+            4092198101,
+            4092200101,
+            4092197101,
+            4092201101,
+            4092199101,
+            4092203101,
+            4074033101,
+            4074034101,
+            4074032101,
+            4092298101,
+            4092300101,
+            4092299101,
+            4092204101,
+            4092343101,
+            4092342101,
+            4074042101,
+            4092341101,
+            4092340101,
+            4092212101,
+            4092314101,
+            4092313101,
+            4092316101,
+            4092315101,
+            4092344101,
+            4092345101,
+            4092309101,
+            4092307101,
+            4092311101,
+            4092306101,
+            4092308101,
+            4092310101,
+            4092312101
+          ],
+          "parent_id": 4032207101
+        }
+      ],
+      "offices": [
+        {
+          "id": 4036359101,
+          "name": "Oklahoma",
+          "location": "Oklahoma, United States",
+          "child_ids": [],
+          "parent_id": 4015854101
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": "http://s101.recruiting.eu.greenhouse.io/ai_opt_out_request/job_post/4942839101/ai_opt_out"
+    }
+  ],
+  "meta": {
+    "total": 3
+  }
+}
