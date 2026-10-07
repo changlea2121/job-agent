@@ -7,6 +7,9 @@ records only jobs it hasn't seen before and reports how many were new.
 The only supported source is Greenhouse. Companies are listed in
 `companies.yaml`.
 
+Design decisions, with their context and alternatives, are recorded in
+[docs/decisions.md](docs/decisions.md).
+
 ## Setup
 
 ```bash

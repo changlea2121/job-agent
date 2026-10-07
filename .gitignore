@@ -2,3 +2,4 @@
 jobs.db
 __pycache__/
 *.egg-info/
+*:Zone.Identifier

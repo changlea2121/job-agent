@@ -37,11 +37,15 @@ python3 -m venv .venv && .venv/bin/pip install -e '.[dev]'   # setup (venv, not 
 - **Filter at output time, never at insert time.** Rules are exclusion lists
   in `companies.yaml` (`location_filter`, per-company `exclude_categories`,
   `title_filter`); changing them never needs a DB rebuild. Internships are
-  grouped, not excluded. Each `fetch` records a row in `runs`; `new` lists jobs with
-  `first_seen_at` >= the latest run (or `--since`).
+  grouped, not excluded. Each `fetch` records a row in `runs`; `new` lists
+  jobs with `first_seen_at` >= the latest run (or `--since`).
 - **Tests use saved JSON fixtures in `tests/fixtures/`, with no live network.**
   Capture new fixtures from real responses and trim them to a few jobs.
 - **Fail fast on config.** Validate config at load time (e.g.
   `CompanyConfig.__post_init__`) and raise `ValueError` with the company name,
   rather than failing mid-fetch. Runtime fetch errors for one company are
   reported and don't stop the others.
+- **Record design decisions in `docs/decisions.md`.** When a task adds or
+  changes a design decision, append a new numbered entry (Date, Status,
+  Context, Decision, Alternatives, Consequences). Never delete or rewrite an
+  old entry's decision; mark it "Superseded by N" and link the new one.
