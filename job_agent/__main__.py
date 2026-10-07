@@ -3,7 +3,8 @@ import sys
 from datetime import datetime, timezone
 
 from .config import load_config
-from .location import LocationMatch
+from .filtering import RULES, apply_filters
+from .models import Job
 from .sources import ADAPTERS
 from .storage import JobStore, utc_iso
 
@@ -60,23 +61,30 @@ def cmd_new(args: argparse.Namespace) -> int:
     finally:
         store.close()
 
-    clear, unclear = [], []
-    for job in jobs:
-        if config.location_filter is None:
-            clear.append(job)
-            continue
-        match = config.location_filter.classify(job.location)
-        if match is LocationMatch.CLEAR:
-            clear.append(job)
-        elif match is LocationMatch.UNCLEAR:
-            unclear.append(job)
+    result = apply_filters(jobs, config)
 
-    rows = [(job, "") for job in clear] + [(job, " [location unclear]") for job in unclear]
-    for job, tag in rows:
-        print("\t".join([job.company, job.title, job.location + tag,
-                         job.category or "-", job.url]))
-    print(f"{len(clear) + len(unclear)} new jobs ({len(unclear)} location unclear) "
-          f"since {since}; {len(jobs)} new before location filter")
+    def row(job: Job, *extra: str) -> str:
+        tag = " [location unclear]" if job in result.unclear else ""
+        return "\t".join([job.company, job.title, job.location + tag,
+                          job.category or "-", job.url, *extra])
+
+    for job in result.jobs:
+        print(row(job))
+    if result.internships:
+        print("# internships")
+        for job in result.internships:
+            print(row(job))
+    if args.show_excluded and result.excluded:
+        print("# excluded")
+        for job, rule, detail in result.excluded:
+            print(row(job, f"{rule}: {detail}"))
+
+    shown = result.jobs + result.internships
+    excluded = ", ".join(f"{rule} {result.excluded_count(rule)}" for rule in RULES)
+    print(f"{len(result.jobs)} new jobs, {len(result.internships)} internships "
+          f"({len(result.unclear)} location unclear) since {since}; "
+          f"{len(jobs)} new before filters, {len(jobs) - len(shown)} excluded "
+          f"({excluded})")
     return 0
 
 
@@ -91,7 +99,11 @@ def main(argv: list[str] | None = None) -> int:
     fetch.set_defaults(func=cmd_fetch)
 
     new = sub.add_parser(
-        "new", help="list jobs first seen in the latest fetch that pass the location filter"
+        "new", help="list jobs first seen in the latest fetch that pass the filters"
+    )
+    new.add_argument(
+        "--show-excluded", action="store_true",
+        help="also list excluded jobs, with the rule that excluded each",
     )
     new.add_argument("--config", default="companies.yaml")
     new.add_argument("--db", default="jobs.db")

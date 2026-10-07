@@ -4,6 +4,8 @@ from pathlib import Path
 import yaml
 
 from .location import LocationFilter
+from .matching import validate_keywords
+from .title_filter import TitleFilter
 
 CATEGORY_SOURCES = ("metadata", "departments")
 
@@ -18,8 +20,15 @@ class CompanyConfig:
     # metadata field is given.
     category_from: str | None = None
     category_metadata_field: str | None = None
+    # Categories hidden by `job_agent new`; exact match, case-insensitive.
+    exclude_categories: tuple[str, ...] = ()
 
     def __post_init__(self):
+        try:
+            categories = validate_keywords(self.exclude_categories, "exclude_categories")
+        except ValueError as exc:
+            raise ValueError(f"{self.name}: {exc}") from None
+        object.__setattr__(self, "exclude_categories", categories)
         if self.category_from is None and self.category_metadata_field:
             object.__setattr__(self, "category_from", "metadata")
         if self.category_from not in (None, *CATEGORY_SOURCES):
@@ -32,22 +41,45 @@ class CompanyConfig:
                 f"{self.name}: category_from 'metadata' requires category_metadata_field"
             )
 
+    def excludes_category(self, category: str | None) -> bool:
+        if category is None:
+            return False
+        return category.casefold() in {c.casefold() for c in self.exclude_categories}
+
 
 @dataclass(frozen=True)
 class Config:
     companies: list[CompanyConfig]
     location_filter: LocationFilter | None  # None: no location filtering
+    title_filter: TitleFilter | None = None  # None: no seniority or internship rules
+
+    def company(self, name: str) -> CompanyConfig | None:
+        return next((c for c in self.companies if c.name == name), None)
+
+
+def _load_section(data: dict, name: str, cls, keys: tuple[str, ...]):
+    raw = data.get(name)
+    if raw is None:
+        return None
+    if not isinstance(raw, dict):
+        raise ValueError(f"{name} must be a mapping with {', '.join(map(repr, keys))}")
+    unknown = set(raw) - set(keys)
+    if unknown:
+        raise ValueError(f"{name}: unknown keys {sorted(unknown)}")
+    return cls(**raw)
 
 
 def load_config(path: str | Path) -> Config:
     with open(path, encoding="utf-8") as f:
         data = yaml.safe_load(f) or {}
     companies = [CompanyConfig(**entry) for entry in data.get("companies", [])]
-    raw_filter = data.get("location_filter")
-    if raw_filter is not None and not isinstance(raw_filter, dict):
-        raise ValueError("location_filter must be a mapping with 'match' and 'unclear'")
-    unknown = set(raw_filter or {}) - {"match", "unclear"}
-    if unknown:
-        raise ValueError(f"location_filter: unknown keys {sorted(unknown)}")
-    location_filter = LocationFilter(**raw_filter) if raw_filter is not None else None
-    return Config(companies=companies, location_filter=location_filter)
+    return Config(
+        companies=companies,
+        location_filter=_load_section(
+            data, "location_filter", LocationFilter, ("match", "unclear")
+        ),
+        title_filter=_load_section(
+            data, "title_filter", TitleFilter,
+            ("exclude_seniority", "exceptions", "internship", "internship_dutch"),
+        ),
+    )

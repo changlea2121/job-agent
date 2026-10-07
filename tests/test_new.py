@@ -1,3 +1,4 @@
+from dataclasses import replace
 from datetime import datetime, timezone
 
 import pytest
@@ -52,8 +53,9 @@ def test_new_lists_latest_run_with_unclear_marked(capsys, setup):
         "https://careers.nebius.com/?gh_jid=4981489101",
     ]
     assert summary == (
-        "3 new jobs (2 location unclear) since 2026-10-05T09:00:00.000000+00:00; "
-        "5 new before location filter"
+        "3 new jobs, 0 internships (2 location unclear) "
+        "since 2026-10-05T09:00:00.000000+00:00; "
+        "5 new before filters, 2 excluded (location 2, category 0, seniority 0)"
     )
 
 
@@ -90,3 +92,81 @@ def test_new_without_runs_fails(capsys, tmp_path):
     config.write_text(CONFIG)
     assert main(["new", "--config", str(config), "--db", str(tmp_path / "x.db")]) == 1
     assert "no fetch runs" in capsys.readouterr().err
+
+
+FULL_CONFIG = """\
+companies:
+  - {name: adyen, source: greenhouse, board_token: adyen,
+     category_from: departments, exclude_categories: [account management]}
+  - {name: nebius, source: greenhouse, board_token: nebius,
+     category_metadata_field: Job Category,
+     exclude_categories: [Hardware Infrastructure]}
+location_filter:
+  match: [amsterdam, rotterdam]
+  unclear: [netherlands]
+title_filter:
+  exclude_seniority: [senior, head of]
+  internship: [intern]
+"""
+
+
+@pytest.fixture
+def full_setup(tmp_path, adyen_jobs, nebius_location_jobs):
+    """All fixture jobs in one run, with category and seniority rules.
+
+    Adds one synthetic internship, derived from a real Amsterdam posting,
+    since neither board currently lists an internship.
+    """
+    intern = replace(nebius_location_jobs[0], source_id="intern-1",
+                     title="Data Engineering Intern")
+    config = tmp_path / "companies.yaml"
+    config.write_text(FULL_CONFIG)
+    db = tmp_path / "jobs.db"
+    store = JobStore(db)
+    store.record_run(now=T1)
+    store.insert_new([*adyen_jobs, *nebius_location_jobs, intern], now=T1)
+    store.close()
+    return ["--config", str(config), "--db", str(db)]
+
+
+def test_rules_and_internship_section(capsys, full_setup):
+    code, rows, summary = run_new(capsys, full_setup)
+    assert code == 0
+    assert [r[:2] for r in rows] == [
+        ["nebius", "AI Science Writer, Nebius Academy (Contract)"],
+        ["# internships"],
+        ["nebius", "Data Engineering Intern"],
+    ]
+    assert summary == (
+        "1 new jobs, 1 internships (0 location unclear) "
+        "since 2026-10-01T09:00:00.000000+00:00; "
+        "9 new before filters, 7 excluded (location 4, category 2, seniority 1)"
+    )
+
+
+def test_show_excluded_lists_first_rule_per_job(capsys, full_setup):
+    _, rows, summary = run_new(capsys, [*full_setup, "--show-excluded"])
+    excluded = rows[rows.index(["# excluded"]) + 1:]
+    # Excluded rows carry the reason as a sixth column and no unclear tag.
+    assert sorted((r[0], r[1], r[2], r[5]) for r in excluded) == sorted([
+        ("adyen", "Account Manager", "Paris", "location: Paris"),
+        ("adyen", "Account Manager", "Shanghai", "location: Shanghai"),
+        ("adyen", "Account Manager", "Amsterdam", "category: Account Management"),
+        # Location is checked first: "Head of" in London counts as location.
+        ("nebius", "Head of Employee Relations",
+         "London, United Kingdom; Remote - Europe",
+         "location: London, United Kingdom; Remote - Europe"),
+        ("nebius", "Application Integration Developer", "Remote - Europe",
+         "location: Remote - Europe"),
+        ("nebius", "Technical Program Manager - New Data Center Launches",
+         "Netherlands; Remote - Europe", "category: Hardware Infrastructure"),
+        ("nebius", "Senior Data Engineer",
+         "Germany; Israel; Netherlands; Prague, Czech Republic; "
+         "Remote - Europe; United Kingdom", "seniority: senior"),
+    ])
+    assert summary.endswith("(location 4, category 2, seniority 1)")
+
+
+def test_excluded_hidden_by_default(capsys, full_setup):
+    _, rows, _ = run_new(capsys, full_setup)
+    assert ["# excluded"] not in rows

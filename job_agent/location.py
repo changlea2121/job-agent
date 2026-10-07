@@ -2,6 +2,10 @@ import re
 from dataclasses import dataclass
 from enum import Enum
 
+from .matching import keyword_pattern as _keyword_pattern
+from .matching import normalize as _normalize
+from .matching import validate_keywords
+
 # Words that may surround an "unclear" keyword without naming a place, e.g.
 # "Remote - Netherlands" or "The Netherlands (Hybrid)".
 _FILLER_WORDS = ("remote", "hybrid", "the")
@@ -10,17 +14,6 @@ _FILLER_WORDS = ("remote", "hybrid", "the")
 class LocationMatch(Enum):
     CLEAR = "clear"
     UNCLEAR = "unclear"  # only a country-level hint, e.g. "Netherlands"
-
-
-def _normalize(text: str) -> str:
-    return text.replace("’", "'").casefold()
-
-
-def _keyword_pattern(keywords: tuple[str, ...]) -> re.Pattern[str]:
-    # Lookarounds instead of \b so keywords starting with "'" ("'s-gravenhage")
-    # still match after a space.
-    alternatives = "|".join(re.escape(_normalize(k)) for k in keywords)
-    return re.compile(rf"(?<!\w)(?:{alternatives})(?!\w)")
 
 
 @dataclass(frozen=True)
@@ -39,16 +32,11 @@ class LocationFilter:
 
     def __post_init__(self):
         for field in ("match", "unclear"):
-            value = getattr(self, field)
-            if isinstance(value, str) or not isinstance(value, (list, tuple)):
-                raise ValueError(f"location_filter.{field} must be a list of strings")
-            if not all(isinstance(k, str) and k.strip() for k in value):
-                raise ValueError(
-                    f"location_filter.{field} must contain only non-empty strings"
-                )
-            object.__setattr__(self, field, tuple(k.strip() for k in value))
-        if not self.match:
-            raise ValueError("location_filter.match must not be empty")
+            value = validate_keywords(
+                getattr(self, field), f"location_filter.{field}",
+                allow_empty=field != "match",
+            )
+            object.__setattr__(self, field, value)
         object.__setattr__(self, "_match_re", _keyword_pattern(self.match))
         object.__setattr__(
             self, "_unclear_re", _keyword_pattern(self.unclear) if self.unclear else None

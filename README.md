@@ -34,18 +34,22 @@ nebius: 361 fetched, 361 new
 total: 590 fetched, 590 new
 ```
 
-List jobs first seen in the most recent `fetch` that pass the location filter:
+List jobs first seen in the most recent `fetch` that pass the filters:
 
 ```bash
 python -m job_agent new
 python -m job_agent new --since 2026-10-01   # everything first seen since then
+python -m job_agent new --show-excluded      # also list excluded jobs and why
 ```
 
 `--since` takes an ISO date or datetime (naive values are UTC). Use it when a
 second `fetch`, or one where every company failed, would hide earlier results.
 Output is tab-separated: company, title, location, category, url. Jobs whose
-location is only "Netherlands" (or a remote variant) are listed last and
-marked `[location unclear]`.
+location is only "Netherlands" (or a remote variant) are listed after the
+others and marked `[location unclear]`. Internships follow under
+`# internships`, and with `--show-excluded`, excluded jobs follow under
+`# excluded` with a sixth column giving the reason (e.g. `seniority: staff`).
+The last line counts how many jobs each rule excluded.
 
 ## Configuration
 
@@ -65,12 +69,25 @@ companies:
 Set `category_from: departments` or `category_metadata_field: <name>` to choose
 where the category comes from. If neither is set, `category` is empty.
 
-`location_filter` (see `companies.yaml`) is applied only by `new`; every job
-is stored. Keywords are case-insensitive whole words, checked against each
-`;`-separated part of a location. `match` keywords show the job; a part that
-is only an `unclear` keyword plus "Remote"/"Hybrid" shows it as unclear.
-"Eindhoven, Netherlands" and "Remote - Europe" are excluded. Without a
-`location_filter` section, `new` shows all new jobs.
+The filters below are applied only by `new`, in this order; every job is
+stored, and each excluded job is counted under the first rule that removed it.
+
+- `location_filter`: case-insensitive whole words, checked against each
+  `;`-separated part of a location. `match` keywords show the job; a part
+  that is only an `unclear` keyword plus "Remote"/"Hybrid" shows it as
+  unclear. "Eindhoven, Netherlands" and "Remote - Europe" are excluded.
+  Without a `location_filter` section, no job is excluded by location.
+- `exclude_categories` (per company): categories to hide, exact match,
+  case-insensitive. Jobs without a category are kept.
+- `title_filter.exclude_seniority`: case-insensitive whole words ("sr"
+  matches "Sr." but not "SRE"). Phrases in `title_filter.exceptions`, such as
+  "member of technical staff", are ignored when matching.
+
+Of the jobs left, titles containing a `title_filter.internship` keyword
+(intern, graduate, werkstudent, ...) are listed as internships.
+`title_filter.internship_dutch` keywords ("stage") count only next to a Dutch
+cue such as "(m/v)" or "bij", since in English "stage" usually means a phase
+("Early-Stage").
 
 ## Storage
 

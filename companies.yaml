@@ -7,11 +7,78 @@ companies:
     source: greenhouse
     board_token: adyen
     category_from: departments  # adyen's board has no metadata
+    exclude_categories:
+      - Account Management
+      - Commercial Business Development
+      - Sales
+      - Partnerships
+      - Payments Partnership
+      - Marketing
+      - Finance
+      - People
+      - Legal
+      - Compliance
+      - Regulatory
+      - Internal Control
+      - Merchant Operations
+      - Strategy & Execution
+      - Supply Chain
+      - Procurement
+      - Office Management
+      - Product Management
+      - UX
 
   - name: nebius
     source: greenhouse
     board_token: nebius
     category_metadata_field: Job Category
+    exclude_categories:
+      - Finance
+      - HR
+      - Marketing
+      - Go-To-Market
+      - Sales
+      - Legal
+      - Government Relations
+      - Communications
+      - Customer Experience
+      - Operations
+      - Supply Chain and Procurement
+      - Design
+
+# Applied by `job_agent new` at output time to all companies. Case-insensitive,
+# whole words: "sr" matches "Sr." but not "SRE". `exceptions` are phrases
+# removed from the title first, so "Member of Technical Staff" is kept.
+# Jobs left whose title has an `internship` keyword are listed in their own
+# section, not excluded. `internship_dutch` keywords ("stage") count only when
+# the title also has a Dutch cue such as "(m/v)" or "bij", since in English
+# "stage" usually means a phase ("Early-Stage").
+title_filter:
+  exclude_seniority:
+    - senior
+    - sr
+    - staff
+    - lead
+    - leader
+    - principal
+    - manager
+    - director
+    - head of
+    - vp
+    - vice president
+    - chief
+  exceptions:
+    - member of technical staff
+  internship:
+    - intern
+    - internship
+    - graduate
+    - trainee
+    - working student
+    - werkstudent
+    - afstudeerstage
+  internship_dutch:
+    - stage
 
 # Applied by `job_agent new` at output time; all jobs are stored regardless.
 # Case-insensitive, whole words, checked per ";"-separated location.
