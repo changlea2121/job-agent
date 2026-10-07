@@ -26,6 +26,16 @@ CREATE TABLE IF NOT EXISTS runs (
 """
 
 
+_JOB_COLUMNS = (
+    "source, company, source_id, title, location, url, description, category,"
+    " first_published"
+)
+
+
+def _row_to_job(row: tuple) -> Job:
+    return Job(*row[:8], first_published=datetime.fromisoformat(row[8]) if row[8] else None)
+
+
 def utc_iso(dt: datetime | None = None) -> str:
     """Fixed-width UTC timestamp, so stored values compare as strings."""
     dt = dt or datetime.now(timezone.utc)
@@ -71,18 +81,23 @@ class JobStore:
         ).fetchone()
         return row[0] if row else None
 
-    def jobs_since(self, since: str) -> list[Job]:
-        """Jobs first seen at or after `since` (a `utc_iso` timestamp)."""
+    def jobs_since(self, since: str | None = None) -> list[Job]:
+        """Jobs first seen at or after `since` (a `utc_iso` timestamp); all if None."""
         rows = self.conn.execute(
-            "SELECT source, company, source_id, title, location, url, description,"
-            " category, first_published FROM jobs WHERE first_seen_at >= ?"
-            " ORDER BY company, title",
-            (since,),
+            f"SELECT {_JOB_COLUMNS} FROM jobs WHERE first_seen_at >= ?"
+            " ORDER BY company, title, source_id",
+            (since or "",),
         )
-        return [
-            Job(*row[:8], first_published=datetime.fromisoformat(row[8]) if row[8] else None)
-            for row in rows
-        ]
+        return [_row_to_job(row) for row in rows]
+
+    def find(self, company: str, source_id: str, source: str | None = None) -> list[Job]:
+        """Jobs with this company and source_id, from any source unless given."""
+        rows = self.conn.execute(
+            f"SELECT {_JOB_COLUMNS} FROM jobs WHERE company = ? AND source_id = ?"
+            " AND (? IS NULL OR source = ?) ORDER BY source",
+            (company, source_id, source, source),
+        )
+        return [_row_to_job(row) for row in rows]
 
     def count(self) -> int:
         return self.conn.execute("SELECT COUNT(*) FROM jobs").fetchone()[0]

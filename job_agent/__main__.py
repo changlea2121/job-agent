@@ -2,9 +2,11 @@ import argparse
 import sys
 from datetime import datetime, timezone
 
-from .config import load_config
+from .config import Config, load_config
 from .filtering import RULES, apply_filters
+from .labels import LABELS, LabelStore, job_ref, make_label, parse_ref
 from .models import Job
+from .review import candidates, review
 from .sources import ADAPTERS
 from .storage import JobStore, utc_iso
 
@@ -65,7 +67,7 @@ def cmd_new(args: argparse.Namespace) -> int:
 
     def row(job: Job, *extra: str) -> str:
         tag = " [location unclear]" if job in result.unclear else ""
-        return "\t".join([job.company, job.title, job.location + tag,
+        return "\t".join([job_ref(job), job.company, job.title, job.location + tag,
                           job.category or "-", job.url, *extra])
 
     for job in result.jobs:
@@ -85,6 +87,72 @@ def cmd_new(args: argparse.Namespace) -> int:
           f"({len(result.unclear)} location unclear) since {since}; "
           f"{len(jobs)} new before filters, {len(jobs) - len(shown)} excluded "
           f"({excluded})")
+    return 0
+
+
+def _error(message: str) -> int:
+    print(f"error: {message}", file=sys.stderr)
+    return 1
+
+
+def _open_labels(config: Config, path: str) -> LabelStore:
+    if not config.label_reasons:
+        raise ValueError("no label_reasons in the config")
+    return LabelStore(path, config.label_reasons)
+
+
+def cmd_label(args: argparse.Namespace) -> int:
+    config = load_config(args.config)
+    try:
+        labels = _open_labels(config, args.labels)
+        source, company, source_id = parse_ref(args.ref)
+    except ValueError as exc:
+        return _error(str(exc))
+    store = JobStore(args.db)
+    try:
+        jobs = store.find(company, source_id, source)
+    finally:
+        store.close()
+    if not jobs:  # no longer in jobs.db: relabel from the stored snapshot
+        jobs = [l.to_job() for l in labels.find(company, source_id, source)]
+    if not jobs:
+        return _error(f"no job {args.ref!r} in {args.db} or {args.labels}")
+    if len(jobs) > 1:
+        refs = ", ".join(f"{j.source}:{j.company}:{j.source_id}" for j in jobs)
+        return _error(f"{args.ref!r} is ambiguous; use one of {refs}")
+    try:
+        label = make_label(jobs[0], args.label, args.reason or [], args.note, config)
+    except ValueError as exc:
+        return _error(str(exc))
+    labels.set(label)
+    reasons = f" ({', '.join(label.reasons)})" if label.reasons else ""
+    print(f"{label.ref}: {label.label}{reasons} [{label.filter.decision}] {label.job.title}")
+    return 0
+
+
+def cmd_review(args: argparse.Namespace) -> int:
+    if args.rule and not args.excluded:
+        return _error("--rule only applies with --excluded")
+    config = load_config(args.config)
+    try:
+        labels = _open_labels(config, args.labels)
+    except ValueError as exc:
+        return _error(str(exc))
+    store = JobStore(args.db)
+    try:
+        jobs = store.jobs_since(args.since)
+    finally:
+        store.close()
+    cands = candidates(jobs, config, labels, excluded=args.excluded, rules=args.rule)
+    if not cands:
+        print("nothing to review")
+        return 0
+    stats = review(cands, labels, config)
+    summary = (f"{stats.labelled} labelled, {stats.skipped} skipped, "
+               f"{stats.remaining} left unlabelled; {len(labels)} labels in {args.labels}")
+    if args.excluded:
+        summary += f"; {stats.false_exclusions} excluded jobs labelled yes/maybe"
+    print(summary)
     return 0
 
 
@@ -113,6 +181,39 @@ def main(argv: list[str] | None = None) -> int:
              "(e.g. 2026-10-01 or 2026-10-01T09:00+02:00; naive = UTC)",
     )
     new.set_defaults(func=cmd_new)
+
+    label = sub.add_parser("label", help="label one job for the evaluation set")
+    label.add_argument("ref", help="job ref from `new` (company:id or source:company:id)")
+    label.add_argument("label", choices=LABELS)
+    label.add_argument(
+        "--reason", action="append", metavar="NAME",
+        help="reason from label_reasons in the config; repeat for several",
+    )
+    label.add_argument("--note", help="short note, required with reason 'other'")
+    label.add_argument("--config", default="companies.yaml")
+    label.add_argument("--db", default="jobs.db")
+    label.add_argument("--labels", default="labels.jsonl", help="labels file (JSON Lines)")
+    label.set_defaults(func=cmd_label)
+
+    rev = sub.add_parser(
+        "review", help="label unlabelled jobs that pass the filters, one at a time"
+    )
+    rev.add_argument("--config", default="companies.yaml")
+    rev.add_argument("--db", default="jobs.db")
+    rev.add_argument("--labels", default="labels.jsonl", help="labels file (JSON Lines)")
+    rev.add_argument(
+        "--since", type=parse_since, metavar="ISO",
+        help="only jobs first seen since this date/datetime (default: all stored jobs)",
+    )
+    rev.add_argument(
+        "--excluded", action="store_true",
+        help="review jobs removed by the filters instead, to spot false exclusions",
+    )
+    rev.add_argument(
+        "--rule", action="append", choices=RULES,
+        help="with --excluded: only jobs removed by this rule; repeat for several",
+    )
+    rev.set_defaults(func=cmd_review)
 
     args = parser.parse_args(argv)
     return args.func(args)

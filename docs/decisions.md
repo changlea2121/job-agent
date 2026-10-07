@@ -208,7 +208,7 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 
 ## 15. Relevance scoring does not need training data, but evaluation does
 
-**Date:** 2026-10-07 · **Status:** Planned
+**Date:** 2026-10-07 · **Status:** Superseded by [17](#17-labels-for-the-evaluation-set-stored-outside-jobsdb)
 
 **Context.** BM25, embeddings and LLM judgments can score jobs against a CV with no training data (zero-shot). Knowing whether the scores are any good, and choosing thresholds and weights, requires labelled examples.
 
@@ -229,3 +229,24 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** Cron in WSL; WhatsApp or SMS notifications (need a business API or a paid service).
 
 **Consequences.** Each stage is finished and usable before the next starts, which also keeps the project's scope under control.
+
+---
+
+## 17. Labels for the evaluation set, stored outside `jobs.db`
+
+**Date:** 2026-10-07 · **Status:** Accepted
+
+**Context.** Decision 15 calls for labelled jobs before building relevance scoring. A plain yes/no loses information: "maybe" cases and *why* a job is wrong (Dutch required, too senior) are what scoring needs to get right. Postings disappear from the API once closed, and `jobs.db` is occasionally rebuilt (decision 8), so labels must not depend on either. The rule-based filters (decision 14) also need spot-checking for false exclusions, which is the same kind of judgment.
+
+**Decision.**
+
+- Labels are `yes`, `maybe` or `no`, with reasons from a fixed list in `companies.yaml` (`label_reasons`, name → description), validated at config load. `no` needs at least one reason, `maybe` may have some, `yes` none. The reason `other` requires a short note. No general note field exists, so free text stays the exception.
+- Labels live in a JSON Lines file (default `labels.jsonl`, set with `--labels` so each user can keep their own), keyed by `(source, company, source_id)`. One line per job. Relabelling replaces the line. Every save rewrites the file sorted by key, through a temp file and `os.replace`, so a crash cannot leave a half-written file. Loading fails fast, with the line number, on malformed lines or reasons no longer in the config.
+- Each label stores a snapshot of the job (title, location, category, url, full description) and the filter decision at labelling time (`kept`, or `excluded` with the rule and detail). The snapshot makes the evaluation set self-contained. The filter decision makes false exclusions (`excluded` + yes/maybe) and false keeps (`kept` + no) directly countable, even after the rules change.
+- `new` prints a job ref (`company:source_id`) as its first column. `label <ref> <yes|maybe|no> [--reason ...] [--note ...]` labels one job. `source:company:source_id` resolves the rare ambiguous ref. A job gone from `jobs.db` can still be relabelled from its snapshot.
+- `review` steps through unlabelled jobs that pass the filters (internships included), saving after every label. `review --excluded` steps through excluded jobs instead, category and seniority before location, and `--rule` narrows it to specific rules, since most of the 436 location exclusions are plainly correct. Requirements like Dutch or years of experience usually sit far below a company intro (Adyen's first 600 characters are always the same boilerplate), so the preview first lists the description lines containing a `preview_keywords` word from the config (years, experience, Dutch, Nederlands, degree, required, must; whole words, each line cut at 200 characters), then the start of the description if at least 150 of the 1000 characters are left. `d` shows the full description. The keywords also match some boilerplate ("candidate experience"), which is accepted as the price of not missing requirements.
+- `labels*.jsonl` is gitignored. The repository is public, and labels reveal personal information (language skills, experience level through reasons like `dutch_required`), and snapshots are full third-party job descriptions. The file is the only data here that cannot be rebuilt, so it must be backed up separately, e.g. in a synced folder or a private repository.
+
+**Alternatives.** A `labels` table in `jobs.db` (lost on rebuild); an append-only log where the last line wins (keeps history, but grows and needs compaction); storing only the key and re-reading the job from `jobs.db` (breaks once postings close); committing `labels.jsonl` (versioned backup, but publishes personal data in a public repo).
+
+**Consequences.** The evaluation set survives database rebuilds and closed postings. Renaming or removing a reason in the config requires editing the labels file, which keeps old labels consistent with the current list. Backups are a manual responsibility. Each save rewrites the whole file (about 5.5 KB per label), which is fine for hundreds of labels.

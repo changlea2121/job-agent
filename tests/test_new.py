@@ -35,7 +35,9 @@ def setup(tmp_path, adyen_jobs, nebius_location_jobs):
 def run_new(capsys, args):
     code = main(["new", *args])
     lines = capsys.readouterr().out.splitlines()
-    return code, [line.split("\t") for line in lines[:-1]], lines[-1]
+    # Drop the leading job-ref column (tested separately); keep "# ..." headers.
+    rows = [line.split("\t") for line in lines[:-1]]
+    return code, [r if r[0].startswith("#") else r[1:] for r in rows], lines[-1]
 
 
 def test_new_lists_latest_run_with_unclear_marked(capsys, setup):
@@ -57,6 +59,12 @@ def test_new_lists_latest_run_with_unclear_marked(capsys, setup):
         "since 2026-10-05T09:00:00.000000+00:00; "
         "5 new before filters, 2 excluded (location 2, category 0, seniority 0)"
     )
+
+
+def test_rows_start_with_job_ref(capsys, setup):
+    main(["new", *setup])
+    first = capsys.readouterr().out.splitlines()[0].split("\t")
+    assert first[:2] == ["nebius:4981489101", "nebius"]
 
 
 def test_since_includes_earlier_runs(capsys, setup):

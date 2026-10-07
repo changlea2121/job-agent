@@ -3,3 +3,5 @@ jobs.db
 __pycache__/
 *.egg-info/
 *:Zone.Identifier
+labels*.jsonl
+labels*.jsonl.tmp

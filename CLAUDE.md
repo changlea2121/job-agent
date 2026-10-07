@@ -16,6 +16,7 @@ python3 -m venv .venv && .venv/bin/pip install -e '.[dev]'   # setup (venv, not 
 .venv/bin/pytest                                             # tests
 .venv/bin/python -m job_agent fetch                          # run discovery for all companies
 .venv/bin/python -m job_agent new                            # jobs from the latest fetch passing the filters
+.venv/bin/python -m job_agent review                         # label jobs interactively (labels.jsonl)
 ```
 
 ## Conventions
