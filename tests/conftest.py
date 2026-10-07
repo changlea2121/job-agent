@@ -30,3 +30,9 @@ def adyen_jobs():
 @pytest.fixture
 def nebius_jobs():
     return GreenhouseAdapter(NEBIUS).parse(load_fixture("greenhouse_nebius.json"))
+
+
+@pytest.fixture
+def nebius_location_jobs():
+    """Real nebius postings, one per location shape (see test_location.py)."""
+    return GreenhouseAdapter(NEBIUS).parse(load_fixture("greenhouse_nebius_locations.json"))

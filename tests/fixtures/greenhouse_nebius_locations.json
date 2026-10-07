@@ -1,0 +1,408 @@
+{
+  "jobs": [
+    {
+      "absolute_url": "https://careers.nebius.com/?gh_jid=4981489101",
+      "data_compliance": [
+        {
+          "type": "gdpr",
+          "requires_consent": true,
+          "requires_processing_consent": false,
+          "requires_retention_consent": true,
+          "retention_period": 720,
+          "demographic_data_consent_applies": false
+        }
+      ],
+      "internal_job_id": 4524553101,
+      "location": {
+        "name": "Amsterdam, Netherlands; Remote - Europe"
+      },
+      "metadata": [
+        {
+          "id": 11194679101,
+          "name": "Job Category",
+          "value": "Academy and Science",
+          "value_type": "single_select"
+        }
+      ],
+      "id": 4981489101,
+      "updated_at": "2026-10-02T17:02:04-04:00",
+      "requisition_id": "2264",
+      "title": "AI Science Writer, Nebius Academy (Contract)",
+      "company_name": "Nebius",
+      "first_published": "2026-09-22T08:43:11-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure.&lt;/p&gt;\n&lt;p&gt;Built by engineers, for engineers. From large-scale GPU orchestration to inference optimization, we own the hard problems across compute, storage, networking and applied AI.&lt;/p&gt;\n&lt;p&gt;Listed on Nasdaq (NBIS) and headquartered in Amsterdam, we have a global footprint with R&amp;amp;D hubs across Europe, the UK, North America and Israel. Our team of 1,500+ includes hundreds of engineers with deep expertise across hardware, software and AI R&amp;amp;D.&lt;/p&gt;&lt;/div&gt;&lt;h3&gt;&lt;strong&gt;About&amp;nbsp;Nebius Academy and Nebius Science&amp;nbsp;&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;Nebius Academy is Nebius’s education and research initiative. It offers advanced programs in machine learning and generative AI, supports academic research through cloud grants, and works with universities and research institutions around the world.&lt;/p&gt;\n&lt;p&gt;Nebius Science is the research media lab within Nebius Academy. We cover AI research, AI-driven science, and the people and ideas shaping both fields.&lt;/p&gt;\n&lt;p&gt;Since launching in 2026, Nebius Science has highlighted the work of our researchers, covered major AI conferences and emerging research trends, and developed joint editorial projects with recipients of Nebius research grants. &lt;br&gt;&lt;br&gt;Our work spans original features, technical explainers, weekly Paper Picks, research webinars, the Nebius Science Paper Club, and interviews with leading researchers.&lt;/p&gt;\n&lt;p&gt;Our goal is to make serious research accessible without flattening its complexity, and to create a meeting point for researchers, engineers, and the wider scientific community.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;&lt;span data-ccp-props=&quot;{}&quot;&gt;The role&lt;/span&gt;&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;Nebius Science is looking for an &lt;strong&gt;AI Science Writer &lt;/strong&gt;based in the EU. This is an ongoing &lt;strong&gt;contract role&lt;/strong&gt; with a fixed monthly retainer and opportunities for growth, including the potential to transition to a full-time position at Nebius.&lt;/p&gt;\n&lt;p&gt;You may be an AI/ML researcher or engineer who moved into journalism, a computer science graduate with substantial editorial experience, or a technical writer who has worked directly with research teams. Whatever your path, you should be able to read a technical paper, understand the underlying method, assess its limitations, and turn it into a clear and compelling story.&lt;/p&gt;\n&lt;p&gt;A central part of the role will be producing weekly reviews of new AI models, architectures, and in-house research. You should be able to identify what is genuinely new and explain how it works creatively across a range of formats.&lt;/p&gt;\n&lt;p&gt;These reviews can be visual as well as written. You will be expected to develop clear, engaging infographics, diagrams, charts, and other multimedia elements, creating them yourself by using AI tools where appropriate or working with designers and multimedia producers.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;Your responsibilities will include:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;134233117&amp;quot;:true,&amp;quot;134233118&amp;quot;:true}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Produce scientific and technical reviews of new AI models, architectures, papers, in-house research and trends.&lt;/li&gt;\n&lt;li&gt;Turn model architectures and complex technical ideas into clear visual narratives by developing infographics, diagrams, charts, and other multimedia components for your stories.&lt;/li&gt;\n&lt;li&gt;Interview researchers, engineers, founders, and scientific leaders.&lt;/li&gt;\n&lt;li&gt;Cover major research conferences, emerging fields, and important debates across the AI ecosystem.&lt;/li&gt;\n&lt;li&gt;Write and edit across formats, including analytical reports, features, interviews, explainers, newsletters, webinar scripts, and social content.&lt;/li&gt;\n&lt;li&gt;Host or moderate research webinars, interviews, and other on-camera formats.&lt;/li&gt;\n&lt;li&gt;Work with researchers to verify technical claims while preserving a clear editorial voice.&lt;/li&gt;\n&lt;li&gt;Collaborate with designers and multimedia producers on more complex visual stories.&lt;/li&gt;\n&lt;li&gt;Experiment with models, agents, coding, and automation to improve research, editorial, and visual-production workflows.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;We expect you to have:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;134233117&amp;quot;:true,&amp;quot;134233118&amp;quot;:true}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Have professional or academic experience in AI/ML research, machine learning engineering, or a closely related technical field.&lt;/li&gt;\n&lt;li&gt;Have a degree in computer science, machine learning, mathematics, physics, engineering, computational science, or another relevant technical discipline.&lt;/li&gt;\n&lt;li&gt;Be comfortable reading papers, inspecting model architectures, comparing results, and discussing technical details directly with researchers.&lt;/li&gt;\n&lt;li&gt;Have strong visual instincts and be able to explain technical mechanisms through diagrams, infographics, charts, or other multimedia formats.&lt;/li&gt;\n&lt;li&gt;Write with precision and flair, using LLMs to support your work, not to do the writing for you.&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;Benefits &amp;amp; Perks:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive compensation&lt;/li&gt;\n&lt;li&gt;Career growth and learning opportunities&lt;/li&gt;\n&lt;li&gt;Flexibility and ownership&lt;/li&gt;\n&lt;li&gt;Collaborative and innovative culture&lt;/li&gt;\n&lt;li&gt;Opportunity to work on impactful AI projects&lt;/li&gt;\n&lt;li&gt;International environment and talented teams&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What&#39;s it like to work at Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Fast moving&amp;nbsp;- Bold thinking&amp;nbsp;- Constant growth&amp;nbsp;- Meaningful impact&amp;nbsp;- Trust and real ownership&amp;nbsp;- Opportunity to shape the future of AI&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Equal Opportunity Statement:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is an equal opportunity employer. We are committed to fostering an inclusive and diverse workplace and to providing equal employment opportunities in all aspects of employment. We do not discriminate on the basis of race, color, religion, sex (including pregnancy), national origin, ancestry, age, disability, genetic information, marital status, veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by applicable law.&lt;/p&gt;\n&lt;p&gt;Applicants must be authorized to work in the country in which they apply and will be required to provide proof of employment eligibility as a condition of hire.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;If you need accommodations during the application process, please let us know.&lt;/p&gt;&lt;/div&gt;",
+      "departments": [
+        {
+          "id": 4083733101,
+          "name": "Z Nebius Academy",
+          "child_ids": [],
+          "parent_id": 4091739101
+        }
+      ],
+      "offices": [
+        {
+          "id": 4015840101,
+          "name": "Amsterdam",
+          "location": "Amsterdam, Netherlands",
+          "child_ids": [],
+          "parent_id": 4015839101
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": "http://s101.recruiting.eu.greenhouse.io/ai_opt_out_request/job_post/4981489101/ai_opt_out"
+    },
+    {
+      "absolute_url": "https://careers.nebius.com/?gh_jid=4724503101",
+      "data_compliance": [
+        {
+          "type": "gdpr",
+          "requires_consent": true,
+          "requires_processing_consent": false,
+          "requires_retention_consent": true,
+          "retention_period": 720,
+          "demographic_data_consent_applies": false
+        }
+      ],
+      "internal_job_id": 4404456101,
+      "location": {
+        "name": "Germany; Israel; Netherlands; Prague, Czech Republic; Remote - Europe; United Kingdom"
+      },
+      "metadata": [
+        {
+          "id": 11194679101,
+          "name": "Job Category",
+          "value": "Technology",
+          "value_type": "single_select"
+        }
+      ],
+      "id": 4724503101,
+      "updated_at": "2026-10-02T17:02:04-04:00",
+      "requisition_id": "852",
+      "title": "Senior Data Engineer",
+      "company_name": "Nebius",
+      "first_published": "2025-12-05T07:14:29-05:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure.&lt;/p&gt;\n&lt;p&gt;Built by engineers, for engineers. From large-scale GPU orchestration to inference optimization, we own the hard problems across compute, storage, networking and applied AI.&lt;/p&gt;\n&lt;p&gt;Listed on Nasdaq (NBIS) and headquartered in Amsterdam, we have a global footprint with R&amp;amp;D hubs across Europe, the UK, North America and Israel. Our team of 1,500+ includes hundreds of engineers with deep expertise across hardware, software and AI R&amp;amp;D.&lt;/p&gt;&lt;/div&gt;&lt;h3&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;The role&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/h3&gt;\n&lt;p&gt;&lt;span data-contrast=&quot;auto&quot;&gt;The Data Engineering team builds and operates the data platform that powers analytics, business intelligence, operational reporting, and data-driven products across Nebius. We ingest data from internal and external systems, develop reliable transformation pipelines and data models, and make trusted datasets available to business and product teams.&lt;br&gt;&lt;br&gt;We are looking for a Senior Data Engineer to own substantial parts of our data platform and deliver complex data products end to end. You will turn ambiguous business needs into pragmatic technical solutions, make architecture and implementation trade-offs, and improve the reliability, scalability, and usability of our data ecosystem.&lt;br&gt;&lt;br&gt;You will work closely with product, platform, and business teams, helping them use data effectively while ensuring that our systems remain maintainable and trustworthy as Nebius grows.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;Your responsibilities&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;134233117&amp;quot;:true,&amp;quot;134233118&amp;quot;:true}&quot;&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Own the design, delivery, and operation of complex data pipelines, datasets, and platform components.&lt;/li&gt;\n&lt;li&gt;Translate business and analytical requirements into scalable data models, reliable data products, and clear technical plans.&lt;/li&gt;\n&lt;li&gt;Design and evolve data architecture, storage, processing, and orchestration patterns for large-scale workloads.&lt;/li&gt;\n&lt;li&gt;Improve data quality, observability, lineage, and incident response for critical datasets and pipelines.&lt;/li&gt;\n&lt;li&gt;Investigate and resolve challenging performance, reliability, and data-correctness issues in production.&lt;/li&gt;\n&lt;li&gt;Establish reusable tools, conventions, and automation that improve engineering productivity and reduce operational risk.&lt;/li&gt;\n&lt;li&gt;Work with product teams and business stakeholders to define data contracts, priorities, and success criteria.&lt;/li&gt;\n&lt;li&gt;Contribute to technical direction through design reviews, thoughtful trade-offs, and documentation.&lt;/li&gt;\n&lt;li&gt;Support and mentor other engineers through reviews, pairing, and knowledge sharing.&lt;/li&gt;\n&lt;li&gt;Participate in the on-call rotation and take ownership of improving the operational health of the systems you support.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;Must-haves&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul class=&quot;p-rich_text_list p-rich_text_list__bullet p-rich_text_list--nested&quot; data-stringify-type=&quot;unordered-list&quot; data-list-tree=&quot;true&quot; data-indent=&quot;0&quot; data-border=&quot;0&quot;&gt;\n&lt;li&gt;5+ years of experience in data engineering, backend engineering, or a related role; or equivalent experience delivering and operating production data systems.&lt;/li&gt;\n&lt;li&gt;Proven experience independently delivering complex data pipelines or data-platform capabilities from problem definition through production operation.&lt;/li&gt;\n&lt;li&gt;Strong Python and SQL skills, including writing maintainable production code and optimizing non-trivial queries.&lt;/li&gt;\n&lt;li&gt;Hands-on experience with workflow orchestration tools such as Airflow, Prefect, or Dagster.&lt;/li&gt;\n&lt;li&gt;Strong understanding of data modeling, including designing maintainable analytical models and data contracts for multiple consumers.&lt;/li&gt;\n&lt;li&gt;Solid knowledge of data architectures and storage systems, including the trade-offs between different processing and storage approaches.&lt;/li&gt;\n&lt;li&gt;Experience designing for reliability: testing, monitoring, data-quality validation, alerting, debugging, and incident resolution.&lt;/li&gt;\n&lt;li&gt;Ability to make technical decisions under ambiguity, explain trade-offs clearly, and collaborate effectively with engineers and non-technical stakeholder&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;auto&quot;&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;Nice&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;-&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;to&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;-&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;have&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;s&lt;/span&gt;&lt;span data-ccp-charstyle=&quot;Strong&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Experience with real-time or event-driven data platforms and streaming technologies.&lt;/li&gt;\n&lt;li&gt;Experience building or operating cloud-native services with Docker and Kubernetes.&lt;/li&gt;\n&lt;li&gt;Familiarity with Infrastructure as Code, particularly Terraform.&lt;/li&gt;\n&lt;li&gt;Experience with data governance, access control, privacy, and compliance requirements such as GDPR or SOC 2.&lt;/li&gt;\n&lt;li&gt;Experience with data observability and quality tools or frameworks, such as Great Expectations.&lt;/li&gt;\n&lt;li&gt;Experience improving engineering standards through shared libraries, platform tooling, technical documentation, or mentoring.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;span data-ccp-props=&quot;{}&quot;&gt;&lt;em data-stringify-type=&quot;italic&quot;&gt;We conduct coding interviews as part of the process.&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;Benefits &amp;amp; Perks:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive compensation&lt;/li&gt;\n&lt;li&gt;Career growth and learning opportunities&lt;/li&gt;\n&lt;li&gt;Flexibility and ownership&lt;/li&gt;\n&lt;li&gt;Collaborative and innovative culture&lt;/li&gt;\n&lt;li&gt;Opportunity to work on impactful AI projects&lt;/li&gt;\n&lt;li&gt;International environment and talented teams&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What&#39;s it like to work at Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Fast moving&amp;nbsp;- Bold thinking&amp;nbsp;- Constant growth&amp;nbsp;- Meaningful impact&amp;nbsp;- Trust and real ownership&amp;nbsp;- Opportunity to shape the future of AI&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Equal Opportunity Statement:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is an equal opportunity employer. We are committed to fostering an inclusive and diverse workplace and to providing equal employment opportunities in all aspects of employment. We do not discriminate on the basis of race, color, religion, sex (including pregnancy), national origin, ancestry, age, disability, genetic information, marital status, veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by applicable law.&lt;/p&gt;\n&lt;p&gt;Applicants must be authorized to work in the country in which they apply and will be required to provide proof of employment eligibility as a condition of hire.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;If you need accommodations during the application process, please let us know.&lt;/p&gt;&lt;/div&gt;",
+      "departments": [
+        {
+          "id": 4032171101,
+          "name": "Technology",
+          "child_ids": [
+            4034215101,
+            4032214101,
+            4032213101,
+            4032211101,
+            4032762101,
+            4032212101,
+            4032215101
+          ],
+          "parent_id": null
+        }
+      ],
+      "offices": [
+        {
+          "id": 4016433101,
+          "name": "Czech Republic",
+          "location": "Prague, Czech Republic",
+          "child_ids": [
+            4016434101
+          ],
+          "parent_id": null
+        },
+        {
+          "id": 4015843101,
+          "name": "Germany",
+          "location": null,
+          "child_ids": [
+            4015844101
+          ],
+          "parent_id": null
+        },
+        {
+          "id": 4015850101,
+          "name": "Israel",
+          "location": null,
+          "child_ids": [
+            4042941101,
+            4042942101,
+            4042943101,
+            4015851101
+          ],
+          "parent_id": null
+        },
+        {
+          "id": 4015839101,
+          "name": "Netherlands",
+          "location": null,
+          "child_ids": [
+            4015840101
+          ],
+          "parent_id": null
+        },
+        {
+          "id": 4015846101,
+          "name": "United Kingdom",
+          "location": null,
+          "child_ids": [
+            4015847101,
+            4052658101,
+            4052659101,
+            4052660101
+          ],
+          "parent_id": null
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": "http://s101.recruiting.eu.greenhouse.io/ai_opt_out_request/job_post/4724503101/ai_opt_out"
+    },
+    {
+      "absolute_url": "https://careers.nebius.com/?gh_jid=4817126101",
+      "data_compliance": [
+        {
+          "type": "gdpr",
+          "requires_consent": true,
+          "requires_processing_consent": false,
+          "requires_retention_consent": true,
+          "retention_period": 720,
+          "demographic_data_consent_applies": false
+        }
+      ],
+      "internal_job_id": 4392733101,
+      "location": {
+        "name": "Netherlands; Remote - Europe"
+      },
+      "metadata": [
+        {
+          "id": 11194679101,
+          "name": "Job Category",
+          "value": "Hardware Infrastructure",
+          "value_type": "single_select"
+        }
+      ],
+      "id": 4817126101,
+      "updated_at": "2026-10-02T17:02:04-04:00",
+      "requisition_id": "727",
+      "title": "Technical Program Manager - New Data Center Launches",
+      "company_name": "Nebius",
+      "first_published": "2026-03-19T11:31:29-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure.&lt;/p&gt;\n&lt;p&gt;Built by engineers, for engineers. From large-scale GPU orchestration to inference optimization, we own the hard problems across compute, storage, networking and applied AI.&lt;/p&gt;\n&lt;p&gt;Listed on Nasdaq (NBIS) and headquartered in Amsterdam, we have a global footprint with R&amp;amp;D hubs across Europe, the UK, North America and Israel. Our team of 1,500+ includes hundreds of engineers with deep expertise across hardware, software and AI R&amp;amp;D.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;The role&lt;/strong&gt;&lt;br&gt;&lt;br&gt;As a Technical Project Manager, you will own the delivery of a defined workstream within large-scale data center and GPU infrastructure programs. In this role you’ll be responsible for tracking progress, managing dependencies, and ensuring your workstream is delivered on time and at quality.&lt;br&gt;This is a hands-on role at the intersection of infrastructure, execution, and coordination, with strong exposure to real-world data center delivery.&lt;br&gt;Travel: On-site presence at data centers will be required during key deployment phases.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Your responsibilities will include:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Own delivery of a defined workstream within a larger data center or infrastructure program.&lt;/li&gt;\n&lt;li&gt;Track scope, schedule, and dependencies, escalating risks when needed.&lt;/li&gt;\n&lt;li&gt;Coordinate with engineering, networking, construction, and operations teams.&lt;/li&gt;\n&lt;li&gt;Maintain clear and structured reporting on progress, risks, and blockers.&lt;/li&gt;\n&lt;li&gt;Support vendor and contractor coordination within your scope.&lt;/li&gt;\n&lt;li&gt;Work closely with the Senior TPM to align on priorities and execution approach.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;Technical Scope &amp;amp; Expectations&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;This role requires exposure to physical infrastructure environments, not only software-based projects.&lt;br&gt;You should be comfortable working with or learning about:&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;strong&gt;Data center environments: &lt;/strong&gt;basic understanding of infrastructure readiness (power, cooling, space, networking dependencies).&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Compute infrastructure:&lt;/strong&gt; knowledge about server and storage equipment.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Networking:&lt;/strong&gt; cabling, connectivity, and integration dependencies.&lt;/li&gt;\n&lt;li&gt;&lt;strong&gt;Deployment &amp;amp; bring-up:&lt;/strong&gt; understanding how systems move from installation to operational readiness.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;You are not expected to be an expert, but you should:&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Be willing to learn technical concepts quickly.&lt;/li&gt;\n&lt;li&gt;Understand how different parts of infrastructure depend on each other.&lt;/li&gt;\n&lt;li&gt;Identify when something is not ready or at risk and escalate appropriately.&lt;/li&gt;\n&lt;li&gt;Communicate effectively with technical teams.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;We expect you to have:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;2–5 years of experience in project management, operations, or technical coordination roles.&lt;/li&gt;\n&lt;li&gt;Ability to organize work, track progress, and manage multiple tasks simultaneously.&lt;/li&gt;\n&lt;li&gt;communication skills and ability to work with cross-functional teams.&lt;/li&gt;\n&lt;li&gt;Structured thinking and attention to details.&lt;/li&gt;\n&lt;li&gt;Willingness to learn and grow in a fast-paced, technical environment.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;It will be an added bonus if you have&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Exposure to data center, networking, or hardware-related projects,&lt;/li&gt;\n&lt;li&gt;Familiarity with project management tools (Jira, Asana, etc.),&lt;/li&gt;\n&lt;li&gt;Understanding of cloud environments infrastructure,&lt;/li&gt;\n&lt;li&gt;Certifications or coursework in project management.&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;Benefits &amp;amp; Perks:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive compensation&lt;/li&gt;\n&lt;li&gt;Career growth and learning opportunities&lt;/li&gt;\n&lt;li&gt;Flexibility and ownership&lt;/li&gt;\n&lt;li&gt;Collaborative and innovative culture&lt;/li&gt;\n&lt;li&gt;Opportunity to work on impactful AI projects&lt;/li&gt;\n&lt;li&gt;International environment and talented teams&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What&#39;s it like to work at Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Fast moving&amp;nbsp;- Bold thinking&amp;nbsp;- Constant growth&amp;nbsp;- Meaningful impact&amp;nbsp;- Trust and real ownership&amp;nbsp;- Opportunity to shape the future of AI&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Equal Opportunity Statement:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is an equal opportunity employer. We are committed to fostering an inclusive and diverse workplace and to providing equal employment opportunities in all aspects of employment. We do not discriminate on the basis of race, color, religion, sex (including pregnancy), national origin, ancestry, age, disability, genetic information, marital status, veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by applicable law.&lt;/p&gt;\n&lt;p&gt;Applicants must be authorized to work in the country in which they apply and will be required to provide proof of employment eligibility as a condition of hire.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;If you need accommodations during the application process, please let us know.&lt;/p&gt;&lt;/div&gt;",
+      "departments": [
+        {
+          "id": 4033675101,
+          "name": "Infrastructure",
+          "child_ids": [
+            4074035101,
+            4074031101,
+            4033674101,
+            4054919101,
+            4036074101,
+            4092151101,
+            4092149101,
+            4092153101,
+            4092297101,
+            4092152101,
+            4092154101,
+            4092294101,
+            4074028101,
+            4092296101,
+            4092295101,
+            4092419101,
+            4092196101,
+            4074036101,
+            4074040101,
+            4074037101,
+            4074041101,
+            4092211101,
+            4092210101,
+            4074038101,
+            4074027101,
+            4092205101,
+            4092206101,
+            4060320101,
+            4092202101,
+            4092198101,
+            4092200101,
+            4092197101,
+            4092201101,
+            4092199101,
+            4092203101,
+            4074033101,
+            4074034101,
+            4074032101,
+            4092298101,
+            4092300101,
+            4092299101,
+            4092204101,
+            4092343101,
+            4092342101,
+            4074042101,
+            4092341101,
+            4092340101,
+            4092212101,
+            4092314101,
+            4092313101,
+            4092316101,
+            4092315101,
+            4092344101,
+            4092345101,
+            4092309101,
+            4092307101,
+            4092311101,
+            4092306101,
+            4092308101,
+            4092310101,
+            4092312101
+          ],
+          "parent_id": 4032207101
+        }
+      ],
+      "offices": [
+        {
+          "id": 4015839101,
+          "name": "Netherlands",
+          "location": null,
+          "child_ids": [
+            4015840101
+          ],
+          "parent_id": null
+        },
+        {
+          "id": 4015848101,
+          "name": "Remote - Europe",
+          "location": null,
+          "child_ids": [],
+          "parent_id": 4015893101
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": "http://s101.recruiting.eu.greenhouse.io/ai_opt_out_request/job_post/4817126101/ai_opt_out"
+    },
+    {
+      "absolute_url": "https://careers.nebius.com/?gh_jid=4965522101",
+      "data_compliance": [
+        {
+          "type": "gdpr",
+          "requires_consent": true,
+          "requires_processing_consent": false,
+          "requires_retention_consent": true,
+          "retention_period": 720,
+          "demographic_data_consent_applies": false
+        }
+      ],
+      "internal_job_id": 4517832101,
+      "location": {
+        "name": "Remote - Europe"
+      },
+      "metadata": [
+        {
+          "id": 11194679101,
+          "name": "Job Category",
+          "value": "Technology",
+          "value_type": "single_select"
+        }
+      ],
+      "id": 4965522101,
+      "updated_at": "2026-10-02T17:02:04-04:00",
+      "requisition_id": "2175",
+      "title": "Application Integration Developer",
+      "company_name": "Nebius",
+      "first_published": "2026-09-07T08:45:29-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure.&lt;/p&gt;\n&lt;p&gt;Built by engineers, for engineers. From large-scale GPU orchestration to inference optimization, we own the hard problems across compute, storage, networking and applied AI.&lt;/p&gt;\n&lt;p&gt;Listed on Nasdaq (NBIS) and headquartered in Amsterdam, we have a global footprint with R&amp;amp;D hubs across Europe, the UK, North America and Israel. Our team of 1,500+ includes hundreds of engineers with deep expertise across hardware, software and AI R&amp;amp;D.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;Your responsibilities will include:&lt;/div&gt;\n&lt;ul&gt;\n&lt;li&gt;Develop and maintain Python-based API integrations between our HR information system (HRIS) and business systems, including finance, travel, expense management, and recruiting platforms.&lt;/li&gt;\n&lt;li&gt;Build and maintain cloud-native services, web applications, and containerized workloads on Microsoft Azure.&lt;/li&gt;\n&lt;li&gt;Implement automation for system workflows, onboarding/offboarding, access-related processes, and data synchronization.&lt;/li&gt;\n&lt;li&gt;Create and maintain deployment pipelines and Infrastructure-as-Code with Terraform.&lt;/li&gt;\n&lt;li&gt;Own integrations through implementation, testing, deployment, and production support; respond to alerts and troubleshoot issues across APIs, Azure services, and data sources within agreed SLAs.&lt;/li&gt;\n&lt;li&gt;Implement safeguards for sensitive employee data, including validation, audit trails, and controls around mass changes.&lt;/li&gt;\n&lt;li&gt;Work with business stakeholders to clarify requirements and maintain technical documentation as part of each change.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div&gt;We expect you to have:&lt;/div&gt;\n&lt;ul&gt;\n&lt;li&gt;3+ years of integration or backend development experience, including hands-on experience deploying and supporting production workloads in Microsoft Azure.&lt;/li&gt;\n&lt;li&gt;Practical experience with Azure compute and integration services. Our stack includes Azure Functions, App Service, Container Apps, Container Instances, Service Bus, and API Management.&lt;/li&gt;\n&lt;li&gt;Practical Python development skills, including maintaining and debugging existing services and automations.&lt;/li&gt;\n&lt;li&gt;Experience integrating REST APIs, webhooks, and Microsoft Graph API, with an understanding of pagination, rate limits, retries, and idempotency.&lt;/li&gt;\n&lt;li&gt;Experience working with CI/CD pipelines and Terraform for Azure deployments.&lt;/li&gt;\n&lt;li&gt;Good understanding of OAuth 2.0, Microsoft Entra ID, and managed identities for secure authentication and service-to-service access.&lt;/li&gt;\n&lt;li&gt;Experience designing and working with relational databases (PostgreSQL, MSSQL, etc.).&lt;/li&gt;\n&lt;li&gt;Experience with automated testing and diagnosing production issues through logs, monitoring, and alerts.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;div&gt;It will be an added bonus if you have:&lt;/div&gt;\n&lt;ul&gt;\n&lt;li&gt;Experience integrating HRIS or other business systems, such as ERP, expense management, or recruiting platforms.&lt;/li&gt;\n&lt;li&gt;Azure certifications (AZ-204, AZ-900, AZ-104).&lt;/li&gt;\n&lt;li&gt;Hands-on experience with Application Insights and Log Analytics.&lt;/li&gt;\n&lt;li&gt;Experience using AI-assisted development tools, with the ability to critically evaluate their output.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;span style=&quot;color: rgb(236, 240, 241);&quot;&gt;#LI-RK1&lt;/span&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;Benefits &amp;amp; Perks:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive compensation&lt;/li&gt;\n&lt;li&gt;Career growth and learning opportunities&lt;/li&gt;\n&lt;li&gt;Flexibility and ownership&lt;/li&gt;\n&lt;li&gt;Collaborative and innovative culture&lt;/li&gt;\n&lt;li&gt;Opportunity to work on impactful AI projects&lt;/li&gt;\n&lt;li&gt;International environment and talented teams&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What&#39;s it like to work at Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Fast moving&amp;nbsp;- Bold thinking&amp;nbsp;- Constant growth&amp;nbsp;- Meaningful impact&amp;nbsp;- Trust and real ownership&amp;nbsp;- Opportunity to shape the future of AI&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Equal Opportunity Statement:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is an equal opportunity employer. We are committed to fostering an inclusive and diverse workplace and to providing equal employment opportunities in all aspects of employment. We do not discriminate on the basis of race, color, religion, sex (including pregnancy), national origin, ancestry, age, disability, genetic information, marital status, veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by applicable law.&lt;/p&gt;\n&lt;p&gt;Applicants must be authorized to work in the country in which they apply and will be required to provide proof of employment eligibility as a condition of hire.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;If you need accommodations during the application process, please let us know.&lt;/p&gt;&lt;/div&gt;",
+      "departments": [
+        {
+          "id": 4054516101,
+          "name": "IT Infrastructure",
+          "child_ids": [
+            4092193101,
+            4092194101
+          ],
+          "parent_id": 4033676101
+        }
+      ],
+      "offices": [
+        {
+          "id": 4015840101,
+          "name": "Amsterdam",
+          "location": "Amsterdam, Netherlands",
+          "child_ids": [],
+          "parent_id": 4015839101
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": "http://s101.recruiting.eu.greenhouse.io/ai_opt_out_request/job_post/4965522101/ai_opt_out"
+    },
+    {
+      "absolute_url": "https://careers.nebius.com/?gh_jid=4987727101",
+      "data_compliance": [
+        {
+          "type": "gdpr",
+          "requires_consent": true,
+          "requires_processing_consent": false,
+          "requires_retention_consent": true,
+          "retention_period": 720,
+          "demographic_data_consent_applies": false
+        }
+      ],
+      "internal_job_id": 4528513101,
+      "location": {
+        "name": "London, United Kingdom; Remote - Europe"
+      },
+      "metadata": [
+        {
+          "id": 11194679101,
+          "name": "Job Category",
+          "value": "HR",
+          "value_type": "single_select"
+        }
+      ],
+      "id": 4987727101,
+      "updated_at": "2026-10-02T17:02:04-04:00",
+      "requisition_id": "2281",
+      "title": "Head of Employee Relations",
+      "company_name": "Nebius",
+      "first_published": "2026-09-28T03:30:05-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure.&lt;/p&gt;\n&lt;p&gt;Built by engineers, for engineers. From large-scale GPU orchestration to inference optimization, we own the hard problems across compute, storage, networking and applied AI.&lt;/p&gt;\n&lt;p&gt;Listed on Nasdaq (NBIS) and headquartered in Amsterdam, we have a global footprint with R&amp;amp;D hubs across Europe, the UK, North America and Israel. Our team of 1,500+ includes hundreds of engineers with deep expertise across hardware, software and AI R&amp;amp;D.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;The Role&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span data-contrast=&quot;auto&quot;&gt;The Head of Employee Relations will define and lead our global approach to employee relations and performance management. Combining strategic leadership with operational expertise, the role will ensure employee matters are handled consistently, fairly and within applicable legal requirements.&lt;/span&gt; &lt;span data-contrast=&quot;auto&quot;&gt;The role will build effective relationships with works councils and other employee representative bodies and partner closely with senior leaders, People teams and employment lawyers.&amp;nbsp;&lt;/span&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;Responsibilities&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;none&quot;&gt;Employee Relations and Performance Management strategy and governance&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Define and implement the organisation’s employee relations and performance management strategy, principles and operating model.&lt;/span&gt;&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;Define the organisation’s approach to performance management, including the effective management of underperformance.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;Establish clear, practical policies, processes and templates for performance concerns, grievances, disciplinary matters and other employee relations cases.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;Provide senior oversight and advice on complex, sensitive or high-risk cases.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;Help managers address concerns early, set clear expectations and reach fair, proportionate outcomes.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;Ensure practices are applied consistently while accommodating local legal requirements.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;Identify recurring themes and recommend preventative or organisation-wide action.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;1&quot; data-aria-level=&quot;1&quot;&gt;Partner with relevant People teams to align employee relations and performance practices with the broader talent and reward strategy.&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;none&quot;&gt;Works Council and employee representation&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;2&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Build constructive relationships with works councils, employee forums and other representative bodies.&lt;/span&gt;&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;2&quot; data-aria-level=&quot;1&quot;&gt;Define the organisation’s approach to engaging, informing and consulting with employee representatives.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;2&quot; data-aria-level=&quot;1&quot;&gt;Advise leaders on consultation requirements, timelines and communications, particularly during organisational change.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;2&quot; data-aria-level=&quot;1&quot;&gt;Support consultation and negotiation processes and ensure agreed actions are implemented.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;2&quot; data-aria-level=&quot;1&quot;&gt;Build internal capability so that leaders and People teams engage with representative bodies confidently and consistently.&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;none&quot;&gt;Legal and risk management&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;3&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Partner with in-house and external employment lawyers to ensure decisions and processes operate within applicable legal thresholds.&lt;/span&gt;&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;3&quot; data-aria-level=&quot;1&quot;&gt;Translate legal advice into clear and commercially practical recommendations.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;3&quot; data-aria-level=&quot;1&quot;&gt;Monitor relevant employment law developments and update organisational practices where required.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;3&quot; data-aria-level=&quot;1&quot;&gt;Identify and manage the legal, financial and reputational risks associated with employee matters.&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-contrast=&quot;none&quot;&gt;Leadership and capability&lt;/span&gt;&lt;/strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559739&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;4&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Act as a trusted advisor to senior leaders, People partners and Legal.&lt;/span&gt;&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;4&quot; data-aria-level=&quot;1&quot;&gt;Build manager and People-team capability through clear guidance, training and coaching.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;4&quot; data-aria-level=&quot;1&quot;&gt;Establish appropriate case-management, governance and reporting standards.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;42&quot; data-list-defn-props=&quot;{&amp;quot;335551500&amp;quot;:0,&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;4&quot; data-aria-level=&quot;1&quot;&gt;Use case data and employee insights to identify trends, risks and areas for improvement.&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;What you bring&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Significant senior-level experience in employee relations, employment law, HR or a related discipline.&lt;/span&gt;&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;Experience defining and implementing an employee relations strategy or operating model.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;Strong knowledge of performance management, investigations, disciplinary and grievance processes, organisational change and dispute resolution.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;Experience working with works councils, employee representatives or trade unions, ideally across multiple jurisdictions.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;Strong employment law knowledge and experience working with internal or external legal counsel.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;Sound judgement and the ability to balance legal risk, employee experience, organisational values and commercial priorities.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;Strong influencing, negotiation and stakeholder-management skills.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;Comfortable working both strategically and hands-on with complex cases.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;13&quot; data-aria-level=&quot;1&quot;&gt;Experience leading a team or specialist function is desirable.&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;What success looks like&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;22&quot; data-aria-level=&quot;1&quot;&gt;&lt;span data-contrast=&quot;auto&quot;&gt;Employee relations and performance matters are handled consistently, fairly and efficiently.&lt;/span&gt;&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;22&quot; data-aria-level=&quot;1&quot;&gt;Managers and People teams have clear, practical guidance and tools.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;22&quot; data-aria-level=&quot;1&quot;&gt;Works council and employee representative relationships are constructive and well managed.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;22&quot; data-aria-level=&quot;1&quot;&gt;Legal and organisational risks are identified early and managed appropriately.&lt;/li&gt;\n&lt;li data-leveltext=&quot;&quot; data-font=&quot;Symbol&quot; data-listid=&quot;7&quot; data-list-defn-props=&quot;{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:720,&amp;quot;335559991&amp;quot;:360,&amp;quot;469769226&amp;quot;:&amp;quot;Symbol&amp;quot;,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}&quot; data-aria-posinset=&quot;22&quot; data-aria-level=&quot;1&quot;&gt;Employee relations insights lead to meaningful improvements across the organisation.&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559738&amp;quot;:240,&amp;quot;335559739&amp;quot;:240}&quot;&gt;&lt;span data-ccp-props=&quot;{&amp;quot;335559685&amp;quot;:284,&amp;quot;335559991&amp;quot;:284,&amp;quot;469777462&amp;quot;:[720,284],&amp;quot;469777927&amp;quot;:[0,0],&amp;quot;469777928&amp;quot;:[0,8]}&quot;&gt;&lt;span data-ccp-props=&quot;{}&quot;&gt;#LI-CH1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;Benefits &amp;amp; Perks:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Competitive compensation&lt;/li&gt;\n&lt;li&gt;Career growth and learning opportunities&lt;/li&gt;\n&lt;li&gt;Flexibility and ownership&lt;/li&gt;\n&lt;li&gt;Collaborative and innovative culture&lt;/li&gt;\n&lt;li&gt;Opportunity to work on impactful AI projects&lt;/li&gt;\n&lt;li&gt;International environment and talented teams&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What&#39;s it like to work at Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Fast moving&amp;nbsp;- Bold thinking&amp;nbsp;- Constant growth&amp;nbsp;- Meaningful impact&amp;nbsp;- Trust and real ownership&amp;nbsp;- Opportunity to shape the future of AI&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Equal Opportunity Statement:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is an equal opportunity employer. We are committed to fostering an inclusive and diverse workplace and to providing equal employment opportunities in all aspects of employment. We do not discriminate on the basis of race, color, religion, sex (including pregnancy), national origin, ancestry, age, disability, genetic information, marital status, veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by applicable law.&lt;/p&gt;\n&lt;p&gt;Applicants must be authorized to work in the country in which they apply and will be required to provide proof of employment eligibility as a condition of hire.&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;If you need accommodations during the application process, please let us know.&lt;/p&gt;&lt;/div&gt;",
+      "departments": [
+        {
+          "id": 4032188101,
+          "name": "Country HR Operations",
+          "child_ids": [],
+          "parent_id": 4092350101
+        }
+      ],
+      "offices": [
+        {
+          "id": 4015846101,
+          "name": "United Kingdom",
+          "location": null,
+          "child_ids": [
+            4015847101,
+            4052658101,
+            4052659101,
+            4052660101
+          ],
+          "parent_id": null
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": "http://s101.recruiting.eu.greenhouse.io/ai_opt_out_request/job_post/4987727101/ai_opt_out"
+    }
+  ],
+  "meta": {
+    "total": 5
+  }
+}

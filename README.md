@@ -34,6 +34,19 @@ nebius: 361 fetched, 361 new
 total: 590 fetched, 590 new
 ```
 
+List jobs first seen in the most recent `fetch` that pass the location filter:
+
+```bash
+python -m job_agent new
+python -m job_agent new --since 2026-10-01   # everything first seen since then
+```
+
+`--since` takes an ISO date or datetime (naive values are UTC). Use it when a
+second `fetch`, or one where every company failed, would hide earlier results.
+Output is tab-separated: company, title, location, category, url. Jobs whose
+location is only "Netherlands" (or a remote variant) are listed last and
+marked `[location unclear]`.
+
 ## Configuration
 
 ```yaml
@@ -52,11 +65,19 @@ companies:
 Set `category_from: departments` or `category_metadata_field: <name>` to choose
 where the category comes from. If neither is set, `category` is empty.
 
+`location_filter` (see `companies.yaml`) is applied only by `new`; every job
+is stored. Keywords are case-insensitive whole words, checked against each
+`;`-separated part of a location. `match` keywords show the job; a part that
+is only an `unclear` keyword plus "Remote"/"Hybrid" shows it as unclear.
+"Eindhoven, Netherlands" and "Remote - Europe" are excluded. Without a
+`location_filter` section, `new` shows all new jobs.
+
 ## Storage
 
 The table `jobs` has primary key `(source, company, source_id)`. Recency uses
 `first_published`, which comes from the source. `updated_at` is not used.
-`first_seen_at` is the UTC time when this tool first stored the job.
+`first_seen_at` is the UTC time when this tool first stored the job. The
+table `runs` records when each `fetch` started.
 
 ## Tests
 

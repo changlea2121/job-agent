@@ -12,3 +12,29 @@ companies:
     source: greenhouse
     board_token: nebius
     category_metadata_field: Job Category
+
+# Applied by `job_agent new` at output time; all jobs are stored regardless.
+# Case-insensitive, whole words, checked per ";"-separated location.
+#   match:   any of these -> the job is shown
+#   unclear: only one of these (plus "Remote"/"Hybrid") -> shown, marked
+#            "location unclear". "Eindhoven, Netherlands" is not unclear.
+location_filter:
+  match:
+    - amsterdam
+    - amstelveen
+    - schiphol
+    - hoofddorp
+    - haarlemmermeer
+    - haarlem
+    - leiden
+    - the hague
+    - den haag
+    - "'s-gravenhage"
+    - rijswijk
+    - delft
+    - zoetermeer
+    - rotterdam
+    - utrecht
+  unclear:
+    - netherlands
+    - nederland

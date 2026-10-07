@@ -3,6 +3,8 @@ from pathlib import Path
 
 import yaml
 
+from .location import LocationFilter
+
 CATEGORY_SOURCES = ("metadata", "departments")
 
 
@@ -31,7 +33,21 @@ class CompanyConfig:
             )
 
 
-def load_companies(path: str | Path) -> list[CompanyConfig]:
+@dataclass(frozen=True)
+class Config:
+    companies: list[CompanyConfig]
+    location_filter: LocationFilter | None  # None: no location filtering
+
+
+def load_config(path: str | Path) -> Config:
     with open(path, encoding="utf-8") as f:
         data = yaml.safe_load(f) or {}
-    return [CompanyConfig(**entry) for entry in data.get("companies", [])]
+    companies = [CompanyConfig(**entry) for entry in data.get("companies", [])]
+    raw_filter = data.get("location_filter")
+    if raw_filter is not None and not isinstance(raw_filter, dict):
+        raise ValueError("location_filter must be a mapping with 'match' and 'unclear'")
+    unknown = set(raw_filter or {}) - {"match", "unclear"}
+    if unknown:
+        raise ValueError(f"location_filter: unknown keys {sorted(unknown)}")
+    location_filter = LocationFilter(**raw_filter) if raw_filter is not None else None
+    return Config(companies=companies, location_filter=location_filter)
