@@ -145,6 +145,12 @@ def test_repo_config_excludes_known_categories():
 @pytest.mark.parametrize("title, expected", [
     ("Business Analyst - Operations", "business analyst"),  # real adyen title
     ("Business  Analyst Intern", "business analyst"),
+    # Real nebius titles.
+    ("Help Desk Technician (Tier 1)", "technician"),
+    ("Advanced IT Technician", "technician"),
+    ("L2 IT technician (project tasks)", "technician"),
+    ("Technical Program Manager", None),  # not a whole-word match
+    ("Technology Risk Specialist", None),
     # Left to labelling: whether these fit depends on the work.
     ("Data Analyst", None),
     ("Data Scientist", None),

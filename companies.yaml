@@ -56,9 +56,11 @@ companies:
       - Operations
       - Supply Chain and Procurement
       - Design
-    boilerplate:  # each appears in every nebius posting
+    # The first group appears in every nebius posting; the rest are older or
+    # team-specific intro variants, each in 3-15 postings.
+    boilerplate:
       - About Nebius
-      - Nebius is leading a new era in cloud infrastructure
+      - Nebius is leading a new era in cloud  # "... infrastructure" and "... computing"
       - Built by engineers, for engineers
       - Listed on Nasdaq (NBIS)
       - What's it like to work at Nebius
@@ -74,6 +76,18 @@ companies:
       - Nebius is an equal opportunity employer
       - Applicants must be authorized to work in the country
       - If you need accommodations during the application process
+      - Nebius AI is built with the talent of more than 500 highly skilled engineers
+      - Headquartered in Amsterdam and listed on Nasdaq, Nebius has a global footprint
+      - headquarters are in Amsterdam, Netherlands, with teams working out of R&D hubs
+      - Nebius AI owns a data center in Finland
+      - Nebius AI is an AI cloud platform with one of the largest GPU capacities
+      - Why work at Nebius
+      - Why Join Nebius
+      - Join Nebius Today!
+      - growing and expanding our products every day
+      - About Tavily
+      - Why Tavily?
+      - Tavily, part of Nebius, is the web access layer for AI agents
 
 # Applied by `job_agent new` at output time to all companies. Case-insensitive,
 # whole words: "sr" matches "Sr." but not "SRE". `exceptions` are phrases
@@ -114,6 +128,7 @@ title_filter:
   # labelling: whether they fit depends on the actual work.
   exclude_titles:
     - business analyst
+    - technician  # IT helpdesk, data center, cabling: physical/IT support work
 
 # Applied by `job_agent new` at output time; all jobs are stored regardless.
 # Case-insensitive, whole words, checked per ";"-separated location.

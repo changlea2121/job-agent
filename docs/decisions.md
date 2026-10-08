@@ -287,3 +287,17 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** Skipping a fixed number of characters at the start (intros differ in length per company and job); detecting repeated lines automatically from `jobs.db` at review time (no config to maintain, but less predictable, and a company with few postings has no repetition to detect).
 
 **Consequences.** Previews show mostly requirement lines. Boilerplate lists need maintenance when a company changes its template, and a new company starts without one until its repeated lines are added. Generic keywords like "experience" and "master" still match some non-requirement lines.
+
+---
+
+## 20. Exclude technicians by title
+
+**Date:** 2026-10-08 · **Status:** Accepted
+
+**Context.** "Technician" appears in 23 stored Nebius titles: data center, IT, field network, cabling, helpdesk and physical security technicians. All of them are physical-infrastructure or IT-support work, which the labelling guidelines ([docs/labeling.md](labeling.md)) count as wrong direction. Most were already excluded by location or seniority, but "Help Desk Technician (Tier 1)" in Amsterdam was shown by `new` and `review`.
+
+**Decision.** Add `technician` to `title_filter.exclude_titles` (the `title` rule from decision 18). Whole-word matching leaves "Technical ..." and "Technology ..." titles alone.
+
+**Alternatives.** Labelling these jobs `no` / `wrong_direction` one by one (they keep reappearing with each new location); excluding the categories they fall under (Nebius "Hardware Infrastructure" also holds software and SRE roles, see decision 14).
+
+**Consequences.** One more job in the current `jobs.db` is excluded, under `title: technician`, and future technician postings never reach the review queue. A software role titled "technician" would be missed. None exists so far, and `review --excluded --rule title` can spot-check for one.

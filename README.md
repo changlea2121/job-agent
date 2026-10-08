@@ -58,7 +58,9 @@ The last line counts how many jobs each rule excluded.
 ## Labelling
 
 Labels (`yes` / `maybe` / `no`, with reasons) build an evaluation set for
-relevance scoring. Step through unlabelled jobs that pass the filters:
+relevance scoring. How to choose labels and reasons is described in
+[docs/labeling.md](docs/labeling.md). Step through unlabelled jobs that pass
+the filters:
 
 ```bash
 python -m job_agent review                         # all stored jobs

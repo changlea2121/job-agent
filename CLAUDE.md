@@ -50,3 +50,5 @@ python3 -m venv .venv && .venv/bin/pip install -e '.[dev]'   # setup (venv, not 
   changes a design decision, append a new numbered entry (Date, Status,
   Context, Decision, Alternatives, Consequences). Never delete or rewrite an
   old entry's decision; mark it "Superseded by N" and link the new one.
+- **Labelling guidelines are in `docs/labeling.md`.** Follow them when
+  labelling or when changing `label_reasons`, and keep the two consistent.
