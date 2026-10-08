@@ -129,6 +129,8 @@ title_filter:
   exclude_titles:
     - business analyst
     - technician  # IT helpdesk, data center, cabling: physical/IT support work
+    - mechanical  # data center design and operations
+    - electrical
 
 # Applied by `job_agent new` at output time; all jobs are stored regardless.
 # Case-insensitive, whole words, checked per ";"-separated location.

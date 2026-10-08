@@ -204,6 +204,8 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 
 **Consequences.** Some irrelevant jobs remain in the output. Rules are checkable and adjustable without code changes.
 
+**Outcome (2026-10-08).** The 7 Nebius "Hardware Infrastructure" jobs kept by restoring the category (all in Amsterdam, first seen 2026-10-06) were labelled 2 yes (Site Reliability Engineer in Hardware Infrastructure; SRE - Early Talent), 1 maybe (SRE in Network Infrastructure), and 4 no. Of the 4 no, three Software Engineer roles in Hardware/Network Infrastructure are `experience_required`, and the L3 Support Engineer is `wrong_direction`. Six of the seven were the right direction and three were worth applying to, so restoring the category was correct. Physical-infrastructure titles that arrived later under the same category are handled by title rules (decisions 20 and 21), not by excluding the category.
+
 ---
 
 ## 15. Relevance scoring does not need training data, but evaluation does
@@ -301,3 +303,17 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** Labelling these jobs `no` / `wrong_direction` one by one (they keep reappearing with each new location); excluding the categories they fall under (Nebius "Hardware Infrastructure" also holds software and SRE roles, see decision 14).
 
 **Consequences.** One more job in the current `jobs.db` is excluded, under `title: technician`, and future technician postings never reach the review queue. A software role titled "technician" would be missed. None exists so far, and `review --excluded --rule title` can spot-check for one.
+
+---
+
+## 21. Exclude mechanical and electrical titles
+
+**Date:** 2026-10-08 · **Status:** Accepted
+
+**Context.** After all kept jobs were labelled, the Amsterdam "Electrical Design Engineer (MV/HV)" and "Mechanical Design Engineer" postings were both labelled `no` / `wrong_direction`. `jobs.db` holds 15 titles containing "mechanical" or "electrical", all Nebius data center design or operations roles (mostly under "Hardware Infrastructure", one under "Product"), reposted per location. They are physical infrastructure, which [docs/labeling.md](labeling.md) counts as wrong direction.
+
+**Decision.** Add `mechanical` and `electrical` to `title_filter.exclude_titles` (the `title` rule, decisions 18 and 20). Whole-word matching leaves words such as "electromechanical" alone.
+
+**Alternatives.** Excluding Nebius "Hardware Infrastructure" (would also drop the SRE and software roles that decision 14 restored, see its outcome note); keep labelling these jobs by hand as they reappear per location.
+
+**Consequences.** Data center mechanical and electrical roles never reach the review queue. A software role with one of these words in its title (e.g. "Software Engineer, Electrical Systems Tooling") would be excluded too. None exists so far, and `review --excluded --rule title` can spot-check for one.
