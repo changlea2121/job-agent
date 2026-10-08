@@ -88,6 +88,13 @@ python -m job_agent label adyen:8255817 no --reason dutch_required --reason too_
 python -m job_agent label adyen:8255817 no --reason other --note "starts in 2027"
 ```
 
+Summarize the labels file (counts per label, reason, company, and by the
+filter decision at labelling time):
+
+```bash
+python -m job_agent stats
+```
+
 Relabelling a job replaces its label. If a ref matches jobs from more than one
 source, use `source:company:id`.
 

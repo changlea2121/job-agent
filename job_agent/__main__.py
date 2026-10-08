@@ -7,6 +7,7 @@ from .filtering import RULES, apply_filters
 from .labels import LABELS, LabelStore, job_ref, make_label, parse_ref
 from .models import Job
 from .review import candidates, review
+from .stats import format_stats
 from .sources import ADAPTERS
 from .storage import JobStore, utc_iso
 
@@ -156,6 +157,18 @@ def cmd_review(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_stats(args: argparse.Namespace) -> int:
+    config = load_config(args.config)
+    try:
+        labels = _open_labels(config, args.labels)
+    except ValueError as exc:
+        return _error(str(exc))
+    print(f"{args.labels}:")
+    for line in format_stats(labels.labels.values(), config.label_reasons):
+        print(line)
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="job_agent")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -214,6 +227,11 @@ def main(argv: list[str] | None = None) -> int:
         help="with --excluded: only jobs removed by this rule; repeat for several",
     )
     rev.set_defaults(func=cmd_review)
+
+    stats = sub.add_parser("stats", help="summarize the labels file")
+    stats.add_argument("--config", default="companies.yaml")
+    stats.add_argument("--labels", default="labels.jsonl", help="labels file (JSON Lines)")
+    stats.set_defaults(func=cmd_stats)
 
     args = parser.parse_args(argv)
     return args.func(args)
