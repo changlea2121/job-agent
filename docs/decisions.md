@@ -317,3 +317,23 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** Excluding Nebius "Hardware Infrastructure" (would also drop the SRE and software roles that decision 14 restored, see its outcome note); keep labelling these jobs by hand as they reappear per location.
 
 **Consequences.** Data center mechanical and electrical roles never reach the review queue. A software role with one of these words in its title (e.g. "Software Engineer, Electrical Systems Tooling") would be excluded too. None exists so far, and `review --excluded --rule title` can spot-check for one.
+
+---
+
+## 22. Exclude jobs that require 3+ years of experience
+
+**Date:** 2026-10-08 · **Status:** Accepted
+
+**Context.** After all kept jobs were labelled, `experience_required` was the most common reason (11 of 20 `no` labels), and every one of those postings states the requirement explicitly ("5+ years", "at least 4 years", "5 or more years"). [docs/labeling.md](labeling.md) defines the blocker as an explicit 3+ years; 1–3 years is not one.
+
+**Decision.**
+
+- `job_agent/experience.py` extracts required years from a description, line by line, and a new `experience` rule (`experience_filter.min_years` in `companies.yaml`, default 3) excludes a job when the highest blocking requirement reaches the threshold. It runs after the title rules and applies to internships too. The detail is e.g. `5+ years`.
+- What counts: a number (digits, English or Dutch number words) followed by years/jaar, in a line that mentions experience or says what the years were spent on ("3+ years administering Entra ID"). Ranges use the lower bound ("3-5 years" blocks, "1-3 years" does not). With several numbers, the highest blocking one counts.
+- What does not count: years under a nice-to-have heading ("Nice to have:", "It will be an added bonus if you have:"); years softened in their own clause, by a word before them ("ideally 4+ years") or after them ("…is a plus"), so "5+ years, ideally in fintech" still blocks; timeframes and history ("medium-term (1-3 years)", "within 2 years", "20 years of payments data"); and years that a Master's, MSc, Bachelor's or other degree can replace ("3+ years or an MSc"), because I will have an MSc. A PhD-only alternative still blocks. "Or equivalent practical background" still blocks.
+- Evaluated before enabling, against `labels.jsonl` (27 labels): it catches 11 of 11 `experience_required` labels and excludes none of the 6 `yes` and 1 `maybe` jobs, or any other `no` job (two of those require 2 years, below the threshold). Across all 619 stored jobs, 434 require 3+ years, 31 fewer, and 154 state none. The 27 labels contain no hard cases, so those were checked against real lines from all stored postings and against made-up inputs (Dutch phrasing and degree alternatives do not occur in the stored postings yet).
+- **The evaluation set for relevance scoring should reflect jobs that pass the rules,** since the scorer will only see those. Excluded jobs are sampled from time to time with `review --excluded --rule experience` to check the rule for false exclusions. Those labels are for checking the rules, not for evaluating scoring.
+
+**Alternatives.** Leaving years to labelling and relevance scoring (the most common blocker would keep reaching the review queue); a stricter extractor that only accepts lines containing "experience" (missed real requirements such as "3+ years administering…"); treating every degree alternative as a blocker.
+
+**Consequences.** 9 of the 23 jobs that passed the earlier rules are now excluded, all of them labelled `experience_required`. A requirement phrased in a way the extractor does not know (e.g. "a decade of experience") is missed, so the job stays visible, which errs toward showing too much. A requirement in an unusual nice-to-have wording is treated as hard, so the job is excluded wrongly. The sampling above is how such cases get found.

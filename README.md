@@ -144,6 +144,12 @@ stored, and each excluded job is counted under the first rule that removed it.
   internships included, such as "business analyst" (case-insensitive whole
   words). Counted as the `title` rule. Data analyst and data scientist are
   deliberately not listed: whether they fit depends on the work.
+- `experience_filter.min_years` (default 3): excludes jobs whose description
+  requires at least that many years of experience ("5+ years", "at least 3
+  years", "minimaal 3 jaar werkervaring"; the lower bound of a range counts).
+  Years in a nice-to-have section or softened in their clause ("ideally 4+
+  years", "is a plus") are ignored, as are years that a degree other than a
+  PhD can replace ("3+ years or an MSc"). Without the section, the rule is off.
 
 Of the jobs left, titles containing a `title_filter.internship` keyword
 (intern, graduate, werkstudent, ...) are listed as internships.

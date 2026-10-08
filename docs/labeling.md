@@ -36,6 +36,15 @@ category.** Titles and categories are set per company and can mislead.
 - **`dutch_required`**: Dutch is mandatory. "A plus" doesn't count.
 - **`other`**: anything else, with a short note.
 
+## Jobs removed by the rules
+
+`review` only shows jobs that pass the filters, so jobs that clearly require
+3+ years are already gone (the `experience` rule). The labels used to evaluate
+relevance scoring should come from jobs that pass the rules, because the
+scorer will only ever see those. Use `review --excluded --rule experience` (or another rule) now and
+then, to check the rules for false exclusions. Those labels are for checking
+the rules, not for evaluating scoring.
+
 ## Special cases
 
 - **Vague wording only** ("deep experience", "highly skilled") without years

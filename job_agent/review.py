@@ -15,7 +15,7 @@ MIN_START_CHARS = 150  # less room than this: skip the start of the description
 MIN_MATCHING = 3  # this many matching lines: skip the start of the description
 # Rules that need a human look come first; most location exclusions are
 # plainly elsewhere in the world.
-EXCLUDED_ORDER = ("category", "seniority", "title", "location")
+EXCLUDED_ORDER = ("category", "seniority", "title", "experience", "location")
 assert sorted(EXCLUDED_ORDER) == sorted(RULES)
 
 PROMPT = "[y]es [m]aybe [n]o [d]escription [s]kip [q]uit > "

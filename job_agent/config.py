@@ -4,6 +4,7 @@ from pathlib import Path
 
 import yaml
 
+from .experience import ExperienceFilter
 from .location import LocationFilter
 from .matching import validate_keywords
 from .title_filter import TitleFilter
@@ -58,6 +59,7 @@ class Config:
     companies: list[CompanyConfig]
     location_filter: LocationFilter | None  # None: no location filtering
     title_filter: TitleFilter | None = None  # None: no seniority or internship rules
+    experience_filter: ExperienceFilter | None = None  # None: no years rule
     # Reasons usable when labelling, name -> description, in display order.
     label_reasons: dict[str, str] = field(default_factory=dict)
     # Words whose description lines `review` shows first.
@@ -109,6 +111,9 @@ def load_config(path: str | Path) -> Config:
             data, "title_filter", TitleFilter,
             ("exclude_seniority", "exceptions", "internship", "internship_dutch",
              "exclude_titles"),
+        ),
+        experience_filter=_load_section(
+            data, "experience_filter", ExperienceFilter, ("min_years",)
         ),
         label_reasons=_load_label_reasons(data.get("label_reasons")),
         preview_keywords=validate_keywords(

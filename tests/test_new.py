@@ -57,7 +57,7 @@ def test_new_lists_latest_run_with_unclear_marked(capsys, setup):
     assert summary == (
         "3 new jobs, 0 internships (2 location unclear) "
         "since 2026-10-05T09:00:00.000000+00:00; "
-        "5 new before filters, 2 excluded (location 2, category 0, seniority 0, title 0)"
+        "5 new before filters, 2 excluded (location 2, category 0, seniority 0, title 0, experience 0)"
     )
 
 
@@ -148,7 +148,7 @@ def test_rules_and_internship_section(capsys, full_setup):
     assert summary == (
         "1 new jobs, 1 internships (0 location unclear) "
         "since 2026-10-01T09:00:00.000000+00:00; "
-        "9 new before filters, 7 excluded (location 4, category 2, seniority 1, title 0)"
+        "9 new before filters, 7 excluded (location 4, category 2, seniority 1, title 0, experience 0)"
     )
 
 
@@ -172,7 +172,7 @@ def test_show_excluded_lists_first_rule_per_job(capsys, full_setup):
          "Germany; Israel; Netherlands; Prague, Czech Republic; "
          "Remote - Europe; United Kingdom", "seniority: senior"),
     ])
-    assert summary.endswith("(location 4, category 2, seniority 1, title 0)")
+    assert summary.endswith("(location 4, category 2, seniority 1, title 0, experience 0)")
 
 
 def test_excluded_hidden_by_default(capsys, full_setup):
@@ -200,4 +200,4 @@ def test_title_rule_counts_and_applies_to_internships(capsys, tmp_path, nebius_l
         ("Business Analyst Intern", "title: business analyst"),
     ]
     assert ["# internships"] not in rows
-    assert summary.endswith("(location 0, category 0, seniority 0, title 2)")
+    assert summary.endswith("(location 0, category 0, seniority 0, title 2, experience 0)")

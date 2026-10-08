@@ -132,6 +132,14 @@ title_filter:
     - mechanical  # data center design and operations
     - electrical
 
+# Applied by `job_agent new` after the title rules: excludes jobs whose
+# description requires at least `min_years` (default 3) of experience. The
+# lower bound of a range counts ("3-5 years" -> 3). Ignored: years in a
+# nice-to-have section or softened ("ideally 4+ years", "is a plus"), and years
+# that a degree other than a PhD can replace ("3+ years or an MSc").
+experience_filter:
+  min_years: 3
+
 # Applied by `job_agent new` at output time; all jobs are stored regardless.
 # Case-insensitive, whole words, checked per ";"-separated location.
 #   match:   any of these -> the job is shown
