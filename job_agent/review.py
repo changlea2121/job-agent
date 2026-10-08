@@ -12,9 +12,10 @@ from .models import Job
 PREVIEW_CHARS = 1000
 LINE_CHARS = 200  # matching lines are cut to this; long ones are mostly boilerplate
 MIN_START_CHARS = 150  # less room than this: skip the start of the description
+MIN_MATCHING = 3  # this many matching lines: skip the start of the description
 # Rules that need a human look come first; most location exclusions are
 # plainly elsewhere in the world.
-EXCLUDED_ORDER = ("category", "seniority", "location")
+EXCLUDED_ORDER = ("category", "seniority", "title", "location")
 assert sorted(EXCLUDED_ORDER) == sorted(RULES)
 
 PROMPT = "[y]es [m]aybe [n]o [d]escription [s]kip [q]uit > "
@@ -66,10 +67,15 @@ def _cut(text: str, limit: int) -> str:
 
 
 def preview(text: str, keywords: re.Pattern[str] | None = None,
-            limit: int = PREVIEW_CHARS) -> str:
-    """Lines matching `keywords` (normalized text), then the start of `text`
-    if at least MIN_START_CHARS of the `limit` are left."""
-    matching = [_cut(line, LINE_CHARS) for line in text.splitlines()
+            boilerplate: tuple[str, ...] = (), limit: int = PREVIEW_CHARS) -> str:
+    """Lines matching `keywords` (normalized text), then, when fewer than
+    MIN_MATCHING lines matched and at least MIN_START_CHARS of the `limit` are
+    left, the start of `text`. Lines containing a `boilerplate` phrase
+    (case-insensitive) are left out of both."""
+    phrases = [normalize(p) for p in boilerplate]
+    lines = [line for line in text.splitlines()
+             if not any(p in normalize(line) for p in phrases)]
+    matching = [_cut(line, LINE_CHARS) for line in lines
                 if keywords is not None and keywords.search(normalize(line))]
     shown, used = [], 0
     for line in matching:
@@ -77,20 +83,18 @@ def preview(text: str, keywords: re.Pattern[str] | None = None,
             break
         shown.append(line)
         used += len(line)
-    out, truncated = [], len(shown) < len(matching)
+    out = []
     if shown:
         out += ["matching lines:", *(f"  {line}" for line in shown)]
-        if truncated:
+        if len(shown) < len(matching):
             out.append(f"  (+{len(matching) - len(shown)} more)")
     room = limit - used
-    if not shown or room >= MIN_START_CHARS:
-        start = _cut(text, room)
-        truncated = truncated or start != text
+    if len(matching) < MIN_MATCHING and (not shown or room >= MIN_START_CHARS):
+        start = _cut(re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip(), room)
         out += ["", start] if shown else [start]
-    else:
-        truncated = True
-    if truncated:
-        out.append("(d: full description)")
+        if start == text:  # the whole description is on screen
+            return "\n".join(out)
+    out.append("(d: full description)")
     return "\n".join(out)
 
 
@@ -147,7 +151,8 @@ def review(cands: list[Candidate], labels: LabelStore, config: Config, *,
         if c.excluded_by:
             out(f"excluded by: {c.excluded_by[0]}: {c.excluded_by[1]}")
         out("")
-        out(preview(job.description, keywords))
+        company = config.company(job.company)
+        out(preview(job.description, keywords, company.boilerplate if company else ()))
 
     try:
         for i, c in enumerate(cands, 1):

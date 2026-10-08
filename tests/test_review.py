@@ -207,3 +207,41 @@ def test_rule_requires_excluded(capsys, setup):
     args, _ = setup
     assert main(["review", *args, "--rule", "location"]) == 1
     assert "--rule only applies with --excluded" in capsys.readouterr().err
+
+
+BOILERPLATE = ("This is Acme", "candidate experience")
+
+
+def test_preview_skips_boilerplate_in_matches_and_start():
+    text = ("This is Acme\nAcme makes things.\n"
+            "- 2 years of Go\n"
+            "Ensuring a smooth candidate experience takes 5 years.")
+    assert preview(text, KEYWORDS, BOILERPLATE) == "\n".join([
+        "matching lines:",
+        "  - 2 years of Go",
+        "",
+        "Acme makes things.\n- 2 years of Go",
+        "(d: full description)",  # boilerplate lines are hidden
+    ])
+
+
+def test_preview_drops_start_from_three_matching_lines():
+    text = f"{INTRO}\n- 1 years\n- 2 years"
+    assert "About us" in preview(text, KEYWORDS)
+    out = preview(text + "\n- 3 years", KEYWORDS)
+    assert "About us" not in out
+    assert out.endswith("  - 3 years\n(d: full description)")
+
+
+def test_review_skips_company_boilerplate(capsys, monkeypatch, setup, tmp_path):
+    args, _ = setup
+    config = tmp_path / "companies.yaml"
+    config.write_text(config.read_text().replace(
+        "companies:\n",
+        "companies:\n  - {name: nebius, source: greenhouse, board_token: nebius,\n"
+        "     category_metadata_field: Job Category,\n"
+        "     boilerplate: [You may be an AI/ML researcher]}\n"))
+    _, out = run_review(capsys, monkeypatch, args, ["q"])
+    head = out.split("[y]es")[0]
+    assert "You may be an AI/ML researcher" not in head
+    assert "  - Have professional or academic experience in AI/ML" in head

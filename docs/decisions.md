@@ -234,7 +234,7 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 
 ## 17. Labels for the evaluation set, stored outside `jobs.db`
 
-**Date:** 2026-10-07 · **Status:** Accepted
+**Date:** 2026-10-07 · **Status:** Accepted; the preview part is superseded by [19](#19-review-preview-skips-per-company-boilerplate)
 
 **Context.** Decision 15 calls for labelled jobs before building relevance scoring. A plain yes/no loses information: "maybe" cases and *why* a job is wrong (Dutch required, too senior) are what scoring needs to get right. Postings disappear from the API once closed, and `jobs.db` is occasionally rebuilt (decision 8), so labels must not depend on either. The rule-based filters (decision 14) also need spot-checking for false exclusions, which is the same kind of judgment.
 
@@ -250,3 +250,40 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** A `labels` table in `jobs.db` (lost on rebuild); an append-only log where the last line wins (keeps history, but grows and needs compaction); storing only the key and re-reading the job from `jobs.db` (breaks once postings close); committing `labels.jsonl` (versioned backup, but publishes personal data in a public repo).
 
 **Consequences.** The evaluation set survives database rebuilds and closed postings. Renaming or removing a reason in the config requires editing the labels file, which keeps old labels consistent with the current list. Backups are a manual responsibility. Each save rewrites the whole file (about 5.5 KB per label), which is fine for hundreds of labels.
+
+---
+
+## 18. Exclude business analysts by title; leave data analyst and data scientist to labelling
+
+**Date:** 2026-10-08 · **Status:** Accepted
+
+**Context.** Some roles never fit the target directions (decision 14), whatever their seniority or category: business analyst is one. Others are ambiguous by title. "Data analyst" and "data scientist" can mean SQL reporting or ML engineering depending on the team, and for internships analysis work is still useful experience.
+
+**Decision.**
+
+- A new `title` rule, `title_filter.exclude_titles` in `companies.yaml` (case-insensitive whole words), excludes jobs whose title contains a listed role. It starts with `business analyst` only. It is checked after `seniority`, so "Senior Business Analyst" counts as seniority. It applies to internships too, because exclusion happens before internship grouping. It is counted in the `new` summary and shown by `--show-excluded` and `review --excluded --rule title`.
+- No title rule for data analyst or data scientist. Those are judged per job when labelling, and later by relevance scoring.
+- The `wrong_direction` label reason now says what to judge: the actual work is not backend/platform/infra or ML/AI engineering, judged by the description rather than the title. For full-time jobs, analysis-focused DA/DS work counts as wrong direction; for internships it does not.
+
+**Alternatives.** Excluding all analyst and data scientist titles (would drop ML-heavy data science roles and analysis internships); no title rule at all (business analyst roles would keep needing manual rejection).
+
+**Consequences.** One clear-cut role is removed automatically (one job in the current `jobs.db`). The ambiguous ones stay visible, and the labels record how they were judged, which gives relevance scoring examples of the distinction.
+
+---
+
+## 19. Review preview skips per-company boilerplate
+
+**Date:** 2026-10-08 · **Status:** Accepted
+
+**Context.** The preview from decision 17 listed keyword lines and then the start of the description. On real data, both were dominated by company boilerplate. Seven Adyen lines appear in 185–234 of 238 postings ("This is Adyen", the "candidate experience" paragraph, the DEI text), and seventeen Nebius lines appear in all 381. One of them, "Applicants must be authorized to work … required to provide proof", matched "must" and "required" in every Nebius job. The keyword list also missed common wordings ("experienced", "fluent", "bachelor").
+
+**Decision.**
+
+- Each company in `companies.yaml` has a `boilerplate` list of phrases (case-insensitive substrings, validated at load like other per-company config). Lines containing one are left out of both the matching lines and the description start. The initial lists were taken from the lines that repeat across most of each company's postings.
+- The description start is shown only when fewer than 3 lines match. Three or more matching lines usually cover the requirements, and the start is mostly intro text.
+- `preview_keywords` adds experienced, requirement, requirements, fluent, native, proficiency, bachelor, master, msc and phd.
+- The rest of decision 17's preview is unchanged: 1000-character budget, matching lines cut at 200 characters, start only if at least 150 characters are left, and `d` shows the full, unfiltered description.
+
+**Alternatives.** Skipping a fixed number of characters at the start (intros differ in length per company and job); detecting repeated lines automatically from `jobs.db` at review time (no config to maintain, but less predictable, and a company with few postings has no repetition to detect).
+
+**Consequences.** Previews show mostly requirement lines. Boilerplate lists need maintenance when a company changes its template, and a new company starts without one until its repeated lines are added. Generic keywords like "experience" and "master" still match some non-requirement lines.

@@ -27,6 +27,17 @@ companies:
       - Office Management
       - Product Management
       - UX
+    # Description lines `review` leaves out of its preview (case-insensitive
+    # substrings). Each appears in most adyen postings.
+    boilerplate:
+      - This is Adyen
+      - Adyen provides payments, data, and financial products
+      - For our teams, we create an environment
+      - What's next?
+      - Ensuring a smooth and enjoyable candidate experience
+      - Our Diversity, Equity and Inclusion commitments
+      - Our unique approach is a product of our diverse perspectives
+      - Studies show that women and members of underrepresented communities
 
   - name: nebius
     source: greenhouse
@@ -45,10 +56,30 @@ companies:
       - Operations
       - Supply Chain and Procurement
       - Design
+    boilerplate:  # each appears in every nebius posting
+      - About Nebius
+      - Nebius is leading a new era in cloud infrastructure
+      - Built by engineers, for engineers
+      - Listed on Nasdaq (NBIS)
+      - What's it like to work at Nebius
+      - Fast moving - Bold thinking - Constant growth
+      - Benefits & Perks
+      - Competitive compensation
+      - Career growth and learning opportunities
+      - International environment and talented teams
+      - Flexibility and ownership
+      - Collaborative and innovative culture
+      - Opportunity to work on impactful AI projects
+      - Equal Opportunity Statement
+      - Nebius is an equal opportunity employer
+      - Applicants must be authorized to work in the country
+      - If you need accommodations during the application process
 
 # Applied by `job_agent new` at output time to all companies. Case-insensitive,
 # whole words: "sr" matches "Sr." but not "SRE". `exceptions` are phrases
 # removed from the title first, so "Member of Technical Staff" is kept.
+# `exclude_titles` removes roles whatever their seniority, internships
+# included; it is checked after `exclude_seniority`.
 # Jobs left whose title has an `internship` keyword are listed in their own
 # section, not excluded. `internship_dutch` keywords ("stage") count only when
 # the title also has a Dutch cue such as "(m/v)" or "bij", since in English
@@ -79,6 +110,10 @@ title_filter:
     - afstudeerstage
   internship_dutch:
     - stage
+  # Only roles that never fit. Data analyst / data scientist are left to
+  # labelling: whether they fit depends on the actual work.
+  exclude_titles:
+    - business analyst
 
 # Applied by `job_agent new` at output time; all jobs are stored regardless.
 # Case-insensitive, whole words, checked per ";"-separated location.
@@ -111,7 +146,11 @@ location_filter:
 # some, "yes" none. Choosing "other" asks for a short note.
 label_reasons:
   dutch_required: Dutch is mandatory ("a plus" doesn't count)
-  wrong_direction: not backend/platform/infra, ML/AI or data work
+  wrong_direction: >-
+    the actual work is not backend/platform/infra or ML/AI engineering.
+    Judge by the description, not the title. For full-time jobs,
+    analysis-focused DA/DS work counts as wrong direction; for internships
+    it doesn't.
   too_senior: senior-level scope even if the title doesn't say so
   experience_required: 3+ years or explicitly senior experience (1-3 years does NOT count)
   other: anything else (prompts for a note)
@@ -127,3 +166,13 @@ preview_keywords:
   - degree
   - required
   - must
+  - experienced
+  - requirement
+  - requirements
+  - fluent
+  - native
+  - proficiency
+  - bachelor
+  - master
+  - msc
+  - phd

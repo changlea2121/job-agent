@@ -140,3 +140,32 @@ def test_repo_config_excludes_known_categories():
     adyen = REPO_CONFIG.company("adyen")
     assert adyen.excludes_category("Strategy & Execution")
     assert not adyen.excludes_category("Professional Services")
+
+
+@pytest.mark.parametrize("title, expected", [
+    ("Business Analyst - Operations", "business analyst"),  # real adyen title
+    ("Business  Analyst Intern", "business analyst"),
+    # Left to labelling: whether these fit depends on the work.
+    ("Data Analyst", None),
+    ("Data Scientist", None),
+    ("Business Analytics Engineer", None),
+    ("Analyst, Business Intelligence", None),
+])
+def test_excluded_title(title, expected):
+    assert TITLES.excluded_title(title) == expected
+
+
+def test_without_exclude_titles_nothing_is_excluded():
+    assert TitleFilter(exclude_seniority=["senior"]).excluded_title("Business Analyst") is None
+
+
+def test_invalid_exclude_titles_raises():
+    with pytest.raises(ValueError, match="exclude_titles must be a list"):
+        TitleFilter(exclude_seniority=["senior"], exclude_titles="business analyst")
+
+
+@pytest.mark.parametrize("value", ["This is Acme", ["This is Acme", " "]])
+def test_invalid_boilerplate_names_company(value):
+    with pytest.raises(ValueError, match="^acme: boilerplate"):
+        CompanyConfig(name="acme", source="greenhouse", board_token="acme",
+                      boilerplate=value)

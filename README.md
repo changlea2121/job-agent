@@ -69,7 +69,9 @@ python -m job_agent review --excluded --rule seniority --rule category
 
 Each job shows its title, company, location, category and url, then the
 description lines containing a `preview_keywords` word (years, experience,
-Dutch, ...), then the start of the description if there is room. Keys: `y` / `m` / `n`, `d` for the full description, `s` to
+Dutch, ...), then, if fewer than 3 lines matched, the start of the
+description. Lines containing one of the company's `boilerplate` phrases are
+left out of both. Keys: `y` / `m` / `n`, `d` for the full description, `s` to
 skip (it comes back next time), `q` to quit. After `m` or `n`, enter reason
 numbers such as `1 3` (`no` needs at least one). Choosing `other` asks for a
 short note. Every label is saved immediately. `--excluded` lists category and
@@ -129,6 +131,10 @@ stored, and each excluded job is counted under the first rule that removed it.
 - `title_filter.exclude_seniority`: case-insensitive whole words ("sr"
   matches "Sr." but not "SRE"). Phrases in `title_filter.exceptions`, such as
   "member of technical staff", are ignored when matching.
+- `title_filter.exclude_titles`: roles excluded whatever their seniority,
+  internships included, such as "business analyst" (case-insensitive whole
+  words). Counted as the `title` rule. Data analyst and data scientist are
+  deliberately not listed: whether they fit depends on the work.
 
 Of the jobs left, titles containing a `title_filter.internship` keyword
 (intern, graduate, werkstudent, ...) are listed as internships.
@@ -140,7 +146,9 @@ cue such as "(m/v)" or "bij", since in English "stage" usually means a phase
 which `review` shows next to the reason number. Names use lowercase letters,
 digits and `_`. Without this section, `label` and `review` refuse to run.
 `preview_keywords` lists the words (case-insensitive, whole words) whose
-description lines `review` shows first.
+description lines `review` shows first. Per company, `boilerplate` lists
+phrases (case-insensitive substrings) marking lines the preview leaves out,
+such as a standard company intro.
 
 ## Storage
 

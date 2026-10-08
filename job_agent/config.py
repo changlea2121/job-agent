@@ -24,13 +24,17 @@ class CompanyConfig:
     category_metadata_field: str | None = None
     # Categories hidden by `job_agent new`; exact match, case-insensitive.
     exclude_categories: tuple[str, ...] = ()
+    # Phrases marking description lines `review` leaves out of its preview;
+    # case-insensitive substrings.
+    boilerplate: tuple[str, ...] = ()
 
     def __post_init__(self):
-        try:
-            categories = validate_keywords(self.exclude_categories, "exclude_categories")
-        except ValueError as exc:
-            raise ValueError(f"{self.name}: {exc}") from None
-        object.__setattr__(self, "exclude_categories", categories)
+        for name in ("exclude_categories", "boilerplate"):
+            try:
+                value = validate_keywords(getattr(self, name), name)
+            except ValueError as exc:
+                raise ValueError(f"{self.name}: {exc}") from None
+            object.__setattr__(self, name, value)
         if self.category_from is None and self.category_metadata_field:
             object.__setattr__(self, "category_from", "metadata")
         if self.category_from not in (None, *CATEGORY_SOURCES):
@@ -103,7 +107,8 @@ def load_config(path: str | Path) -> Config:
         ),
         title_filter=_load_section(
             data, "title_filter", TitleFilter,
-            ("exclude_seniority", "exceptions", "internship", "internship_dutch"),
+            ("exclude_seniority", "exceptions", "internship", "internship_dutch",
+             "exclude_titles"),
         ),
         label_reasons=_load_label_reasons(data.get("label_reasons")),
         preview_keywords=validate_keywords(

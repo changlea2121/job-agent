@@ -8,14 +8,16 @@ _DUTCH_CUE_RE = keyword_pattern((
     "bij", "voor", "van", "het", "een", "en", "met",
 ))
 
-_FIELDS = ("exclude_seniority", "exceptions", "internship", "internship_dutch")
+_FIELDS = ("exclude_seniority", "exceptions", "internship", "internship_dutch",
+           "exclude_titles")
 
 
 @dataclass(frozen=True)
 class TitleFilter:
-    """Seniority exclusion and internship grouping by title keywords.
+    """Seniority and role exclusion and internship grouping by title keywords.
 
-    All keywords are case-insensitive whole words. `exceptions` are phrases
+    All keywords are case-insensitive whole words. `exclude_titles` are roles
+    excluded regardless of seniority ("business analyst"). `exceptions` are phrases
     removed from the title before seniority matching, so "Member of Technical
     Staff" is kept while "Staff Engineer" is excluded. `internship_dutch`
     keywords count only when the title also has a Dutch cue, because Dutch
@@ -26,6 +28,7 @@ class TitleFilter:
     exceptions: tuple[str, ...] = ()
     internship: tuple[str, ...] = ()
     internship_dutch: tuple[str, ...] = ()
+    exclude_titles: tuple[str, ...] = ()
 
     def __post_init__(self):
         for field in _FIELDS:
@@ -45,6 +48,13 @@ class TitleFilter:
         if self._exceptions_re is not None:
             text = self._exceptions_re.sub(" ", text)
         m = self._seniority_re.search(text)
+        return " ".join(m.group(0).split()) if m else None
+
+    def excluded_title(self, title: str) -> str | None:
+        """The first `exclude_titles` keyword in `title` (normalized), or None."""
+        if self._exclude_titles_re is None:
+            return None
+        m = self._exclude_titles_re.search(normalize(title))
         return " ".join(m.group(0).split()) if m else None
 
     def is_internship(self, title: str) -> bool:
