@@ -85,3 +85,19 @@ def test_repo_config_filter_loads():
     config = load_config(Path(__file__).parent.parent / "companies.yaml")
     assert config.location_filter is not None
     assert config.location_filter.classify("'s-Gravenhage") is CLEAR
+
+
+@pytest.mark.parametrize("location, expected", [
+    # Real ING (Workday) and KPN location strings.
+    ("CDR (Amsterdam - Cedar), Netherlands", CLEAR),
+    ("KNZ (Den Haag - Tournooiveld), Netherlands", CLEAR),
+    ("WP (Rotterdam - Wilgenplas), Netherlands; HBP (Amsterdam - Haarlerbergpark)", CLEAR),
+    ("KCM (Zwolle - Friesewal), Netherlands", None),
+    ("Amersfoort, Nederland", CLEAR),
+    ("Diemen, Nederland", CLEAR),
+    ("Hilversum, Nederland", CLEAR),
+    ("Assen, Nederland", None),
+])
+def test_repo_config_ing_and_kpn_locations(location, expected):
+    config = load_config(Path(__file__).parent.parent / "companies.yaml")
+    assert config.location_filter.classify(location) is expected

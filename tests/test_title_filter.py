@@ -50,6 +50,13 @@ def test_real_fixture_titles(adyen_jobs, nebius_jobs, nebius_location_jobs):
     ("Staffing Coordinator", None),
     ("Headless CMS Engineer", None),
     ("Head Chef", None),                             # "head" alone is not "head of"
+    # Dutch, real KPN titles and synthetic ones.
+    ("Retail Regiodirecteur", "regiodirecteur"),
+    ("Directeur Technologie", "directeur"),
+    ("Teamleider Klantenservice", "teamleider"),
+    ("Hoofd Data & Analytics", "hoofd"),
+    ("Servicedesk Medewerker Hoofddorp", None),      # "hoofd" is not a prefix match
+    ("Medior Platform Engineer OpenShift", None),    # medior: left to the years rule
     ("Mischief Analyst", None),
     ("Data Engineer", None),
 ])
@@ -68,10 +75,17 @@ def test_seniority(title, expected):
     ("Stage Data Analyse (m/v)", True),
     ("Stage bij het Data team", True),
     ("Stagiair Software Engineering - stage", True),
+    # Real ING and KPN titles.
+    ("Stagiair Adviseur Vermogen regio Utrecht", True),
+    ("ICT stagiair(e) bij KPN Onsite Servicedesk in Diemen", True),
+    ("Meewerkstage Design", True),
+    ("WO Meewerkstage Structured Acquisition Finance Mid-Corporates", True),
+    ("Stage ING Private banking - Reporting", True),  # "stage" first: no cue needed
+    ("Stage Manager, Events", True),  # accepted: "stage" first (excluded as manager anyway)
     # False positives.
     ("Early-Stage Sales Lead", False),
     ("Multi-stage Pipeline Engineer", False),
-    ("Stage Manager, Events", False),
+    ("Events Stage Manager", False),
     ("Backstage Engineer", False),
     ("Internal Control Specialist", False),
     ("Internationalization Engineer", False),
@@ -105,7 +119,8 @@ def test_without_internship_keywords_nothing_is_internship():
 def test_dutch_keywords_need_a_cue():
     titles = TitleFilter(exclude_seniority=["senior"], internship_dutch=["stage"])
     assert titles.is_internship("Stage Data (m/v)")
-    assert not titles.is_internship("Stage Data")
+    assert titles.is_internship("Stage Data")  # first word
+    assert not titles.is_internship("Data Stage Team")
 
 
 def test_config_rejects_unknown_title_filter_keys(tmp_path):

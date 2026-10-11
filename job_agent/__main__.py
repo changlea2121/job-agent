@@ -25,7 +25,9 @@ def cmd_fetch(args: argparse.Namespace) -> int:
                 failures += 1
                 continue
             try:
-                jobs = adapter_cls(company, timeout=args.timeout).fetch()
+                # Adapters that need a request per job skip the ones already stored.
+                known = store.source_ids(adapter_cls.source, company.name)
+                jobs = adapter_cls(company, timeout=args.timeout).fetch(known_ids=known)
             except Exception as exc:  # keep going with the other companies
                 print(f"{company.name}: fetch failed: {exc}", file=sys.stderr)
                 failures += 1

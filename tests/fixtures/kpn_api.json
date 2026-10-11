@@ -1,0 +1,335 @@
+{
+ "vacancies": [
+  {
+   "id": 1989,
+   "external_id": "3026362c-d2fa-44e6-a44a-64ff2d559779",
+   "external_reference": "59e92a3dc1428425dd9807cf8a002edf",
+   "displayable_external_id": "REF1606Q",
+   "created": "2026-09-07T12:00:02+02:00",
+   "updated": "2026-09-18T11:30:04+02:00",
+   "slug": "ai-engineer-4",
+   "title": "AI Engineer",
+   "subtitle": {
+    "option_values": [
+     {
+      "title": "Engineering"
+     }
+    ]
+   },
+   "country": "Nederland",
+   "salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "min_salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "max_salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "intro": "Ben jij een ervaren AI-professional met een passie voor Generatieve AI en automatisering? Sluit je aan bij het AI for Corporate team van KPN ",
+   "option_values": [
+    {
+     "id": 166,
+     "value": "Vast",
+     "slug": "vast",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 11,
+      "title": "Type Baan",
+      "slug": "type-baan",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 1,
+      "internal_name": "Type baan",
+      "display_type": "checkboxes"
+     }
+    },
+    {
+     "id": 72,
+     "value": "Rotterdam",
+     "slug": "rotterdam",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 8,
+      "title": "Locatie",
+      "slug": "locatie",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 3,
+      "internal_name": "primarylocation",
+      "display_type": "checkboxes"
+     }
+    },
+    {
+     "id": 8,
+     "value": "WO",
+     "slug": "wo",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 1,
+      "title": "Opleiding",
+      "slug": "opleiding",
+      "font_awesome_icon": "fal fa-user-graduate",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 4,
+      "internal_name": "Education",
+      "display_type": "checkboxes"
+     }
+    }
+   ],
+   "main_icon": {
+    "font_awesome_icon": ""
+   },
+   "vacancy_usp_values": [],
+   "usps": [],
+   "featured": false,
+   "internal_vacancy": false,
+   "new": false,
+   "address": "",
+   "latitude": "0",
+   "longitude": "0",
+   "show_city": false,
+   "labels": [],
+   "attribute_values": []
+  },
+  {
+   "id": 2032,
+   "external_id": "943f1e4f-c369-48bf-8be2-377d303f04c5",
+   "external_reference": "59e92a3dc1428425dd9807cf8a002edf",
+   "displayable_external_id": "REF2270Z",
+   "created": "2026-10-02T17:00:02+02:00",
+   "updated": "2026-10-02T17:01:02+02:00",
+   "slug": "medior-platform-engineer-openshift",
+   "title": "Medior Platform Engineer OpenShift",
+   "subtitle": {
+    "option_values": [
+     {
+      "title": "Engineering"
+     }
+    ]
+   },
+   "country": "Nederland",
+   "salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "min_salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "max_salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "intro": "Als Medior Platform Engineer OpenShift bouw je aan een OpenShift-platform waarop meerdere ontwikkelteams bedrijfskritische applicaties draaien. Werk je graag met Kubernetes, OpenShift, GitOps en automatisering en vind je het interessant om complexe infrastructuur om te zetten naar gestandaardiseerde platformdiensten? Dan zoeken we jou!",
+   "option_values": [
+    {
+     "id": 166,
+     "value": "Vast",
+     "slug": "vast",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 11,
+      "title": "Type Baan",
+      "slug": "type-baan",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 1,
+      "internal_name": "Type baan",
+      "display_type": "checkboxes"
+     }
+    },
+    {
+     "id": 65,
+     "value": "Amersfoort",
+     "slug": "amersfoort",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 8,
+      "title": "Locatie",
+      "slug": "locatie",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 3,
+      "internal_name": "primarylocation",
+      "display_type": "checkboxes"
+     }
+    },
+    {
+     "id": 8,
+     "value": "WO",
+     "slug": "wo",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 1,
+      "title": "Opleiding",
+      "slug": "opleiding",
+      "font_awesome_icon": "fal fa-user-graduate",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 4,
+      "internal_name": "Education",
+      "display_type": "checkboxes"
+     }
+    }
+   ],
+   "main_icon": {
+    "font_awesome_icon": ""
+   },
+   "vacancy_usp_values": [],
+   "usps": [],
+   "featured": false,
+   "internal_vacancy": false,
+   "new": false,
+   "latitude": "0",
+   "longitude": "0",
+   "show_city": false,
+   "labels": [],
+   "attribute_values": []
+  },
+  {
+   "id": 2029,
+   "external_id": "40c59b62-e029-4a5f-8b98-afea0370aa8f",
+   "external_reference": "59e92a3dc1428425dd9807cf8a002edf",
+   "displayable_external_id": "REF2303W",
+   "created": "2026-10-02T14:00:02+02:00",
+   "updated": "2026-10-02T14:01:02+02:00",
+   "slug": "meewerkstage-design",
+   "title": "Meewerkstage Design",
+   "subtitle": {
+    "option_values": [
+     {
+      "title": "Stages"
+     }
+    ]
+   },
+   "country": "Nederland",
+   "salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "min_salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "max_salary": {
+    "localized_format": "€ 0,00",
+    "amount": "0",
+    "currency": "EUR"
+   },
+   "intro": "Wil jij digitale klantreizen ontwerpen die impact maken op grote schaal? Solliciteer nu en groei verder bij KPN!",
+   "option_values": [
+    {
+     "id": 164,
+     "value": "Stage",
+     "slug": "stage",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 11,
+      "title": "Type Baan",
+      "slug": "type-baan",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 1,
+      "internal_name": "Type baan",
+      "display_type": "checkboxes"
+     }
+    },
+    {
+     "id": 66,
+     "value": "Amsterdam",
+     "slug": "amsterdam",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 8,
+      "title": "Locatie",
+      "slug": "locatie",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 3,
+      "internal_name": "primarylocation",
+      "display_type": "checkboxes"
+     }
+    },
+    {
+     "id": 7,
+     "value": "HBO",
+     "slug": "hbo",
+     "hasDetailPage": false,
+     "vacancy_images": [],
+     "option": {
+      "id": 1,
+      "title": "Opleiding",
+      "slug": "opleiding",
+      "font_awesome_icon": "fal fa-user-graduate",
+      "expanded_by_default": true,
+      "strategy_on_overview": 2,
+      "visible_in_detail": true,
+      "values": [],
+      "position": 4,
+      "internal_name": "Education",
+      "display_type": "checkboxes"
+     }
+    }
+   ],
+   "main_icon": {
+    "font_awesome_icon": ""
+   },
+   "vacancy_usp_values": [],
+   "usps": [],
+   "featured": false,
+   "internal_vacancy": false,
+   "new": false,
+   "latitude": "0",
+   "longitude": "0",
+   "show_city": false,
+   "labels": [],
+   "attribute_values": []
+  }
+ ],
+ "meta": {
+  "num_total_hits": 3,
+  "pageNumber": 1,
+  "maxPerPage": 10,
+  "totalPageCount": 1,
+  "maxPaginationItems": 2,
+  "seo_snippets": [],
+  "tealium": []
+ }
+}

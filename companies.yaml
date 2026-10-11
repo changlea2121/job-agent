@@ -1,7 +1,13 @@
-# Companies to poll. Job.category comes from either:
+# Companies to poll. Each source needs its own fields:
+#   greenhouse: board_token
+#   workday:    workday_host, workday_site (from the careers site's apply links)
+#   kpn:        base_url
+# Job.category comes from:
 #   category_from: departments                   -> Greenhouse departments
 #   category_metadata_field: <metadata name>     -> a Greenhouse metadata entry
-# Omit both for no category.
+#   category_from: job_family_group              -> Workday "Job Category" facet
+#   category_from: expertise                     -> KPN RSS category
+# Omit them for no category.
 companies:
   - name: adyen
     source: greenhouse
@@ -89,6 +95,86 @@ companies:
       - Why Tavily?
       - Tavily, part of Nebius, is the web access layer for AI agents
 
+  # Unofficial Workday JSON API (decision 23). ICSGBLCOR is the global site;
+  # ICSNLDGEN only holds a subset of the same jobs.
+  - name: ing
+    source: workday
+    workday_host: ing.wd3.myworkdayjobs.com
+    workday_site: ICSGBLCOR
+    category_from: job_family_group
+    # Kept for now: Tech; Data, Modelling & Analytics; Security; Transformation;
+    # Risk Management (model developer, Risk AI Data Scientist: left to
+    # labelling); Financial Crime & Fraud Prevention; Additional JFG; and
+    # Trainee JFG (internships are grouped, not excluded).
+    exclude_categories:
+      - Relationship Management       # private banking, relatiemanagers
+      - Client & Business Services    # retail advisers (hypotheek, vermogen)
+      - Customer Experience
+      - Communications & Brand Experience
+      - Procurement
+      - Legal & Corporate Governance
+      - HR
+      - Finance
+      - Compliance
+      - Audit JFG
+      - Group Treasury
+      - Corporate & Facility Services
+      - Business & Wholesale Banking Specialism
+      - Business Support & Business Management
+    boilerplate:
+      - Curious about how ING empowers people and businesses to move forward
+      - Discover what we do and what we can offer you
+      - The benefits of working with us at ING include
+      - De voordelen van werken bij ING zijn onder andere
+      - "We want to make sure that it's possible for you to strike the right balance"
+      - We hire smart people like you for your potential
+      - Personal growth and challenging work with endless possibilities
+      - An informal working environment with innovative colleagues
+      - 13th month salary
+      - 8% Holiday payment
+      - 25-28 vacation days depending on contract
+      - Contact the recruiter attached to the advertisement
+      - Please visit our Frequently Asked Questions section
+      - Every year, more than 350 students join our internship program
+      - Whatever happens, an internship at ING is the ideal opportunity
+      - This is a great opportunity to train with highly skilled people
+
+  # The site's RSS feed and internal JSON API, joined (decision 24).
+  - name: kpn
+    source: kpn
+    base_url: https://jobs.kpn.com
+    category_from: expertise
+    # Kept: Engineering, Network Engineering, IT Management, Security, and
+    # Stages (internships are grouped, not excluded).
+    exclude_categories:
+      - Winkels                      # shops
+      - Monteurs                     # field technicians
+      - Klantenservice
+      - Sales & Accountmanagement
+      - Marketing & Communicatie
+      - Business support
+      - Strategie
+      - Project & Productmanagement
+    # Benefits blocks, in most KPN postings.
+    boilerplate:
+      - Bij KPN hebben we recruitmenttalent
+      - Natuurlijk hebben we als werkgever jou ook veel te bieden
+      - Ons geloof in technologie is groot
+      - Jaarlijks een individuele en collectieve verhoging
+      - Flexibele vrije dagen
+      - vaste 13e maand
+      - 50% korting op
+      - per jaar aan inzetbaarheidsbudget
+      - opleidingsbudget per jaar
+      - Thuiswerkshop
+      - Goede reiskostenvergoeding
+      - Mogelijkheid tot het aanschaffen van een leasefiets
+      - Uitstekende pensioenvoorwaarden
+      - Een goede werk-privé balans
+      - Stagevergoeding van
+      - Een stagevergoeding van
+      - Word onderdeel van het JongKPN netwerk
+
 # Applied by `job_agent new` at output time to all companies. Case-insensitive,
 # whole words: "sr" matches "Sr." but not "SRE". `exceptions` are phrases
 # removed from the title first, so "Member of Technical Staff" is kept.
@@ -96,8 +182,9 @@ companies:
 # included; it is checked after `exclude_seniority`.
 # Jobs left whose title has an `internship` keyword are listed in their own
 # section, not excluded. `internship_dutch` keywords ("stage") count only when
-# the title also has a Dutch cue such as "(m/v)" or "bij", since in English
-# "stage" usually means a phase ("Early-Stage").
+# the title also has a Dutch cue such as "(m/v)" or "bij", or starts with the
+# keyword ("Stage ING Private Banking"), since in English "stage" usually means
+# a phase ("Early-Stage").
 title_filter:
   exclude_seniority:
     - senior
@@ -112,6 +199,10 @@ title_filter:
     - vp
     - vice president
     - chief
+    - directeur
+    - regiodirecteur
+    - teamleider
+    - hoofd  # Dutch "head (of)"; whole words, so not "Hoofddorp"
   exceptions:
     - member of technical staff
   internship:
@@ -122,6 +213,9 @@ title_filter:
     - working student
     - werkstudent
     - afstudeerstage
+    - meewerkstage
+    - stagiair  # also "stagiair(e)"
+    - stagiaire
   internship_dutch:
     - stage
   # Only roles that never fit. Data analyst / data scientist are left to
@@ -162,6 +256,9 @@ location_filter:
     - zoetermeer
     - rotterdam
     - utrecht
+    - diemen
+    - amersfoort  # most KPN tech roles
+    - hilversum
   unclear:
     - netherlands
     - nederland
@@ -201,3 +298,10 @@ preview_keywords:
   - master
   - msc
   - phd
+  - jaar
+  - ervaring
+  - werkervaring
+  - minimaal
+  - vereist
+  - kennis
+  - opleiding

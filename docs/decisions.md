@@ -337,3 +337,75 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** Leaving years to labelling and relevance scoring (the most common blocker would keep reaching the review queue); a stricter extractor that only accepts lines containing "experience" (missed real requirements such as "3+ years administering…"); treating every degree alternative as a blocker.
 
 **Consequences.** 9 of the 23 jobs that passed the earlier rules are now excluded, all of them labelled `experience_required`. A requirement phrased in a way the extractor does not know (e.g. "a decade of experience") is missed, so the job stays visible, which errs toward showing too much. A requirement in an unusual nice-to-have wording is treated as hard, so the job is excluded wrongly. The sampling above is how such cases get found.
+
+---
+
+## 23. ING through Workday's unofficial JSON API
+
+**Date:** 2026-10-11 · **Status:** Accepted
+
+**Context.** careers.ing.com is a Radancy (TalentBrew) front end whose apply links go to Workday: tenant `ing` on `ing.wd3.myworkdayjobs.com`, site `ICSGBLCOR` (750 jobs, 49 in the Netherlands). Workday has no documented public job board API like Greenhouse's (decision 2). The only JSON is `/wday/cxs/{tenant}/{site}`, which the Workday front end itself uses. Its listing returns at most 20 jobs per page (larger pages are a 400) and carries no description, date or category; each job's detail has the description, `startDate`, location, additional locations and country. The category ("Job Category") exists only as the `jobFamilyGroup` facet. `ICSNLDGEN`, listed in Workday's robots.txt next to the global site, holds a 5-job subset of the same jobs.
+
+**Decision.**
+
+- A `workday` adapter (`job_agent/sources/workday.py`), configured with `workday_host` and `workday_site`. With `category_from: job_family_group` it runs the listing once per job family group (48 requests for 750 jobs today) to learn each job's category; if those add up to fewer jobs than the total, a plain listing adds the rest without a category.
+- `source_id` is `jobReqId` (REQ-…, or a Polish PB_ id), so a requisition reposted under a new posting URL is not a new job. The listing's `bulletFields[0]` equals it (746 of 746 checked), which lets the adapter skip details of stored jobs (decision 25).
+- `location` is `"<location>, <country>"` plus the additional locations, joined with `"; "`: "CDR (Amsterdam - Cedar), Netherlands". Office codes carry the city, which the location filter matches; the country is only given for the primary location. `first_published` is `startDate` (a date) at midnight Europe/Amsterdam.
+- Politeness, since the API is not meant for us: at most 4 detail requests in parallel, a descriptive User-Agent with the repository URL, and up to 3 retries on 429, 5xx and network errors with exponential backoff (1, 2, 4 s) or the server's `Retry-After`, capped at 60 s (`job_agent/sources/http.py`). A detail that still fails is skipped with a warning; it is still unknown on the next run, so it is fetched then.
+- ING's categories are excluded or kept like the other companies' (decision 14): retail, private banking, procurement and other non-engineering groups are excluded; Tech, Data/Modelling & Analytics, Security, Transformation, Risk Management (model developers), Financial Crime & Fraud Prevention, Additional JFG and Trainee JFG are kept.
+
+**Alternatives.** Parsing the Radancy search pages (HTML, 15 per page, and still no category); `ICSNLDGEN` only (misses most Dutch jobs); fetching only Dutch locations by their facet ids (filtering at fetch time, against decision 11).
+
+**Consequences.** The API is undocumented and can change or block us without notice; the adapter then fails for ING only and the other companies still fetch. The first live run made about 800 requests in 2 minutes and still got two 429s after retries (both picked up by the next run); later runs make about 50 listing requests plus one per new job. Old evergreen postings have a `startDate` from as early as 2022.
+
+---
+
+## 24. KPN through its careers site's RSS feed and JSON API
+
+**Date:** 2026-10-11 · **Status:** Accepted
+
+**Context.** jobs.kpn.com is a recruitment-marketing CMS that the ATS pushes vacancies into (its routes have push hooks for Ubeeo, Connexys and OTYS); applications go through the site's own form, so the ATS itself has no public endpoint. Decision 2 expected such companies to need HTML parsing. Two machine-readable endpoints exist, neither documented: the platform's RSS feed (`/feeds/rss`, all 43 jobs with full HTML descriptions, one category, `pubDate` and link, but no location) and the site's own JSON API (`/api/vacancy/?pageSize=999`, location, creation time with time zone and the ATS id, but no description). The API only accepts query parameters with an `X-Requested-With: XMLHttpRequest` header. All 43 descriptions are in Dutch.
+
+**Decision.**
+
+- A `kpn` adapter (`job_agent/sources/kpn.py`), configured with `base_url`, fetches both and joins them on the site id in the RSS link (`/vacature/2041/slug`). Two requests per run, no HTML parsing. An RSS item missing from the API is skipped with a warning (it has no ATS id yet) and comes in on a later run.
+- `source_id` is the API's `external_id`, labelled "ATS Vacancy ID" in the site's JSON-LD, rather than the site id, on the assumption that it survives the site re-importing a vacancy (slugs such as `ai-engineer-4` suggest titles get re-posted). **This is unverified.** If duplicate KPN postings appear over the coming weeks, this choice is revisited.
+- `location` is `"<city>, <country>"` from the API (`"Amersfoort, Nederland"`), `first_published` the API's `created`, and `category` the RSS category with `category_from: expertise`. Shops, field technicians, customer service, sales, marketing, business support, strategy and project/product management are excluded; Engineering, Network Engineering, IT Management, Security and Stages are kept.
+
+**Alternatives.** Parsing the detail pages' JSON-LD (has the description but an empty address, so the API is still needed, and 43 requests instead of 2); scraping the HTML search results.
+
+**Consequences.** Both endpoints belong to the site's platform and can change with it; the adapter then fails for KPN only. If the platform is used by another company, the adapter could be renamed after the platform and reused with a different `base_url`. Dutch-only postings make the Dutch filter keywords (decision 26) and the `dutch_required` label reason matter more.
+
+---
+
+## 25. Detail requests only for jobs not stored yet
+
+**Date:** 2026-10-11 · **Status:** Accepted
+
+**Context.** The Workday adapter (decision 23) needs one detail request per job. Storage is insert-only (decision 8), so details fetched again for stored jobs are thrown away: about 750 requests per run for ING, where a day brings 10–30 new jobs.
+
+**Decision.** `fetch` passes every adapter `known_ids`, the `source_id`s already stored for that source and company (`JobStore.source_ids`). The Workday adapter still fetches the full listing every run, then requests details only for listings whose requisition id is not known. Greenhouse (one request returns everything) and KPN (two requests) ignore it.
+
+**Alternatives.** Fetching every detail every run (simple, but 750 requests against an unofficial API each time); fetching details only for jobs passing the location filter (filtering at fetch time, against decision 11).
+
+**Consequences.** For ING, `fetch` reports only the jobs whose details it fetched, so "N fetched" is the number of new candidates rather than the board size. Because the full listing is still read every run, a future `last_seen_at` (to tell when a job disappears) remains possible without extra requests. A stored job's later edits are never seen, as with every other source.
+
+---
+
+## 26. Dutch title keywords and three more locations
+
+**Date:** 2026-10-11 · **Status:** Accepted
+
+**Context.** Run against the ING and KPN postings, the title rules missed Dutch internships ("Stagiair …", "Meewerkstage …", "ICT stagiair(e) bij KPN", and "Stage ING Private banking", which has no Dutch cue word) and Dutch senior titles ("Retail Regiodirecteur"). Dutch years phrasing ("Minimaal 3 jaar relevante ervaring", "3-5 jaar ervaring", "Ten minste 5 jaar werkervaring") was already handled by decision 22, with no false positives from the benefits lines ("€ 1500 per jaar"). KPN's tech roles are mostly in Amersfoort (13 of its 43 jobs), which the location filter (decision 12) excluded, as it did Diemen and Hilversum.
+
+**Decision.**
+
+- `title_filter.internship`: add `meewerkstage`, `stagiair` and `stagiaire`. An `internship_dutch` keyword (`stage`) now also counts when it is the first word of the title.
+- `title_filter.exclude_seniority`: add `directeur`, `regiodirecteur`, `teamleider` and `hoofd`. No generic "-manager" compound matching: Relatiemanager and Ketenmanager are role names, and their categories are excluded anyway.
+- `medior` is not added. It means roughly 2–5 years, 1–3 years is not a blocker for me, and the one medior posting already states 5 years, which the experience rule catches.
+- `location_filter.match`: add `diemen`, `amersfoort` and `hilversum`. Recall matters more than precision for now.
+- `preview_keywords`: add Dutch words (jaar, ervaring, werkervaring, minimaal, vereist, kennis, opleiding), and per-company `boilerplate` for ING's and KPN's benefits blocks so `jaar` does not surface "€ 1500 per jaar".
+
+**Alternatives.** Leaving Dutch internships to labelling; treating "Stage" at the start of a title as English ("Stage Manager"); a radius around the Randstad instead of more city names.
+
+**Consequences.** On the first live fetch, 20 internships are grouped (10 ING, 10 KPN), and KPN's Amersfoort Architect, DevOps, DBA and Network Security roles are shown. An English title starting with "Stage" ("Stage Manager, Events") is now treated as an internship; none exists in the stored postings, and a manager title is excluded by seniority first. Amersfoort and Hilversum are a longer commute than the Randstad cities, which labelling (`other`) can record if it matters.

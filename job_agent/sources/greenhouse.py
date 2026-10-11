@@ -1,5 +1,6 @@
 import json
 import urllib.request
+from collections.abc import Collection
 from datetime import datetime
 from typing import Any
 
@@ -18,7 +19,8 @@ class GreenhouseAdapter:
         self.company = company
         self.timeout = timeout
 
-    def fetch(self) -> list[Job]:
+    def fetch(self, known_ids: Collection[str] = frozenset()) -> list[Job]:
+        # One request returns every job in full, so known_ids are not needed.
         url = API_URL.format(token=self.company.board_token)
         req = urllib.request.Request(url, headers={"Accept": "application/json"})
         with urllib.request.urlopen(req, timeout=self.timeout) as resp:

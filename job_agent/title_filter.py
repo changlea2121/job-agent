@@ -20,8 +20,9 @@ class TitleFilter:
     excluded regardless of seniority ("business analyst"). `exceptions` are phrases
     removed from the title before seniority matching, so "Member of Technical
     Staff" is kept while "Staff Engineer" is excluded. `internship_dutch`
-    keywords count only when the title also has a Dutch cue, because Dutch
-    "stage" (internship) is an English word too ("Early-Stage").
+    keywords count only when the title also has a Dutch cue or starts with
+    the keyword ("Stage ING Private Banking"), because Dutch "stage"
+    (internship) is an English word too ("Early-Stage").
     """
 
     exclude_seniority: tuple[str, ...]
@@ -61,8 +62,8 @@ class TitleFilter:
         text = normalize(title)
         if self._internship_re is not None and self._internship_re.search(text):
             return True
-        return bool(
-            self._internship_dutch_re is not None
-            and self._internship_dutch_re.search(text)
-            and _DUTCH_CUE_RE.search(text)
-        )
+        if self._internship_dutch_re is None:
+            return False
+        if self._internship_dutch_re.match(text.lstrip()):  # the first word
+            return True
+        return bool(self._internship_dutch_re.search(text) and _DUTCH_CUE_RE.search(text))

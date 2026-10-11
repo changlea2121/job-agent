@@ -40,3 +40,10 @@ def test_first_seen_at_is_utc_and_not_overwritten(tmp_path, nebius_jobs):
     assert seen1 == seen2
     assert datetime.fromisoformat(seen1).utcoffset().total_seconds() == 0
     assert published == "2026-08-25T08:02:07-04:00"
+
+
+def test_source_ids_per_source_and_company(tmp_path, adyen_jobs, nebius_jobs):
+    store = JobStore(tmp_path / "jobs.db")
+    store.insert_new(adyen_jobs + nebius_jobs)
+    assert store.source_ids("greenhouse", "nebius") == {j.source_id for j in nebius_jobs}
+    assert store.source_ids("workday", "nebius") == set()

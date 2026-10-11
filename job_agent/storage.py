@@ -99,6 +99,13 @@ class JobStore:
         )
         return [_row_to_job(row) for row in rows]
 
+    def source_ids(self, source: str, company: str) -> set[str]:
+        """The source_ids already stored for this source and company."""
+        rows = self.conn.execute(
+            "SELECT source_id FROM jobs WHERE source = ? AND company = ?", (source, company)
+        )
+        return {row[0] for row in rows}
+
     def count(self) -> int:
         return self.conn.execute("SELECT COUNT(*) FROM jobs").fetchone()[0]
 

@@ -9,7 +9,17 @@ from .location import LocationFilter
 from .matching import validate_keywords
 from .title_filter import TitleFilter
 
-CATEGORY_SOURCES = ("metadata", "departments")
+# Per source: where Job.category can come from, and the fields it requires.
+CATEGORY_SOURCES = {
+    "greenhouse": ("metadata", "departments"),
+    "workday": ("job_family_group",),
+    "kpn": ("expertise",),
+}
+REQUIRED_FIELDS = {
+    "greenhouse": ("board_token",),
+    "workday": ("workday_host", "workday_site"),
+    "kpn": ("base_url",),
+}
 _REASON_NAME_RE = re.compile(r"[a-z0-9_]+")
 
 
@@ -17,10 +27,11 @@ _REASON_NAME_RE = re.compile(r"[a-z0-9_]+")
 class CompanyConfig:
     name: str
     source: str
-    board_token: str
-    # Where Job.category comes from: "metadata" (needs category_metadata_field),
-    # "departments", or None for no category. Defaults to "metadata" when a
-    # metadata field is given.
+    board_token: str | None = None  # greenhouse
+    # Where Job.category comes from, per source (CATEGORY_SOURCES): greenhouse
+    # "metadata" (needs category_metadata_field) or "departments", workday
+    # "job_family_group", kpn "expertise"; None for no category. Defaults to
+    # "metadata" when a metadata field is given.
     category_from: str | None = None
     category_metadata_field: str | None = None
     # Categories hidden by `job_agent new`; exact match, case-insensitive.
@@ -28,8 +39,17 @@ class CompanyConfig:
     # Phrases marking description lines `review` leaves out of its preview;
     # case-insensitive substrings.
     boilerplate: tuple[str, ...] = ()
+    # workday: e.g. "ing.wd3.myworkdayjobs.com" (the tenant is the first label)
+    # and the careers site name, e.g. "ICSGBLCOR".
+    workday_host: str | None = None
+    workday_site: str | None = None
+    base_url: str | None = None  # kpn: e.g. "https://jobs.kpn.com"
 
     def __post_init__(self):
+        for name in REQUIRED_FIELDS.get(self.source, ()):
+            value = getattr(self, name)
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"{self.name}: source {self.source!r} requires {name}")
         for name in ("exclude_categories", "boilerplate"):
             try:
                 value = validate_keywords(getattr(self, name), name)
@@ -38,10 +58,11 @@ class CompanyConfig:
             object.__setattr__(self, name, value)
         if self.category_from is None and self.category_metadata_field:
             object.__setattr__(self, "category_from", "metadata")
-        if self.category_from not in (None, *CATEGORY_SOURCES):
+        allowed = CATEGORY_SOURCES.get(self.source, ())
+        if self.category_from not in (None, *allowed):
             raise ValueError(
-                f"{self.name}: category_from must be one of {CATEGORY_SOURCES}, "
-                f"got {self.category_from!r}"
+                f"{self.name}: category_from for source {self.source!r} must be one of "
+                f"{allowed}, got {self.category_from!r}"
             )
         if self.category_from == "metadata" and not self.category_metadata_field:
             raise ValueError(
