@@ -52,3 +52,6 @@ python3 -m venv .venv && .venv/bin/pip install -e '.[dev]'   # setup (venv, not 
   old entry's decision; mark it "Superseded by N" and link the new one.
 - **Labelling guidelines are in `docs/labeling.md`.** Follow them when
   labelling or when changing `label_reasons`, and keep the two consistent.
+- **Keep the README current.** Any change to sources, filters or commands
+  must update `README.md` in the same commit (data sources table, filter
+  order and configuration reference, usage).
