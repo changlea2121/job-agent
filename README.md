@@ -20,9 +20,9 @@ in charge of the rest.
 3. **Label** *(built)*: an interactive `review` loop builds an evaluation set
    (`yes` / `maybe` / `no` with reasons), which is also used to check every
    new rule before it is enabled.
-4. **Score and tailor** *(planned)*: rank the jobs that pass the rules, and
-   draft application material for the chosen ones.
-5. **Submit** *(planned)*: only after explicit human approval, never
+4. **Score** *(planned)*: rank the jobs that pass the rules.
+5. **Tailor** *(planned)*: draft application material for a chosen job.
+6. **Submit** *(planned)*: only after explicit human approval, never
    automatically ([decision 1](docs/decisions.md#1-pipeline-with-human-approval-before-submission)).
 
 ## Current results
