@@ -1,11 +1,14 @@
 # job-agent
 
-A job-search agent built as a four-stage pipeline:
+A job-search agent built as a staged pipeline:
 
 1. **Discover**: fetch postings from company job boards into SQLite. *(implemented)*
-2. **Filter**: pick relevant jobs from the stored set.
-3. **Tailor**: prepare application materials for a chosen job.
-4. **Submit**: apply only after explicit human approval. Never auto-submit.
+2. **Filter**: rule-based exclusions applied at output time. *(implemented)*
+3. **Label**: build an evaluation set with `review` / `label`, also used to
+   check new rules before enabling them. *(implemented)*
+4. **Score**: rank the jobs that pass the rules. *(planned)*
+5. **Tailor**: prepare application materials for a chosen job. *(planned)*
+6. **Submit**: apply only after explicit human approval. Never auto-submit. *(planned)*
 
 Build one stage at a time. Don't add code for a later stage until asked.
 
