@@ -230,14 +230,37 @@ title_filter:
     - technician  # IT helpdesk, data center, cabling: physical/IT support work
     - mechanical  # data center design and operations
     - electrical
+    - architect  # senior scope (KPN "Architect"); see decision 27
+    - servicedesk
+    - service desk
+    - helpdesk
+    - help desk
 
 # Applied by `job_agent new` after the title rules: excludes jobs whose
-# description requires at least `min_years` (default 3) of experience. The
-# lower bound of a range counts ("3-5 years" -> 3). Ignored: years in a
+# description requires at least `min_years` (default 3) of experience. A range
+# also blocks when its midpoint is above `min_years`: "2-5 years" and "3-5
+# years" block, "1-3" and "2-4" pass (decision 28). Ignored: years in a
 # nice-to-have section or softened ("ideally 4+ years", "is a plus"), and years
 # that a degree other than a PhD can replace ("3+ years or an MSc").
 experience_filter:
   min_years: 3
+
+# Applied by `job_agent new` after the experience rule, to internships only:
+# excludes an internship whose description names none of these (case-
+# insensitive, whole words), i.e. one that does not target CS, data or AI
+# students. "Data science" and "engineering" also keep some non-CS
+# internships that list them among accepted studies.
+internship_filter:
+  require_description:
+    - computer science
+    - informatica
+    - informatics
+    - software
+    - artificial intelligence
+    - kunstmatige intelligentie
+    - machine learning
+    - data science
+    - engineering
 
 # Applied by `job_agent new` at output time; all jobs are stored regardless.
 # Case-insensitive, whole words, checked per ";"-separated location.
@@ -283,7 +306,9 @@ label_reasons:
     analysis-focused DA/DS work counts as wrong direction; for internships
     it doesn't.
   too_senior: senior-level scope even if the title doesn't say so
-  experience_required: 3+ years or explicitly senior experience (1-3 years does NOT count)
+  experience_required: >-
+    3+ years, a range whose midpoint is above 3 (2-5, 3-5, 2-6), or explicitly
+    senior experience (1-3 and 2-4 years do NOT count)
   other: anything else (prompts for a note)
 
 # `review` previews a description by first listing its lines that contain one

@@ -161,13 +161,20 @@ def test_repo_config_excludes_known_categories():
     ("Business Analyst - Operations", "business analyst"),  # real adyen title
     ("Business  Analyst Intern", "business analyst"),
     # Real nebius titles.
-    ("Help Desk Technician (Tier 1)", "technician"),
+    ("Help Desk Technician (Tier 1)", "help desk"),  # leftmost keyword in the title
     ("Advanced IT Technician", "technician"),
     ("L2 IT technician (project tasks)", "technician"),
     ("Mechanical Design Engineer", "mechanical"),
     ("Electrical Engineer- Data Centers", "electrical"),
     ("Data Center Operations Technician (Electrical)", "technician"),  # first match
     ("Electromechanical Systems Engineer", None),
+    # Real KPN titles, and synthetic false-positive checks.
+    ("Architect", "architect"),
+    ("Enterprise Architect - Data & Analytics", "architect"),
+    ("ICT stagiair(e) bij KPN Onsite Servicedesk in Diemen", "servicedesk"),
+    ("Service Desk Analyst", "service desk"),
+    ("Helpdesk Medewerker", "helpdesk"),
+    ("Software Architecture Engineer", None),  # whole words: not "architecture"
     ("Technical Program Manager", None),  # not a whole-word match
     ("Technology Risk Specialist", None),
     # Left to labelling: whether these fit depends on the work.

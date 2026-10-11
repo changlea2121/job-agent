@@ -28,8 +28,9 @@ category.** Titles and categories are set per company and can mislead.
     right direction even if Java isn't my main language.
   - For full-time jobs, analysis-focused data analyst / data scientist work
     counts as wrong direction. For internships it doesn't.
-- **`experience_required`**: an explicit 3+ years. 1–3 years is not a
-  blocker.
+- **`experience_required`**: an explicit 3+ years, or a range whose midpoint
+  is above 3 years: "2–5 years" signals a medior hire, so 2–5, 3–5 and 2–6
+  block. 1–3 and 2–4 years are not blockers.
 - **`too_senior`**: only when no years are stated but the duties are senior
   (mentoring engineers, owning strategy, setting technical direction). If
   years are stated, prefer `experience_required`.

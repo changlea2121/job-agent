@@ -87,13 +87,34 @@ def test_section_resets_after_next_heading():
     assert [(m.years, m.optional) for m in mentions(text)] == [(5, True), (4, False)]
 
 
+def _detail(rule, text):
+    mention = rule.excluded(text)
+    return mention.detail if mention else None
+
+
 def test_filter_threshold():
     rule = ExperienceFilter(min_years=3)
-    assert rule.excluded_years("- 3+ years of experience") == 3
-    assert rule.excluded_years("- 2+ years of experience") is None
-    assert rule.excluded_years("- 1-3 years of experience") is None
-    assert rule.excluded_years("no years") is None
+    assert _detail(rule, "- 3+ years of experience") == "3+ years"
+    assert _detail(rule, "- 2+ years of experience") is None
+    assert _detail(rule, "no years") is None
     assert ExperienceFilter().min_years == 3
+
+
+@pytest.mark.parametrize("text, expected", [
+    # A range blocks when its midpoint is above min_years (3).
+    ("- 1-3 years of experience", None),
+    ("- 2-4 years of experience", None),     # midpoint 3: not above
+    ("- 1-2+ years of experience in fraud or AML", None),
+    ("- 2-5 years of experience", "2-5 years"),
+    ("- 2–5 jaar ervaring met AI/ML-oplossingen in productie-omgevingen "
+     "(bij voorkeur binnen enterprise-domeinen zoals CIA)", "2-5 years"),  # real, KPN
+    ("- 2 tot 6 jaar ervaring", "2-6 years"),
+    ("- 3-5 years of experience", "3-5 years"),
+    ("- Ideally 2-5 years of experience", None),  # softened ranges still pass
+    ("- 2-5 years of Go experience\n- 4+ years of Python experience", "4+ years"),
+])
+def test_filter_ranges_by_midpoint(text, expected):
+    assert _detail(ExperienceFilter(min_years=3), text) == expected
 
 
 @pytest.mark.parametrize("value", [0, -1, "3", 2.5, True])

@@ -4,6 +4,10 @@ Lines are matched one at a time (html_to_text puts each bullet on its own
 line). A mention counts as a hard requirement unless it is in a nice-to-have
 section, softened in its own clause ("ideally 4+ years", "3+ years is a plus"),
 or a degree other than a PhD can replace it ("3+ years or an MSc").
+
+A single value blocks when it reaches the threshold. A range also blocks when
+its midpoint is above it: with 3, "2-5 years" (a medior hire) blocks while
+"1-3" and "2-4" pass.
 """
 import re
 from dataclasses import dataclass
@@ -61,12 +65,20 @@ _OR_BEFORE_YEARS_RE = re.compile(
 class Mention:
     line: str
     years: int  # the minimum asked for: the lower bound of a range
+    upper: int | None  # the upper bound of a range ("3-5 years"); None otherwise
     optional: bool  # nice-to-have section, or softened in its clause
     degree_alternative: bool  # a non-PhD degree can replace the years
 
     @property
     def blocking(self) -> bool:
         return not self.optional and not self.degree_alternative
+
+    @property
+    def detail(self) -> str:
+        """ "5+ years", or "2-5 years" for a range."""
+        if self.upper is not None and self.upper > self.years:
+            return f"{self.years}-{self.upper} years"
+        return f"{self.years}+ years"
 
 
 def _num(text: str) -> int:
@@ -110,6 +122,7 @@ def mentions(description: str) -> list[Mention]:
             continue
         for m in _YEARS_RE.finditer(line):
             years = _num(m.group(1))
+            upper = _num(m.group(2)) if m.group(2) else None
             if not 1 <= years <= MAX_YEARS or _TIMEFRAME_RE.search(line[:m.start()]):
                 continue
             if not (_SPENT_ON_RE.match(line, m.end()) or _EXPERIENCE_RE.search(line)):
@@ -118,7 +131,7 @@ def mentions(description: str) -> list[Mention]:
             softened = (_SOFT_BEFORE_RE.search(line[left:m.start()])
                         or _SOFT_AFTER_RE.search(line[m.end():right]))
             found.append(Mention(
-                line=line, years=years, optional=in_optional or bool(softened),
+                line=line, years=years, upper=upper, optional=in_optional or bool(softened),
                 degree_alternative=_degree_alternative(line, m.start(), m.end()),
             ))
     return found
@@ -132,7 +145,8 @@ def required_years(description: str) -> int | None:
 
 @dataclass(frozen=True)
 class ExperienceFilter:
-    """Excludes jobs that require at least `min_years` of experience."""
+    """Excludes jobs that require at least `min_years` of experience, or a
+    range whose midpoint is above `min_years`."""
 
     min_years: int = 3
 
@@ -144,7 +158,15 @@ class ExperienceFilter:
                 f"got {self.min_years!r}"
             )
 
-    def excluded_years(self, description: str) -> int | None:
-        """The required years if they reach `min_years`, else None."""
-        years = required_years(description)
-        return years if years is not None and years >= self.min_years else None
+    def blocks(self, mention: Mention) -> bool:
+        if not mention.blocking:
+            return False
+        if mention.years >= self.min_years:
+            return True
+        upper = mention.upper
+        return upper is not None and (mention.years + upper) / 2 > self.min_years
+
+    def excluded(self, description: str) -> Mention | None:
+        """The highest mention that blocks (by lower, then upper bound), or None."""
+        found = [m for m in mentions(description) if self.blocks(m)]
+        return max(found, key=lambda m: (m.years, m.upper or 0), default=None)

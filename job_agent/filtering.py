@@ -4,7 +4,7 @@ from .config import Config
 from .location import LocationMatch
 from .models import Job
 
-RULES = ("location", "category", "seniority", "title", "experience")
+RULES = ("location", "category", "seniority", "title", "experience", "internship")
 
 
 @dataclass
@@ -45,17 +45,21 @@ def apply_filters(jobs: list[Job], config: Config) -> FilterResult:
             result.excluded.append((job, "title", keyword))
             continue
         if config.experience_filter is not None:
-            years = config.experience_filter.excluded_years(job.description)
-            if years is not None:
-                result.excluded.append((job, "experience", f"{years}+ years"))
+            mention = config.experience_filter.excluded(job.description)
+            if mention is not None:
+                result.excluded.append((job, "experience", mention.detail))
                 continue
+        intern = title_filter is not None and title_filter.is_internship(job.title)
+        if intern and config.internship_filter is not None \
+                and config.internship_filter.excludes(job.description):
+            result.excluded.append((job, "internship", "no CS/data/AI keyword"))
+            continue
         if match is LocationMatch.UNCLEAR:
             result.unclear.add(job)
-            unclear.append(job)
+            unclear.append((job, intern))
         else:
-            clear.append(job)
+            clear.append((job, intern))
 
-    for job in clear + unclear:
-        intern = config.title_filter is not None and config.title_filter.is_internship(job.title)
+    for job, intern in clear + unclear:
         (result.internships if intern else result.jobs).append(job)
     return result

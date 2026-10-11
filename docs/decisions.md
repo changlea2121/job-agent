@@ -322,7 +322,7 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 
 ## 22. Exclude jobs that require 3+ years of experience
 
-**Date:** 2026-10-08 · **Status:** Accepted
+**Date:** 2026-10-08 · **Status:** Accepted; the reading of ranges ("Ranges use the lower bound") is superseded by [28](#28-experience-ranges-block-by-their-midpoint)
 
 **Context.** After all kept jobs were labelled, `experience_required` was the most common reason (11 of 20 `no` labels), and every one of those postings states the requirement explicitly ("5+ years", "at least 4 years", "5 or more years"). [docs/labeling.md](labeling.md) defines the blocker as an explicit 3+ years; 1–3 years is not one.
 
@@ -409,3 +409,63 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** Leaving Dutch internships to labelling; treating "Stage" at the start of a title as English ("Stage Manager"); a radius around the Randstad instead of more city names.
 
 **Consequences.** On the first live fetch, 20 internships are grouped (10 ING, 10 KPN), and KPN's Amersfoort Architect, DevOps, DBA and Network Security roles are shown. An English title starting with "Stage" ("Stage Manager, Events") is now treated as an internship; none exists in the stored postings, and a manager title is excluded by seniority first. Amersfoort and Hilversum are a longer commute than the Randstad cities, which labelling (`other`) can record if it matters.
+
+---
+
+## 27. Exclude internships that don't target CS, data or AI students; exclude architect and service desk titles
+
+**Date:** 2026-10-11 · **Status:** Accepted
+
+**Context.** After labelling ING and KPN, 20 labels are internships by title: 1 `yes` (ING "Power Platform Intern") and 19 `no`, all `wrong_direction` (marketing, communication, procurement, retail, private banking, corporate finance, public affairs). [docs/labeling.md](labeling.md) now says employer value and conversion paths can justify `yes` for an internship outside my core direction, as long as it targets CS students; what these 19 have in common is that their descriptions ask for other studies. Among non-internship titles, KPN "Architect" was labelled `too_senior`, "ICT stagiair(e) bij KPN Onsite Servicedesk" and Nebius "Help Desk Technician" `wrong_direction` (IT support work, which labeling.md counts as wrong direction).
+
+**Decision.**
+
+- A new `internship` rule (`internship_filter.require_description` in `companies.yaml`, `job_agent/internship.py`) runs after the experience rule on internships only: an internship is excluded when its description names none of computer science, informatica, informatics, software, artificial intelligence, kunstmatige intelligentie, machine learning, data science or engineering (whole words, case-insensitive). The detail is `no CS/data/AI keyword`. Regular jobs are not affected.
+- The keyword list is deliberately broader than the evidence needs, so data science and AI internships are not hidden. Evaluated against `labels.jsonl`: it would exclude 16 of the 19 `no` internships and no `yes` or `maybe` job. A narrower list (computer science, informatica, software) caught all 19, but would hide a data science or AI internship that does not mention software. The 3 `no` internships still shown list Data Science or Engineering among accepted studies (ING "Stage ING Private banking - Reporting" twice, "Stagiair Hydrocarbon & New Energies"). "ICT" and "IT" are not keywords: they appear in KPN's shop and servicedesk internships.
+- `title_filter.exclude_titles`: add `architect`, `servicedesk`, `service desk`, `helpdesk` and `help desk` (the `title` rule, decisions 18, 20 and 21). They catch 2 `no` labels not otherwise caught (KPN "Architect", the KPN servicedesk internship) and no `yes` or `maybe`. Whole words, so "Software Architecture Engineer" is kept.
+
+**Alternatives.** Excluding the internship categories ING "Trainee JFG" and KPN "Stages" (decision 29); requiring a tech word in the internship's title (caught 18, but a title says less about whom the internship targets than the study requirements do); leaving internships to labelling.
+
+**Consequences.** In the current `jobs.db`, 4 internships are shown instead of 20; 15 are excluded by the `internship` rule and 1 by `title: servicedesk`. One more shown job, KPN "Architect", is excluded by `title: architect`. An internship for CS students whose description names none of the keywords (e.g. only "IT-opleiding" or "HBO-ICT") is hidden; `review --excluded --rule internship` is how to spot one. Labelled internships stay in the evaluation set either way.
+
+---
+
+## 28. Experience ranges block by their midpoint
+
+**Date:** 2026-10-11 · **Status:** Accepted. Supersedes the reading of ranges in [22](#22-exclude-jobs-that-require-3-years-of-experience).
+
+**Context.** Decision 22 reads a range by its lower bound, so "2–5 jaar ervaring" (KPN "AI Engineer") passed the 3-year rule, yet I labelled that job `experience_required`. "2–5 years" signals a medior hire, which is different from "1–3 years".
+
+**Decision.** A single value ("3+ years", "at least 4 years") still blocks when it reaches `min_years`. A range also blocks when its midpoint is above `min_years`: with 3, "1–3" and "2–4" pass while "2–5", "3–5" and "2–6" block. A range whose lower bound already reaches the threshold still blocks. The exclusion detail shows the range ("2-5 years"); single values keep "5+ years". Softened, optional and degree-replaceable ranges still never block. [docs/labeling.md](labeling.md) and the `experience_required` description say the same.
+
+**Alternatives.** Keeping the lower bound (lets medior ranges through); the upper bound ("1–3 years" would block, though it is entry-level); leaving ranges to labelling.
+
+**Consequences.** Checked before enabling: in the current `jobs.db`, exactly one shown job becomes excluded, KPN "AI Engineer" (labelled `no` / `experience_required`). No `yes` or `maybe` label has a range in its description. 9 jobs that other rules already exclude also match. A range just above the midpoint ("2–5") is treated like "4+ years", which may hide a role that would take a strong 2-year candidate; `review --excluded --rule experience` can sample those.
+
+---
+
+## 29. Not excluding ING Risk Management, Trainee JFG, or KPN Security, Network Engineering, IT Management and Stages
+
+**Date:** 2026-10-11 · **Status:** Rejected
+
+**Context.** After labelling ING and KPN, several categories had only `no` labels among the jobs shown. Excluding them (decision 14) would catch these `no` labels:
+
+| category | `no` caught | `yes`/`maybe` excluded |
+|---|---|---|
+| ING Trainee JFG | 9 | 1 `yes` (Power Platform Intern) |
+| KPN Stages | 10 | none |
+| ING Risk Management | 1 | none |
+| KPN Security | 2 | none |
+| KPN Network Engineering | 2 | none |
+| KPN IT Management | 1 | none |
+
+**Decision.** Exclude none of them for now. Excluding no `yes` or `maybe` label is necessary for a rule, not sufficient:
+
+- **ING Trainee JFG** excludes a `yes` job.
+- **KPN Stages** holds all KPN internships. Excluding it goes against grouping internships rather than excluding them, and would also hide any future KPN internship for CS students; the `internship` rule (decision 27) handles the same 10 jobs by what each one asks for.
+- **ING Risk Management** rests on a single label, and the category also holds model developer and "Risk AI Data Scientist" roles, which are close to ML engineering; those are currently excluded by the experience rule, not by direction.
+- **KPN Security, Network Engineering and IT Management** rest on 1–2 labels each, and KPN files platform work under them: the SRE, cloud, DevOps and backup roles seen so far sit in Engineering, Network Engineering and IT Management.
+
+**Alternatives.** Excluding each category that has only `no` labels (the option rejected here).
+
+**Consequences.** These categories keep reaching the review queue, at the cost of a few labels per fetch. The decision is revisited when a category has enough labels to show a pattern, or when its `no` labels share a reason that a category rule would capture without hiding platform or ML roles.
