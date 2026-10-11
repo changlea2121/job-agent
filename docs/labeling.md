@@ -33,12 +33,14 @@ category.** Titles and categories are set per company and can mislead.
 - **`too_senior`**: only when no years are stated but the duties are senior
   (mentoring engineers, owning strategy, setting technical direction). If
   years are stated, prefer `experience_required`.
-- **`dutch_required`**: an explicit high-level Dutch requirement that is
-  clearly mandatory: C1/C2, native/moedertaal, or "uitstekende beheersing
-  van het Nederlands" stated as a must.
-  - These do NOT count: "Nederlands en Engels" listed together, "Dutch is
-    a plus", or a posting merely written in Dutch. In those cases, judge on
-    the other criteria.
+- **`dutch_required`**: only an explicit C1/C2 or native/moedertaal Dutch
+  requirement counts.
+  - A working-level requirement does NOT count, even when stated as a must
+    ("Dutch is required", "Goede beheersing van de Nederlandse taal is
+    vereist"), since I'm learning Dutch.
+  - "Nederlands en Engels" listed together, "Dutch is a plus", or a posting
+    written in Dutch never counts.
+  - In those cases, judge on the other criteria.
 - **`other`**: anything else, with a short note.
 
 ## Jobs removed by the rules
@@ -54,5 +56,8 @@ the rules, not for evaluating scoring.
 
 - **Vague wording only** ("deep experience", "highly skilled") without years
   or senior duties: label `m`, no reason.
+- **Internships**: employer value and conversion paths (traineeship,
+  permanent roles) can justify `y` even when the work is outside my core
+  direction, as long as the role targets CS students.
 - **Timing**: ignore it for regular full-time roles. Use `other` with a note
   only if a fixed timing constraint makes applying impossible.
