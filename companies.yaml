@@ -267,7 +267,12 @@ location_filter:
 # numbered in this order. "no" needs at least one reason, "maybe" may have
 # some, "yes" none. Choosing "other" asks for a short note.
 label_reasons:
-  dutch_required: Dutch is mandatory ("a plus" doesn't count)
+  dutch_required: >-
+    an explicit high-level Dutch requirement that is clearly mandatory:
+    C1/C2, native/moedertaal, or "uitstekende beheersing van het Nederlands"
+    stated as a must. "Nederlands en Engels" listed together, "Dutch is a
+    plus", or a posting merely written in Dutch don't count; judge those on
+    the other criteria.
   wrong_direction: >-
     the actual work is not backend/platform/infra or ML/AI engineering.
     Judge by the description, not the title. For full-time jobs,

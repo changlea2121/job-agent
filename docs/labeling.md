@@ -33,7 +33,12 @@ category.** Titles and categories are set per company and can mislead.
 - **`too_senior`**: only when no years are stated but the duties are senior
   (mentoring engineers, owning strategy, setting technical direction). If
   years are stated, prefer `experience_required`.
-- **`dutch_required`**: Dutch is mandatory. "A plus" doesn't count.
+- **`dutch_required`**: an explicit high-level Dutch requirement that is
+  clearly mandatory: C1/C2, native/moedertaal, or "uitstekende beheersing
+  van het Nederlands" stated as a must.
+  - These do NOT count: "Nederlands en Engels" listed together, "Dutch is
+    a plus", or a posting merely written in Dutch. In those cases, judge on
+    the other criteria.
 - **`other`**: anything else, with a short note.
 
 ## Jobs removed by the rules
