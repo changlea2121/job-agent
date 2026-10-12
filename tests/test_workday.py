@@ -1,3 +1,4 @@
+import threading
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -111,10 +112,47 @@ def test_fetch_pages_each_family_and_skips_known_details():
     assert {j.category for j in got} == {"Tech", "HR"}
     assert "/job/tech-0" not in adapter.gets and len(adapter.gets) == 26
     # One plain page, two pages of tech, one of hr; no fallback pass needed.
-    assert [(b["appliedFacets"], b["offset"]) for b in adapter.posts] == [
-        ({}, 0), ({"jobFamilyGroup": ["tech"]}, 0), ({"jobFamilyGroup": ["tech"]}, 20),
+    # The groups are listed in parallel, so only the plain page's place is fixed.
+    requests = [(b["appliedFacets"], b["offset"]) for b in adapter.posts]
+    assert requests[0] == ({}, 0)
+    assert sorted(requests[1:], key=str) == sorted([
+        ({"jobFamilyGroup": ["tech"]}, 0), ({"jobFamilyGroup": ["tech"]}, 20),
         ({"jobFamilyGroup": ["hr"]}, 0),
-    ]
+    ], key=str)
+
+
+def test_category_listings_run_four_at_a_time():
+    families = {f"f{i}": f"Family {i}" for i in range(6)}
+    jobs = {k: v for f in families for k, v in _jobs(1, f).items()}
+    adapter = FakeWorkday(ING, jobs, families)
+    real_post, lock = adapter._post, threading.Lock()
+    active, peak = 0, 0
+    # The first four group listings wait for each other: with fewer than four
+    # workers this times out, and the peak shows there are never more.
+    barrier = threading.Barrier(4, timeout=5)
+    started = iter(range(len(families)))
+
+    def tracked(path, body):
+        nonlocal active, peak
+        if not body["appliedFacets"]:
+            return real_post(path, body)
+        with lock:
+            active += 1
+            peak = max(peak, active)
+            first_four = next(started) < 4
+        if first_four:
+            barrier.wait()
+        try:
+            return real_post(path, body)
+        finally:
+            with lock:
+                active -= 1
+
+    adapter._post = tracked
+    got = adapter.fetch()
+    assert peak == 4
+    # Merged in facet order whatever order the groups finish in.
+    assert [j.category for j in got] == [f"Family {i}" for i in range(6)]
 
 
 def test_fetch_lists_jobs_without_a_family_too():

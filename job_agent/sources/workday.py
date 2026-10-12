@@ -4,6 +4,7 @@ uses (`/wday/cxs/{tenant}/{site}`). It is undocumented and may change.
 Listings carry no description, date or category, so each new job needs a
 detail request, and the category comes from re-running the listing once per
 job family group facet. Details are only fetched for jobs not stored yet.
+Both run at most MAX_WORKERS requests at a time.
 """
 import sys
 import time
@@ -22,7 +23,7 @@ from .http import fetch_json
 
 DEFAULT_TIMEOUT = 30.0  # seconds
 PAGE_SIZE = 20  # the API rejects larger pages
-MAX_WORKERS = 4  # parallel detail requests
+MAX_WORKERS = 4  # parallel requests: category listings, then details
 CATEGORY_FACET = "jobFamilyGroup"
 # startDate is a date only; ING posts from Amsterdam.
 POSTING_TZ = ZoneInfo("Europe/Amsterdam")
@@ -118,9 +119,14 @@ class WorkdayAdapter:
                 facet = next((f for f in first.get("facets", [])
                               if f.get("facetParameter") == CATEGORY_FACET), {})
                 values = [(v["id"], v["descriptor"]) for v in facet.get("values", [])]
-            for value_id, name in values:
-                where = f"listing ({CATEGORY_FACET} {name!r})"
-                for listing in self._all_pages({CATEGORY_FACET: [value_id]}, where):
+            wheres = [f"listing ({CATEGORY_FACET} {name!r})" for _, name in values]
+            # Groups in parallel; each group's pages in order, since paging
+            # needs its first page's total. Merged in facet order.
+            with ThreadPoolExecutor(MAX_WORKERS) as pool:
+                pages = list(pool.map(lambda v, w: self._all_pages({CATEGORY_FACET: [v[0]]}, w),
+                                      values, wheres))
+            for (_, name), where, group in zip(values, wheres, pages):
+                for listing in group:
                     add(listing, where, name)
         # Stubs count as listed, or they would force the plain pass every run.
         if len(listings) + len(stubs) < first.get("total", 0):

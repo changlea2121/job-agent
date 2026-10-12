@@ -79,10 +79,12 @@ Politeness measures for the unofficial endpoints (`job_agent/sources/http.py`):
 - A descriptive User-Agent naming the project and linking to this repository.
 - Up to 3 retries on HTTP 429, 5xx and network errors, with exponential
   backoff (1, 2, 4 s) or the server's `Retry-After`, capped at 60 s.
-- Workday: at most 4 detail requests in parallel, and details only for jobs
-  not already in `jobs.db`. The full listing is still read every run, so the
-  first run makes about 800 requests and later ones about 50 plus one per new
-  job ([decision 25](docs/decisions.md#25-detail-requests-only-for-jobs-not-stored-yet)).
+- Workday: at most 4 requests in parallel (category listings, then details),
+  and details only for jobs not already in `jobs.db`. The full listing is
+  still read every run, so the first run makes about 800 requests and later
+  ones about 50 plus one per new job, about 6 s for ING
+  ([decisions 25](docs/decisions.md#25-detail-requests-only-for-jobs-not-stored-yet)
+  and [32](docs/decisions.md#32-workday-category-listings-in-parallel-no-fetch-time-country-scoping)).
   A detail that still fails is skipped with a warning and fetched on the next
   run.
 - KPN: two requests per run.

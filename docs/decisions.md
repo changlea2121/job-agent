@@ -342,7 +342,7 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 
 ## 23. ING through Workday's unofficial JSON API
 
-**Date:** 2026-10-11 · **Status:** Accepted; listings without a path are handled by [30](#30-workday-listings-without-externalpath-are-skipped-errors-name-the-step)
+**Date:** 2026-10-11 · **Status:** Accepted; listings without a path are handled by [30](#30-workday-listings-without-externalpath-are-skipped-errors-name-the-step); category listings run in parallel per [32](#32-workday-category-listings-in-parallel-no-fetch-time-country-scoping)
 
 **Context.** careers.ing.com is a Radancy (TalentBrew) front end whose apply links go to Workday: tenant `ing` on `ing.wd3.myworkdayjobs.com`, site `ICSGBLCOR` (750 jobs, 49 in the Netherlands). Workday has no documented public job board API like Greenhouse's (decision 2). The only JSON is `/wday/cxs/{tenant}/{site}`, which the Workday front end itself uses. Its listing returns at most 20 jobs per page (larger pages are a 400) and carries no description, date or category; each job's detail has the description, `startDate`, location, additional locations and country. The category ("Job Category") exists only as the `jobFamilyGroup` facet. `ICSNLDGEN`, listed in Workday's robots.txt next to the global site, holds a 5-job subset of the same jobs.
 
@@ -502,4 +502,23 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** A table of known categories per company (duplicates what `jobs.db` already holds, and would need its own insert-only rules); reporting only categories not in `exclude_categories` (would hide that a pre-emptive exclusion just took effect); an allow list of categories, so new ones are hidden until approved (against decision 14's exclusion lists, and a new engineering category would silently disappear).
 
 **Consequences.** A new category is noticed when it is fetched, before its jobs are reviewed. Excluding it afterwards needs no rebuild (decision 11). A company's first fetch reports all of its categories (22 for ING), which is also the list to write its exclusions from. Greenhouse department categories are the department names joined with ", " (decision 9), so a job filed under a new combination of known departments is reported as a new category too. Only the first fetch of a category reports it; if it is missed then, it is not reported again.
+
+---
+
+## 32. Workday category listings in parallel; no fetch-time country scoping
+
+**Date:** 2026-10-12 · **Status:** Accepted
+
+**Context.** ING fetches felt slow. Timed live on 2026-10-12, one ING run was 1 plain listing page (0.4 s), 48 job family group listing pages one after another (16.4 s, about 0.34 s each), and details at 4 in parallel (40 in 3.1 s, so 1–2.5 s for a typical day's 10–30 new jobs). Retries and backoff waited 0 s over about 150 requests. Nearly all of the time was the sequential category listings (decision 23).
+
+Limiting ING to Dutch jobs at fetch time was also evaluated. ICSGBLCOR has no country facet: Workday's `locationCountry` facet with the Netherlands id is ignored (all 755 jobs come back). Only the `locations` facet exists, 109 individual offices nested under `locationMainGroup`; the 13 Dutch offices matched by city name return 45 jobs, which would make a run about 12 requests and 4 s.
+
+**Decision.**
+
+- The job family group listings run in parallel, at most `MAX_WORKERS` (4) at a time, the same limit as detail requests; the two phases run one after the other, so there are never more than 4 requests in flight. Each group's pages stay in order, since paging needs that group's first-page `total`. Results are merged in facet order, so the listings, categories and warnings do not depend on which group finishes first.
+- **Fetch-time country scoping is rejected**, and decision 11 stands: every job is stored and location is filtered at output time. Beyond decision 11's reasons (jobs outside the scope would never be stored; widening the location rules later would bring them all in at once with a `first_seen_at` that makes them look new; labelling and new rules could not be checked against them), scoping by office ids would silently miss jobs at any Dutch office not in the configured list, because there is no country facet to rely on. This repeats, with measurements, the alternative decision 23 already rejected.
+
+**Alternatives.** Scoping to Dutch offices with the `locations` facet (rejected above); more than 4 parallel requests (faster, but the API is unofficial and decision 23 kept to 4); dropping the category passes and taking categories from details (the detail has no job family group).
+
+**Consequences.** The same 48 listing requests take 5.5 s instead of 16.4 s, and a full ING listing pass about 6 s (a fetch of all four companies took 10 s); no 429s were seen. Up to 4 listing requests now arrive at once where there was 1, the same burst the details phase already sends. If Workday starts rate limiting, `MAX_WORKERS` is the setting to lower.
 
