@@ -488,3 +488,18 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** Failing the company on any malformed entry (what happened: one stub hid the other 755 jobs); a threshold per job family group listing (small groups would trip it on one stub); a fixed count of stubs rather than a share (would not scale with the board); building a detail path from the requisition id (the path also needs the location and title slug, which stubs lack); storing stubs as jobs with only an id (no title, location or description to filter or label).
 
 **Consequences.** One odd entry no longer stops ING. A real format change, where most entries lack the path, fails the company with one error naming the share rather than hundreds of warnings and few or no jobs (updated 2026-10-12; first written, this entry left that to whoever read the warnings). A change affecting under 10% of entries is still only warnings. The warnings repeat each run for as long as a stub stays listed.
+
+---
+
+## 31. Fetch reports categories seen for the first time
+
+**Date:** 2026-10-12 · **Status:** Accepted
+
+**Context.** Category exclusions (decision 14) are lists written from the categories seen so far. A category a company starts using is not excluded, so its jobs reach `review` first, and the new category is only noticed while labelling them. That happened with adyen's "Enterprise Risk" (one stored job), now added to adyen's `exclude_categories`.
+
+**Decision.** After each company's `N fetched, M new` line, `fetch` prints one line per category that appears in the fetched jobs but in no job stored for that source and company before the run: `adyen: new category: Enterprise Risk (1 job)`. Categories are compared case-insensitively, like `exclude_categories`, and grouped under the first spelling seen. A category already in `exclude_categories` (set up in advance) is marked `, excluded`. Jobs without a category are not reported. The stored categories are read from `jobs.db` (`JobStore.categories`) just before the company is fetched; no new table is needed.
+
+**Alternatives.** A table of known categories per company (duplicates what `jobs.db` already holds, and would need its own insert-only rules); reporting only categories not in `exclude_categories` (would hide that a pre-emptive exclusion just took effect); an allow list of categories, so new ones are hidden until approved (against decision 14's exclusion lists, and a new engineering category would silently disappear).
+
+**Consequences.** A new category is noticed when it is fetched, before its jobs are reviewed. Excluding it afterwards needs no rebuild (decision 11). A company's first fetch reports all of its categories (22 for ING), which is also the list to write its exclusions from. Greenhouse department categories are the department names joined with ", " (decision 9), so a job filed under a new combination of known departments is reported as a new category too. Only the first fetch of a category reports it; if it is missed then, it is not reported again.
+

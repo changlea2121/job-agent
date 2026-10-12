@@ -114,9 +114,17 @@ Example output (a later run):
 adyen: 237 fetched, 0 new
 nebius: 376 fetched, 0 new
 ing: 2 fetched, 2 new
+ing: new category: Sustainability (1 job)
 kpn: 43 fetched, 0 new
 total: 658 fetched, 2 new
 ```
+
+A `new category` line names a category that no stored job of that company
+has had (compared case-insensitively, like `exclude_categories`), with how
+many fetched jobs carry it, and `, excluded` if `exclude_categories` already
+hides it. It is the moment to decide whether to exclude it, before its jobs
+reach `review`. A company's first fetch reports every category it has
+([decision 31](docs/decisions.md#31-fetch-reports-categories-seen-for-the-first-time)).
 
 For Greenhouse and KPN, "fetched" is the whole board. **For Workday it counts
 only the jobs whose details were downloaded**, i.e. those not stored yet, so

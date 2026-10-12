@@ -106,6 +106,14 @@ class JobStore:
         )
         return {row[0] for row in rows}
 
+    def categories(self, source: str, company: str) -> set[str]:
+        """The categories of jobs already stored for this source and company."""
+        rows = self.conn.execute(
+            "SELECT DISTINCT category FROM jobs WHERE source = ? AND company = ? "
+            "AND category IS NOT NULL", (source, company)
+        )
+        return {row[0] for row in rows}
+
     def count(self) -> int:
         return self.conn.execute("SELECT COUNT(*) FROM jobs").fetchone()[0]
 

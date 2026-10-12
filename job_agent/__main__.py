@@ -1,8 +1,9 @@
 import argparse
 import sys
+from collections import Counter
 from datetime import datetime, timezone
 
-from .config import Config, load_config
+from .config import CompanyConfig, Config, load_config
 from .filtering import RULES, apply_filters
 from .labels import LABELS, LabelStore, job_ref, make_label, parse_ref
 from .models import Job
@@ -10,6 +11,26 @@ from .review import candidates, review
 from .stats import format_stats
 from .sources import ADAPTERS
 from .storage import JobStore, utc_iso
+
+
+def new_categories(company: CompanyConfig, jobs: list[Job], stored: set[str]) -> list[str]:
+    """Lines for categories no stored job of the company has had, so they can
+    be excluded before their jobs reach review. Compared case-insensitively,
+    like exclude_categories."""
+    seen = {c.casefold() for c in stored}
+    counts: Counter[str] = Counter()
+    names: dict[str, str] = {}  # casefolded -> first spelling seen
+    for job in jobs:
+        if job.category is not None and job.category.casefold() not in seen:
+            key = job.category.casefold()
+            names.setdefault(key, job.category)
+            counts[key] += 1
+    lines = []
+    for category, n in sorted((names[k], n) for k, n in counts.items()):
+        note = ", excluded" if company.excludes_category(category) else ""
+        lines.append(f"{company.name}: new category: {category} "
+                     f"({n} job{'s' if n != 1 else ''}{note})")
+    return lines
 
 
 def cmd_fetch(args: argparse.Namespace) -> int:
@@ -27,6 +48,7 @@ def cmd_fetch(args: argparse.Namespace) -> int:
             try:
                 # Adapters that need a request per job skip the ones already stored.
                 known = store.source_ids(adapter_cls.source, company.name)
+                stored_categories = store.categories(adapter_cls.source, company.name)
                 jobs = adapter_cls(company, timeout=args.timeout).fetch(known_ids=known)
             except Exception as exc:  # keep going with the other companies
                 print(f"{company.name}: fetch failed: {exc}", file=sys.stderr)
@@ -36,6 +58,8 @@ def cmd_fetch(args: argparse.Namespace) -> int:
             total_fetched += len(jobs)
             total_new += new
             print(f"{company.name}: {len(jobs)} fetched, {new} new")
+            for line in new_categories(company, jobs, stored_categories):
+                print(line)
     finally:
         store.close()
     print(f"total: {total_fetched} fetched, {total_new} new")
