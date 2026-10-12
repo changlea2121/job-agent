@@ -218,6 +218,7 @@ companies:
     workday_host: ing.wd3.myworkdayjobs.com  # tenant = first label ("ing")
     workday_site: ICSGBLCOR                  # careers site, from the apply links
     category_from: job_family_group          # category = Workday "Job Category" facet
+    workday_max_stub_share: 0.10             # optional; see below
 
   - name: kpn
     source: kpn
@@ -244,7 +245,9 @@ How each source fills the `Job` fields:
   then any additional locations: "CDR (Amsterdam - Cedar), Netherlands".
   `first_published` is the posting's `startDate` at midnight Europe/Amsterdam.
   Listings with only a requisition id and no `externalPath` (a few at a time)
-  are skipped with a warning naming the id
+  are skipped with a warning naming the id. If more than
+  `workday_max_stub_share` of all listed entries (default 0.10) are like that,
+  the API format has probably changed and the company fails instead
   ([decision 30](docs/decisions.md#30-workday-listings-without-externalpath-are-skipped-errors-name-the-step)).
 - **KPN:** `source_id` is the ATS vacancy id (`external_id`); whether it stays
   stable across re-imports is still being checked

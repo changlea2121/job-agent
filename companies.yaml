@@ -1,6 +1,7 @@
 # Companies to poll. Each source needs its own fields:
 #   greenhouse: board_token
-#   workday:    workday_host, workday_site (from the careers site's apply links)
+#   workday:    workday_host, workday_site (from the careers site's apply links);
+#               optional workday_max_stub_share (default 0.10, decision 30)
 #   kpn:        base_url
 # Job.category comes from:
 #   category_from: departments                   -> Greenhouse departments
@@ -102,6 +103,9 @@ companies:
     workday_host: ing.wd3.myworkdayjobs.com
     workday_site: ICSGBLCOR
     category_from: job_family_group
+    # A few listings lack externalPath and are skipped; more than this share
+    # means the API format probably changed, and ING fails (decision 30).
+    workday_max_stub_share: 0.10
     # Kept for now: Tech; Data, Modelling & Analytics; Security; Transformation;
     # Risk Management (model developer, Risk AI Data Scientist: left to
     # labelling); Financial Crime & Fraud Prevention; Additional JFG; and

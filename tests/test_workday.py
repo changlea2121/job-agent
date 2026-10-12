@@ -155,9 +155,11 @@ class ListingFixture(WorkdayAdapter):
 
 def test_listing_without_external_path_is_skipped(capsys):
     # A real listing page (2026-10-12), trimmed to 3 entries: REQ-10122974 is
-    # listed with only its requisition id, also when searched for by id.
+    # listed with only its requisition id, also when searched for by id. 1 of 3
+    # is far above the live share (3 of 758), so the threshold is raised here.
     company = CompanyConfig(name="ing", source="workday",
-                            workday_host="ing.wd3.myworkdayjobs.com", workday_site="ICSGBLCOR")
+                            workday_host="ing.wd3.myworkdayjobs.com", workday_site="ICSGBLCOR",
+                            workday_max_stub_share=0.5)
     adapter = ListingFixture(company, load_fixture("workday_ing_listing.json"))
     assert [j.source_id for j in adapter.fetch()] == ["REQ-10122547-1", "REQ-10123091"]
     assert len(adapter.gets) == 2
@@ -166,13 +168,55 @@ def test_listing_without_external_path_is_skipped(capsys):
 
 
 def test_stub_in_a_family_needs_no_plain_listing(capsys):
-    jobs = {**_jobs(2, "tech"), "stub": ("REQ-stub", "tech")}
+    jobs = {**_jobs(10, "tech"), "stub": ("REQ-stub", "tech")}
     adapter = FakeWorkday(ING, jobs, {"tech": "Tech"})
-    assert {j.source_id for j in adapter.fetch()} == {"REQ-tech-0", "REQ-tech-1"}
+    assert len(adapter.fetch()) == 10
     assert [b["appliedFacets"] for b in adapter.posts] == [{}, {"jobFamilyGroup": ["tech"]}]
     err = capsys.readouterr().err
     assert err.count("REQ-stub") == 1
     assert "skipped listing (jobFamilyGroup 'Tech') entry without externalPath: REQ-stub" in err
+
+
+def _with_stubs(n_jobs, n_stubs):
+    stubs = {f"stub-{i}": (f"REQ-stub-{i}", "tech") for i in range(n_stubs)}
+    return {**_jobs(n_jobs, "tech"), **stubs}
+
+
+def test_too_many_stubs_fail_the_company(capsys):
+    # 3 of 20 entries (15%) is above the default 10%: a format change, not odd entries.
+    adapter = FakeWorkday(ING, _with_stubs(17, 3), {"tech": "Tech"})
+    with pytest.raises(RuntimeError, match=r"^listing: 3 of 20 entries have no externalPath "
+                                           r"\(15%, more than workday_max_stub_share 10%\); "
+                                           r"the API format has probably changed\. "
+                                           r"First: REQ-stub-0, REQ-stub-1, REQ-stub-2$"):
+        adapter.fetch()
+    assert adapter.gets == []  # no detail requests
+    assert "skipped" not in capsys.readouterr().err  # no per-stub warnings either
+
+
+def test_stubs_at_the_threshold_are_skipped():
+    adapter = FakeWorkday(ING, _with_stubs(18, 2), {"tech": "Tech"})  # exactly 10%
+    assert len(adapter.fetch()) == 18
+
+
+def test_stub_threshold_comes_from_config():
+    strict = CompanyConfig(name="ing", source="workday", workday_host="h", workday_site="s",
+                           category_from="job_family_group", workday_max_stub_share=0.05)
+    adapter = FakeWorkday(strict, _with_stubs(18, 2), {"tech": "Tech"})
+    with pytest.raises(RuntimeError, match="more than workday_max_stub_share 5%"):
+        adapter.fetch()
+
+
+@pytest.mark.parametrize("share", [-0.1, 1, 1.5, "10%", True])
+def test_config_rejects_bad_stub_share(share):
+    with pytest.raises(ValueError, match="^ing: workday_max_stub_share must be a number"):
+        CompanyConfig(name="ing", source="workday", workday_host="h", workday_site="s",
+                      workday_max_stub_share=share)
+
+
+def test_config_rejects_stub_share_on_other_sources():
+    with pytest.raises(ValueError, match="only applies to source 'workday'"):
+        CompanyConfig(name="kpn", source="kpn", base_url="u", workday_max_stub_share=0.2)
 
 
 def test_listing_errors_name_the_step_and_page():

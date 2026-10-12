@@ -95,21 +95,19 @@ class WorkdayAdapter:
 
         Some listings are stubs with only `bulletFields` (the requisition id):
         no path, title or location, also when searched for by id. They cannot
-        be fetched, so they are skipped with a warning.
+        be fetched, so they are skipped with a warning, unless more than
+        `workday_max_stub_share` of all entries are stubs: then the format
+        has probably changed and the company fails.
         """
         first = self._page({}, 0, "listing")
         listings: dict[str, dict[str, Any]] = {}
         categories: dict[str, str] = {}
-        stubs: set[str] = set()  # requisition ids of listings without a path
+        stubs: dict[str, str] = {}  # requisition id of a listing without a path -> where
 
         def add(listing: dict[str, Any], where: str, category: str | None = None) -> None:
             path = listing.get("externalPath")
             if not path:
-                req = listing_req_id(listing) or repr(listing)
-                if req not in stubs:
-                    stubs.add(req)
-                    print(f"{self.company.name}: skipped {where} entry without "
-                          f"externalPath: {req}", file=sys.stderr)
+                stubs.setdefault(listing_req_id(listing) or repr(listing), where)
                 return
             listings.setdefault(path, listing)
             if category is not None:
@@ -128,7 +126,21 @@ class WorkdayAdapter:
         if len(listings) + len(stubs) < first.get("total", 0):
             for listing in self._all_pages({}, "listing", first):
                 add(listing, "listing")
+        self._check_stubs(stubs, len(listings) + len(stubs))
         return list(listings.values()), categories
+
+    def _check_stubs(self, stubs: dict[str, str], entries: int) -> None:
+        """Warn about each stub, or fail if there are too many to be odd ones."""
+        limit = self.company.workday_max_stub_share
+        if stubs and len(stubs) > limit * entries:
+            raise RuntimeError(
+                f"listing: {len(stubs)} of {entries} entries have no externalPath "
+                f"({len(stubs) / entries:.0%}, more than workday_max_stub_share "
+                f"{limit:.0%}); the API format has probably changed. "
+                f"First: {', '.join(list(stubs)[:3])}")
+        for req, where in stubs.items():
+            print(f"{self.company.name}: skipped {where} entry without "
+                  f"externalPath: {req}", file=sys.stderr)
 
     def _page(self, facets: dict[str, list[str]], offset: int, where: str) -> dict[str, Any]:
         with _step(f"{where} page at offset {offset}"):

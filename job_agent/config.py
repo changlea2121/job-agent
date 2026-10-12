@@ -44,6 +44,10 @@ class CompanyConfig:
     # and the careers site name, e.g. "ICSGBLCOR".
     workday_host: str | None = None
     workday_site: str | None = None
+    # workday: the largest share of listed entries that may lack externalPath
+    # and be skipped; above it the API format has probably changed and the
+    # company fails (decision 30).
+    workday_max_stub_share: float = 0.10
     base_url: str | None = None  # kpn: e.g. "https://jobs.kpn.com"
 
     def __post_init__(self):
@@ -51,6 +55,16 @@ class CompanyConfig:
             value = getattr(self, name)
             if not isinstance(value, str) or not value.strip():
                 raise ValueError(f"{self.name}: source {self.source!r} requires {name}")
+        share = self.workday_max_stub_share
+        if isinstance(share, bool) or not isinstance(share, (int, float)) or not 0 <= share < 1:
+            raise ValueError(
+                f"{self.name}: workday_max_stub_share must be a number from 0 up to 1, "
+                f"got {share!r}"
+            )
+        if self.source != "workday" and share != CompanyConfig.workday_max_stub_share:
+            raise ValueError(
+                f"{self.name}: workday_max_stub_share only applies to source 'workday'"
+            )
         for name in ("exclude_categories", "boilerplate"):
             try:
                 value = validate_keywords(getattr(self, name), name)
