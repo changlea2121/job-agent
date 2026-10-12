@@ -7,8 +7,9 @@ job family group facet. Details are only fetched for jobs not stored yet.
 """
 import sys
 import time
-from collections.abc import Callable, Collection
+from collections.abc import Callable, Collection, Iterator
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import contextmanager
 from datetime import date, datetime
 from datetime import time as dtime
 from typing import Any
@@ -33,6 +34,20 @@ def listing_req_id(listing: dict[str, Any]) -> str | None:
     return fields[0] if fields else None
 
 
+def _describe(exc: Exception) -> str:
+    # A bare KeyError prints as just "'externalPath'".
+    return f"{type(exc).__name__}: {exc}"
+
+
+@contextmanager
+def _step(what: str) -> Iterator[None]:
+    """Name the step (listing page, category facet, detail) in any error."""
+    try:
+        yield
+    except Exception as exc:
+        raise RuntimeError(f"{what}: {_describe(exc)}") from exc
+
+
 class WorkdayAdapter:
     source = "workday"
 
@@ -54,11 +69,12 @@ class WorkdayAdapter:
     def fetch(self, known_ids: Collection[str] = frozenset()) -> list[Job]:
         listings, categories = self.list_postings()
         todo = [l for l in listings if listing_req_id(l) not in known_ids]
+        paths = [l["externalPath"] for l in todo]
         with ThreadPoolExecutor(MAX_WORKERS) as pool:
-            details = list(pool.map(self._detail, (l["externalPath"] for l in todo)))
+            details = list(pool.map(self._detail, paths))
         postings = [
-            {"category": categories.get(l["externalPath"]), "detail": d}
-            for l, d in zip(todo, details) if d is not None
+            {"category": categories.get(p), "path": p, "detail": d}
+            for p, d in zip(paths, details) if d is not None
         ]
         return self.parse({"postings": postings})
 
@@ -66,7 +82,8 @@ class WorkdayAdapter:
         try:
             return self._get(path)
         except Exception as exc:  # skip it; it is still new on the next run
-            print(f"{self.company.name}: skipped {path}: {exc}", file=sys.stderr)
+            print(f"{self.company.name}: skipped detail {path}: {_describe(exc)}",
+                  file=sys.stderr)
             return None
 
     def list_postings(self) -> tuple[list[dict[str, Any]], dict[str, str]]:
@@ -75,38 +92,65 @@ class WorkdayAdapter:
         With a category configured, the listing is run once per job family
         group. Jobs without one (if the counts fall short of the total) come
         from a plain listing afterwards.
+
+        Some listings are stubs with only `bulletFields` (the requisition id):
+        no path, title or location, also when searched for by id. They cannot
+        be fetched, so they are skipped with a warning.
         """
-        first = self._page({}, 0)
+        first = self._page({}, 0, "listing")
         listings: dict[str, dict[str, Any]] = {}
         categories: dict[str, str] = {}
+        stubs: set[str] = set()  # requisition ids of listings without a path
+
+        def add(listing: dict[str, Any], where: str, category: str | None = None) -> None:
+            path = listing.get("externalPath")
+            if not path:
+                req = listing_req_id(listing) or repr(listing)
+                if req not in stubs:
+                    stubs.add(req)
+                    print(f"{self.company.name}: skipped {where} entry without "
+                          f"externalPath: {req}", file=sys.stderr)
+                return
+            listings.setdefault(path, listing)
+            if category is not None:
+                categories[path] = category
+
         if self.company.category_from == "job_family_group":
-            facet = next((f for f in first.get("facets", [])
-                          if f.get("facetParameter") == CATEGORY_FACET), {})
-            for value in facet.get("values", []):
-                for listing in self._all_pages({CATEGORY_FACET: [value["id"]]}):
-                    listings.setdefault(listing["externalPath"], listing)
-                    categories[listing["externalPath"]] = value["descriptor"]
-        if len(listings) < first.get("total", 0):
-            for listing in self._all_pages({}, first):
-                listings.setdefault(listing["externalPath"], listing)
+            with _step(f"category facet {CATEGORY_FACET}"):
+                facet = next((f for f in first.get("facets", [])
+                              if f.get("facetParameter") == CATEGORY_FACET), {})
+                values = [(v["id"], v["descriptor"]) for v in facet.get("values", [])]
+            for value_id, name in values:
+                where = f"listing ({CATEGORY_FACET} {name!r})"
+                for listing in self._all_pages({CATEGORY_FACET: [value_id]}, where):
+                    add(listing, where, name)
+        # Stubs count as listed, or they would force the plain pass every run.
+        if len(listings) + len(stubs) < first.get("total", 0):
+            for listing in self._all_pages({}, "listing", first):
+                add(listing, "listing")
         return list(listings.values()), categories
 
-    def _page(self, facets: dict[str, list[str]], offset: int) -> dict[str, Any]:
-        return self._post("/jobs", {"appliedFacets": facets, "limit": PAGE_SIZE,
-                                    "offset": offset, "searchText": ""})
+    def _page(self, facets: dict[str, list[str]], offset: int, where: str) -> dict[str, Any]:
+        with _step(f"{where} page at offset {offset}"):
+            return self._post("/jobs", {"appliedFacets": facets, "limit": PAGE_SIZE,
+                                        "offset": offset, "searchText": ""})
 
-    def _all_pages(self, facets: dict[str, list[str]],
+    def _all_pages(self, facets: dict[str, list[str]], where: str,
                    first: dict[str, Any] | None = None) -> list[dict[str, Any]]:
         # Only the first page's `total` is reliable; later pages may report 0.
-        page = first or self._page(facets, 0)
+        page = first or self._page(facets, 0, where)
         total, found = page.get("total", 0), list(page.get("jobPostings", []))
         while page.get("jobPostings") and len(found) < total:
-            page = self._page(facets, len(found))
+            page = self._page(facets, len(found), where)
             found += page.get("jobPostings", [])
         return found
 
     def parse(self, payload: dict[str, Any]) -> list[Job]:
-        return [self._to_job(p) for p in payload.get("postings", [])]
+        jobs = []
+        for posting in payload.get("postings", []):
+            with _step(f"detail {posting.get('path') or '(unknown path)'}"):
+                jobs.append(self._to_job(posting))
+        return jobs
 
     def _to_job(self, posting: dict[str, Any]) -> Job:
         info = posting["detail"]["jobPostingInfo"]

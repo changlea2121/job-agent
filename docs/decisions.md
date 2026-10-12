@@ -342,7 +342,7 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 
 ## 23. ING through Workday's unofficial JSON API
 
-**Date:** 2026-10-11 · **Status:** Accepted
+**Date:** 2026-10-11 · **Status:** Accepted; listings without a path are handled by [30](#30-workday-listings-without-externalpath-are-skipped-errors-name-the-step)
 
 **Context.** careers.ing.com is a Radancy (TalentBrew) front end whose apply links go to Workday: tenant `ing` on `ing.wd3.myworkdayjobs.com`, site `ICSGBLCOR` (750 jobs, 49 in the Netherlands). Workday has no documented public job board API like Greenhouse's (decision 2). The only JSON is `/wday/cxs/{tenant}/{site}`, which the Workday front end itself uses. Its listing returns at most 20 jobs per page (larger pages are a 400) and carries no description, date or category; each job's detail has the description, `startDate`, location, additional locations and country. The category ("Job Category") exists only as the `jobFamilyGroup` facet. `ICSNLDGEN`, listed in Workday's robots.txt next to the global site, holds a 5-job subset of the same jobs.
 
@@ -469,3 +469,21 @@ A job takes the best result of its parts (match > unclear > excluded). Unclear j
 **Alternatives.** Excluding each category that has only `no` labels (the option rejected here).
 
 **Consequences.** These categories keep reaching the review queue, at the cost of a few labels per fetch. The decision is revisited when a category has enough labels to show a pattern, or when its `no` labels share a reason that a category rule would capture without hiding platform or ML roles.
+
+---
+
+## 30. Workday listings without `externalPath` are skipped; errors name the step
+
+**Date:** 2026-10-12 · **Status:** Accepted
+
+**Context.** The ING fetch on 2026-10-12 failed with `ing: fetch failed: 'externalPath'`, a bare `KeyError` that said neither where nor for which job. The API format had not changed: of 758 listings, 755 had the usual six fields (`title`, `externalPath`, `timeType`, `locationsText`, `postedOn`, `bulletFields`). Three were stubs with only the requisition id, `{"bulletFields": ["REQ-10122974"]}` (also REQ-10121752 and REQ-10121750), on the plain listing and in their job family group's listing. Searching the listing for each id returns the same stub, so there is no path to fetch a detail from. They look like requisitions in the middle of being published or withdrawn.
+
+**Decision.**
+
+- A listing without `externalPath` is skipped with a warning naming its requisition id and the listing it was in, once per run: `ing: skipped listing (jobFamilyGroup 'Data, Modelling & Analytics') entry without externalPath: REQ-10121752`. It is not stored, so if it later gets a path it is fetched as a new job then.
+- Skipped stubs count as listed when deciding whether the job family group passes cover the total (decision 23). Otherwise three stubs would trigger the plain fallback listing, about 38 extra requests, on every run.
+- Errors that still stop the company name the step, the page or job, and the exception type, after the `<company>: fetch failed:` prefix: `listing (jobFamilyGroup 'Tech') page at offset 40: KeyError: 'total'`, `category facet jobFamilyGroup: …`, `detail /job/…: KeyError: 'jobReqId'`. A failed detail request is still skipped (decision 23), now as `skipped detail <path>: <type>: <message>`.
+
+**Alternatives.** Failing the company on any malformed entry (what happened: one stub hid the other 755 jobs); building a detail path from the requisition id (the path also needs the location and title slug, which stubs lack); storing stubs as jobs with only an id (no title, location or description to filter or label).
+
+**Consequences.** One odd entry no longer stops ING. A real format change, where most entries lack the path, would now show up as hundreds of warnings and few or no jobs rather than an error, so a fetch with many skipped listings should be read as a format change. The warnings repeat each run for as long as a stub stays listed.

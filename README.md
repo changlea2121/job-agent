@@ -243,6 +243,9 @@ How each source fills the `Job` fields:
   requisition isn't counted as new. `location` is the office plus country,
   then any additional locations: "CDR (Amsterdam - Cedar), Netherlands".
   `first_published` is the posting's `startDate` at midnight Europe/Amsterdam.
+  Listings with only a requisition id and no `externalPath` (a few at a time)
+  are skipped with a warning naming the id
+  ([decision 30](docs/decisions.md#30-workday-listings-without-externalpath-are-skipped-errors-name-the-step)).
 - **KPN:** `source_id` is the ATS vacancy id (`external_id`); whether it stays
   stable across re-imports is still being checked
   ([decision 24](docs/decisions.md#24-kpn-through-its-careers-sites-rss-feed-and-json-api)).

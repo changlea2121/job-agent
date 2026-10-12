@@ -1,0 +1,32 @@
+{
+  "total": 3,
+  "jobPostings": [
+    {
+      "title": "Senior Software Engineer",
+      "externalPath": "/job/AME-Amsterdam---Maple/Senior-Software-Engineer_REQ-10122547-1",
+      "timeType": "Full time",
+      "locationsText": "AME (Amsterdam - Maple)",
+      "postedOn": "Posted Yesterday",
+      "bulletFields": [
+        "REQ-10122547"
+      ]
+    },
+    {
+      "bulletFields": [
+        "REQ-10122974"
+      ]
+    },
+    {
+      "title": "Vulnerability Management Engineer",
+      "externalPath": "/job/Katowice-Zabrska-19/Vulnerability-Management-Engineer_REQ-10123091",
+      "timeType": "Full time",
+      "locationsText": "Katowice (Zabrska 19)",
+      "postedOn": "Posted 3 Days Ago",
+      "bulletFields": [
+        "REQ-10123091"
+      ]
+    }
+  ],
+  "facets": [],
+  "userAuthenticated": false
+}

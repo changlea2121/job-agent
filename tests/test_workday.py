@@ -80,8 +80,10 @@ class FakeWorkday(WorkdayAdapter):
         assert path == "/jobs" and body["limit"] == 20
         self.posts.append(body)
         family = body["appliedFacets"].get("jobFamilyGroup", [None])[0]
-        rows = [{"externalPath": p, "bulletFields": [req]} for p, (req, fam) in self.jobs.items()
-                if family is None or fam == family]
+        # A path starting with "stub" is listed like Workday's stubs: no externalPath.
+        rows = [{"bulletFields": [req]} if p.startswith("stub") else
+                {"externalPath": p, "bulletFields": [req]}
+                for p, (req, fam) in self.jobs.items() if family is None or fam == family]
         page = rows[body["offset"]:body["offset"] + 20]
         values = [{"id": f, "descriptor": n,
                    "count": sum(fam == f for _, fam in self.jobs.values())}
@@ -133,4 +135,72 @@ def test_failed_detail_is_skipped(capsys):
 
     adapter._get = flaky
     assert [j.source_id for j in adapter.fetch()] == ["REQ-tech-0"]
-    assert "ing: skipped /job/tech-1: boom" in capsys.readouterr().err
+    assert "ing: skipped detail /job/tech-1: OSError: boom" in capsys.readouterr().err
+
+
+class ListingFixture(WorkdayAdapter):
+    """Serves a saved listing page; details are made up from the path."""
+
+    def __init__(self, company, page):
+        super().__init__(company)
+        self.page, self.gets = page, []
+
+    def _post(self, path, body):
+        return self.page
+
+    def _get(self, path):
+        self.gets.append(path)
+        return {"jobPostingInfo": {"jobReqId": path.rsplit("_", 1)[1], "title": path}}
+
+
+def test_listing_without_external_path_is_skipped(capsys):
+    # A real listing page (2026-10-12), trimmed to 3 entries: REQ-10122974 is
+    # listed with only its requisition id, also when searched for by id.
+    company = CompanyConfig(name="ing", source="workday",
+                            workday_host="ing.wd3.myworkdayjobs.com", workday_site="ICSGBLCOR")
+    adapter = ListingFixture(company, load_fixture("workday_ing_listing.json"))
+    assert [j.source_id for j in adapter.fetch()] == ["REQ-10122547-1", "REQ-10123091"]
+    assert len(adapter.gets) == 2
+    assert ("ing: skipped listing entry without externalPath: REQ-10122974"
+            in capsys.readouterr().err)
+
+
+def test_stub_in_a_family_needs_no_plain_listing(capsys):
+    jobs = {**_jobs(2, "tech"), "stub": ("REQ-stub", "tech")}
+    adapter = FakeWorkday(ING, jobs, {"tech": "Tech"})
+    assert {j.source_id for j in adapter.fetch()} == {"REQ-tech-0", "REQ-tech-1"}
+    assert [b["appliedFacets"] for b in adapter.posts] == [{}, {"jobFamilyGroup": ["tech"]}]
+    err = capsys.readouterr().err
+    assert err.count("REQ-stub") == 1
+    assert "skipped listing (jobFamilyGroup 'Tech') entry without externalPath: REQ-stub" in err
+
+
+def test_listing_errors_name_the_step_and_page():
+    adapter = FakeWorkday(ING, _jobs(25, "tech"), {"tech": "Tech"})
+    real_post = adapter._post
+
+    def failing(path, body):
+        if body["offset"] == 20:
+            raise KeyError("total")
+        return real_post(path, body)
+
+    adapter._post = failing
+    with pytest.raises(RuntimeError, match=r"^listing \(jobFamilyGroup 'Tech'\) page at "
+                                           r"offset 20: KeyError: 'total'$"):
+        adapter.fetch()
+
+
+def test_category_facet_errors_name_the_step():
+    adapter = FakeWorkday(ING, _jobs(1, "tech"), {"tech": "Tech"})
+    real_post = adapter._post
+    adapter._post = lambda path, body: {**real_post(path, body), "facets": [
+        {"facetParameter": "jobFamilyGroup", "values": [{"id": "tech"}]}]}
+    with pytest.raises(RuntimeError, match="^category facet jobFamilyGroup: KeyError: 'descriptor'$"):
+        adapter.fetch()
+
+
+def test_detail_errors_name_the_job():
+    adapter = FakeWorkday(ING, _jobs(1, "tech"), {"tech": "Tech"})
+    adapter._get = lambda path: {"jobPostingInfo": {"title": "no req id"}}
+    with pytest.raises(RuntimeError, match="^detail /job/tech-0: KeyError: 'jobReqId'$"):
+        adapter.fetch()
